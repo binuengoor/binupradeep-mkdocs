@@ -2,3 +2,5 @@ mkdocs-material
 mkdocs-material[imaging]
 mkdocs-git-revision-date-localized-plugin
 pymdown-extensions
+mkdocs-resize-images
+mkdocs-awesome-pages-plugin

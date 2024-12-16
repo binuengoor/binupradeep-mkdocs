@@ -7,7 +7,7 @@ site_description: >-
 
 theme:
   name: material
-
+  custom_dir: overrides
   palette: 
     - scheme: slate
       primary: black
@@ -50,11 +50,18 @@ theme:
     - toc.follow
 
 plugins:
+  - awesome-pages
   - blog:
+      blog_dir: blog
       authors: false
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
+  - resize-images:
+      source-dir: assets-large
+      target-dir: assets
+      size: [800, 600]
+      extensions: ['.jpg', '.jpeg', '.png', '.gif', '.svg']
   - search:
       lang: 'en'
   - social
@@ -78,6 +85,7 @@ markdown_extensions:
   - abbr
   - admonition
   - attr_list
+  - def_list
   - tables
   - toc:
       title: On This Page
@@ -118,5 +126,3 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format # Copyright
-
-

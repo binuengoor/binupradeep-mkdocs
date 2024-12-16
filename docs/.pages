@@ -1,5 +1,4 @@
 nav:
-  - About Me: index.md
+  - Home: index.md
   - Development: development
-  - Blog:
-    - blog/index.md
+  - Blog: blog
