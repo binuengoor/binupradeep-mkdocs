@@ -2,9 +2,8 @@ site_name: Binu Pradeep
 site_url: https://github.com/binuengoor/binupradeep-mkdocs
 site_author: Binu Pradeep
 site_description: >-
-  Write your documentation in Markdown and create a professional static site in
-  minutes – searchable, customizable, in 60+ languages, for all devices
-
+  Personal blog and portfolio of Binu Pradeep. 
+  I also write about technology, programming, and other things that interest me.
 
 theme:
   name: material
@@ -12,8 +11,6 @@ theme:
     - scheme: slate
       primary: black
       accent: deep orange
-
-
 
   font:
     text: Roboto
@@ -85,7 +82,6 @@ extra:
 
 copyright: Copyright &copy; Binu Pradeep 2024 -
 
-
 markdown_extensions:
   - abbr
   - admonition
@@ -111,10 +107,6 @@ markdown_extensions:
   - pymdownx.highlight:
       linenums_style: pymdownx-inline
   - pymdownx.inlinehilite
-  - pymdownx.magiclink:
-      repo_url_shorthand: true
-      user: fire1ec
-      repo: 3os.org
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
