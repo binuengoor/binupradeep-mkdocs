@@ -5,13 +5,15 @@ site_description: >-
   Write your documentation in Markdown and create a professional static site in
   minutes – searchable, customizable, in 60+ languages, for all devices
 
+
 theme:
   name: material
-  custom_dir: overrides
   palette: 
     - scheme: slate
       primary: black
-      accent: amber
+      accent: deep orange
+
+
 
   font:
     text: Roboto
@@ -48,6 +50,9 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
+
+extra_css:
+  - stylesheets/extra.css
 
 plugins:
   - awesome-pages
@@ -86,6 +91,7 @@ markdown_extensions:
   - admonition
   - attr_list
   - def_list
+  - md_in_html
   - tables
   - toc:
       title: On This Page
