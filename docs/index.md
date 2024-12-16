@@ -10,8 +10,6 @@ hide:
   }
 </style>
 
-
-
 # Binu Pradeep
 
 I work with companies to conceptualize, design, and create ==**inclusive, effective, and impactful**== digital products. I am passionate about creating products that are not only visually appealing but also user-friendly and accessible.
@@ -31,7 +29,7 @@ I work with companies to conceptualize, design, and create ==**inclusive, effect
 These are the tools and technologies I work with:
 
 <div class="grid cards" markdown>
-- :simple-postgresql: __PostgreSQL__ for database management
+- :simple-postgresql: __SQL__ for database management
 - :simple-python: __Python__ for data analysis
 - :fontawesome-brands-figma:: __Figma__ for UI design
 - :simple-tableau: __Tableau__ for data visualization
