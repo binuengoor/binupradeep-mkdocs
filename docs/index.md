@@ -1,11 +1,24 @@
-# Binu Pradeep
-
-I work with companies to conceptualize, design, and create **inclusive, effective, and impactful** digital products. 
-
+---
+hide:
+  - navigation
+  - toc
 ---
 
+<style>
+  .md-grid {
+    max-width: 1220px;
+  }
+</style>
+
+
+
+# Binu Pradeep
+
+I work with companies to conceptualize, design, and create ==**inclusive, effective, and impactful**== digital products. I am passionate about creating products that are not only visually appealing but also user-friendly and accessible.
+
+---
 ## About Me
-![Hero Image](assets/landing/binu.png){ style="float: right; margin-left: 1em; width: 210px;"}
+![Hero Image](assets/landing/binu.png){ align=right width="150px" }
 
 - I am a Business Analyst/Project Management professional living in Philadelphia, PA, with over a decade of experience in healthcare and retail domains.
 - I focus on designing applications that align with customer goals by using industry-leading tools and technologies for UI design, data analysis, and visualization.
@@ -25,7 +38,6 @@ These are the tools and technologies I work with:
 - :material-microsoft: __Power BI__ for data analysis
 - :simple-adobecreativecloud: __Adobe Creative Cloud__ for graphic design
 - :fontawesome-brands-github: __GitHub__ for version control
-- :simple-notion: __Notion__ for project management
 - :fontawesome-brands-docker: __Docker__ for containerization
 - :simple-proxmox: __Proxmox__ for virtualization
 </div>
@@ -45,19 +57,13 @@ These are the tools and technologies I work with:
 
 ---
 
-## Frequently Asked Questions
+## Contact Me
 
-### Q. Where can I see your work?
+You can find me on:
 
-[Email me](mailto:contact@binupradeep.com), and I will prepare work samples relevant to your project with accompanying details.
-
-### Q. Are you currently available?
-
-My availability changes depending on my projects. [Email me](mailto:contact@binupradeep.com) to discuss in detail.
-
-### Q. How much do you charge?
-
-[Email me](mailto:contact@binupradeep.com), and I will provide a quote with details of my rate and availability.
+- :fontawesome-brands-linkedin: [LinkedIn](https://www.linkedin.com/in/binupradeep/)
+- :fontawesome-brands-github: [GitHub](https://www.github.com/binuengoor)
+- :material-email-edit: [Email](mailto:mailto:contact@binupradeep.com)
 
 ---
 ![Binu Pradeep Logo](assets/logo.svg){ width="60px" }

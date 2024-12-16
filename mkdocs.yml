@@ -59,6 +59,8 @@ plugins:
   - git-revision-date-localized:
       type: timeago
       enable_creation_date: true
+      exclude:
+        - index.md
   - resize-images:
       source-dir: assets-large
       target-dir: assets
