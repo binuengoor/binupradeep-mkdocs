@@ -22,7 +22,7 @@ I work with companies to conceptualize, design, and create ==**inclusive, effect
 - I focus on designing applications that align with customer goals by using industry-leading tools and technologies for UI design, data analysis, and visualization.
 - My philosophy in work, life, and design is that **minimalism and simplicity** are the best tools to communicate your ideas to others.
 - Interested in data/system analysis, docker, networking, automations, AI, computing and technology in general.
-- Personal interests include singing, music, hiking, and homelab/selfhosting, watching(and playing-xbox) football (soccer) and cricket.
+- Personal interests include singing, music, hiking, and homelab/selfhosting, watching(and playing-xbox) football(soccer).
 
 ---
 
