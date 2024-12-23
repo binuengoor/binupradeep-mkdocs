@@ -16,7 +16,7 @@ Nexterm is an innovative open-source server management tool that streamlines SSH
 
 **User-Friendly Interface**: Organized with folders and tabs for intuitive navigation, featuring real-time search functionality.
 
-## Quick Deployment
+## Docker Compose Installation
 
 Deploy Nexterm using this simple Docker Compose configuration:
 
