@@ -1,4 +1,5 @@
 nav:
   - Home: index.md
   - Development: development
+  - Self-Hosted: selfhosted
   - Blog: blog
