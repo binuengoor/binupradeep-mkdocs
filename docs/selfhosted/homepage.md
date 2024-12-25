@@ -87,4 +87,4 @@ showStats: true
   - Header customization
   - Group organization
 
-For more detailed information and configuration options, visit: https://gethomepage.dev
+For more detailed information and configuration options, visit: [HomePage Dashboard](https://gethomepage.dev)
