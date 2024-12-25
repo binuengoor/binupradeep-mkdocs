@@ -1,7 +1,7 @@
 nav:
   - Home: index.md
-  - Linux: linux
-  - Python: python
+  - Development: development
+  - Media: media
   - Self-Hosting: selfhosted
   - My-Apps: myapps
   - Blog: blog
