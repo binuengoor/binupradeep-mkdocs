@@ -8,7 +8,7 @@ description: >
   This is a long-overdue travelogue post. This is a sequel to the post titled \"THE ONE WITH THE HOBO, THE TREE MAN, THE HUNGRY HOG, MR. VERTIGO AND THE HEADMASTER\" which I published on WordPress in early 2017. I thought I lost my draft notes from the trip, but recently found it when I was looking through one of my notes applications. Posting it verbatim.
 title: THE ONE WITH THE HOBO, THE TREE MAN, THE HUNGRY HOG, MR. VERTIGO AND THE HEADMASTER
 ---
-![](images/2017/tourdemaine/avatar/B.jpg)
+![](images/2017/tourdemaine/avatar/B.webp)
 ## Preface:
 
 This is a long-overdue travelogue post. This is a sequel to the post titled "THE ONE WITH THE HOBO, THE TREE MAN, THE HUNGRY HOG, MR. VERTIGO AND THE HEADMASTER" which I published on WordPress in early 2017. I thought I lost my draft notes from the trip, but recently found it when I was looking through one of my notes applications. Posting it verbatim.
@@ -36,13 +36,13 @@ More on Acadia later.
 ### The Crew:
 
 Introducing the other Shambhu, Sarath Krishna. Sarath was missing on Tour de West because he was on vacation in India. The hallmark specialty of Sarath is his repeat mode. You can always see him sitting in a corner watching or reading something with a corona beer right next to him. I often admire the focus he has on what he is doing at that moment. But don’t expect him to hear anything you are talking about while he is busy at something. The dude just cannot multitask. So, if you want him to listen, make him stop whatever he is doing. That way you can be SURE that he is listening (and he will be). Because of this quality, PG calls him Repeat-esh!
-![](images/2017/tourdemaine/avatar/sk.jpg)
+![](images/2017/tourdemaine/avatar/sk.webp)
 In this journey, he gets the name Mr. No-Wallet: you will soon find out why!
 
 If you've read the tourr-de-west blog \[[link](https://mybluejeans.wordpress.com/2017/05/22/the-one-with-the-hobo-the-tree-man-the-hungry-hog-mr-vertigo-and-the-headmaster/ "THE ONE WITH THE HOBO, THE TREE MAN, THE HUNGRY HOG, MR. VERTIGO AND THE HEADMASTER")\], you're already too familiar with Nikhil Krishnan. And he is still known as HOBO as he is reluctant to let go of his beloved “homeless boy” jacket. But we still call him Shambhu Annan.
-![](images/2017/tourdemaine/avatar/nk.jpg)
+![](images/2017/tourdemaine/avatar/nk.webp)
 Then there is me. Still, colloquially called the headmaster. Might end up getting called yet again as Nataraja (I have some zesty hikes planned for this journey) We'll see :)
-![](images/2017/tourdemaine/avatar/bp.jpg)
+![](images/2017/tourdemaine/avatar/bp.webp)
 
 * _Date:    May 26, 2017 at 6:19:15 PM EDT_
 * _Weather:    70°F Cloudy_
@@ -73,7 +73,7 @@ And we started driving.
 ### At BJ's picking up water, trail mix and other supplies
 
 Picked up a case of spring water, a container of Vitamin Water, cake, muffins, banana, chocolate, and some savory snacks. A wholesale club/supermarket carries everything in large packs/quantities. So, you always end up getting more stuff than you need. But it is what it is.
-![](images/2017/tourdemaine/Day0/01.jpg)
+![](images/2017/tourdemaine/Day0/01.webp)
 And as always, we are behind schedule.
 
 * _Date:    May 26, 2017 at 9:15:44 PM EDT_
@@ -95,7 +95,7 @@ Tight schedules ahead.
 ### Passing by NYC
 
 We are swiftly passing by Manhattan on i95. The city of lights, the city that never sleeps, is shining bright. I don't know what, but there is something about this city which makes me want to visit again and again. Sidenote: I used to live and work in NYC for a short time. New York is like home to me. The busy streets, fast-paced life and the general chaos and disorder in everything might be a huge turn-off for most people, not for me.
-![](images/2017/tourdemaine/Day0/02.jpg)
+![](images/2017/tourdemaine/Day0/02.webp)
 
 > To me, it feels like life: upbeat, constantly changing, complicated.
 
@@ -120,7 +120,7 @@ We believe Sarath was pickpocketed. There was this guy at the gas station store,
 Sarath thus becomes Mr. No-Wallet!
 
 The next morning, we woke up at 6 AM, freshened up. Quality Inn had a quality complimentary breakfast menu. We had some toast, sausages and scrambled eggs. Packed our bags, checked out and started driving. Beautiful weather out there.
-![](images/2017/tourdemaine/Day1/03.jpg)
+![](images/2017/tourdemaine/Day1/03.webp)
 
 * _Date:    May 27, 2017 at 1:02:57 PM EDT_
 * _Location:    44.5281° N, 68.4026° W_
@@ -142,7 +142,7 @@ Sarath got Jerk Pork
 Shambhu Annan got Jerk Chicken, cuz you know, Sanghi!
 
 Shambhu Annan went inside to get the food and grabbed all bags sitting at the counter not realizing it included orders for other people too. The owner was like “Hey man! What are you doing?” which made Shambu jump and quickly put the bags back :)
-![](images/2017/tourdemaine/Day1/04.jpg)
+![](images/2017/tourdemaine/Day1/04.webp)
 They had some picnic benches outside the restaurant where we could sit and eat the food. It was mind-numbing cold, and we were all shivering. However, the food was decent, and we had our jackets on. We survived.
 
 * _Date:    May 27, 2017 at 6:11:06 PM EDT_
@@ -191,15 +191,15 @@ We came across a few trail markers. Trail Markers, as the name suggests are mark
 2. Paint/Reflectors/ Flags of a specific color.
 
 In places where multiple trails are intersecting, each of the paths usually gets a designated color. Many Pennsylvania parks typically name the trail by the color of markers (yellow trail, white trail, blue trail, etc.)
-![](images/2017/tourdemaine/Day1/09.jpg)
+![](images/2017/tourdemaine/Day1/09.webp)
 It looked like Acadia have all the trails marked using a combination of blue paint and Cairns.
 
 Within minutes we were up on the mountainside, walking on one foot wide ledges carved around the mountain with nothing but some random iron bars to hold on to. Many places were completely exposed to the cliffside.  Beehive Trail is not for people with the fear of heights. Not suitable for kids. Very practical hiking experience with no room for goofing around. It was undoubtedly adrenaline rising experience.
 
 The rock scrambling went on for another 15 minutes. The group in front of us were having a tough time as a couple of them had a fear of heights. I had other concerns that were slightly worrying. Shambhu Annan’s wedding is in a couple of months. He had a leg injury a year ago. I didn’t want this trip to stress him out to the point that his leg pain comes back. And Sarath has not hiked or walked long distances in the near past. Therefore I had to frequently make sure that they were both okay. It seems like they were having a blast! And that put me at ease.
-![](images/2017/tourdemaine/Day1/05.jpg)
+![](images/2017/tourdemaine/Day1/05.webp)
 When we venture into something new/hard/adventurous/demanding and find success doing such activities, it gives us a massive emotional boost. And that "high" will motivate us to do more things or take more risks. I have seen this repeatedly in school and college where my friends who have massive stage fright, when forced to do something on the stage, struggles at first, but once they find their rhythm, becomes unstoppable and they want to continue to be on the stage performing. The same is the case with outdoor/physical activities. Once you break the fright, then you're on your way to having an excellent time.
-![](images/2017/tourdemaine/Day1/06.jpg)
+![](images/2017/tourdemaine/Day1/06.webp)
 This is an incredible little hike with thrilling rock scrambling and stunning views. Those who control their fear of heights are rewarded with incredible views of Sand Beach, Great Head, and the surrounding area when you reach the summit.
 
 We could also see the very many islands of the Atlantic Ocean. There were some other groups around who were also relaxing and taking pictures.
@@ -211,19 +211,19 @@ I had an evil grin on my face this time. It meant that we were going to do all t
 I quickly checked the itinerary to realize that all the post-lunch activities for Sunday were in and around the sand beach. I moved all of them to today since we are already close to the sand beach.
 
 That way I can free up the schedule for tomorrow a little bit and accommodate the bubbles trail hike. This also meant that I could squeeze in another scenic, but easy trail for today! This trip is finally becoming my kind of tour!
-![](images/2017/tourdemaine/Day1/07.jpg)
+![](images/2017/tourdemaine/Day1/07.webp)
 We took some pictures atop the mountain. I did some headstands for pictures. #headstandaroundtheworld Soon after, we descended the trail, and we got to "The Bowl" which is a pond up in the mountains formed by glaciers.
-![](images/2017/tourdemaine/Day1/08.jpg)
+![](images/2017/tourdemaine/Day1/08.webp)
 Two guys who came that way told us that there was an alternate trail around the bowl which would take us back to the parking lot. We followed their advice. It was a beautiful walk in the woods.
 
 We got back to Sand Beach Parking lot, rehydrated, had some snacks, and walked over to the beach. The specialty of this beach is its unique topography. The beach is surrounded by a rugged rocky coastline that extends far into the ocean. In other words, we can hike along the rocks for like a mile and look back to see the beach behind us. We saw some people on the rocks at a distance. There is a trail called Great Heads which would take us there. I asked them whether they would like to do that hike. Shambhus were on board. Man! These guys are unstoppable!
-![](images/2017/tourdemaine/Day1/10.jpg)
+![](images/2017/tourdemaine/Day1/10.webp)
 The great heads trail had very few trail markers. And because of that reason, it had very few people on it. It took us around 20-30 minutes to reach the overlook I mentioned. We have a phenomenal view of the beach from that spot. Since it is a cliff, adventurous people can go to the edge and look down to see the fierce waves lashing up against the rocks. We sat there for about 40 minutes. Lighter moments. And walked back to the car.
-![](images/2017/tourdemaine/Day1/11.jpg)
+![](images/2017/tourdemaine/Day1/11.webp)
 It was time for us to head to the otter cliff and then boulder beach where I planned to spend the sunset for the day.
-![](images/2017/tourdemaine/Day1/A.jpg)
+![](images/2017/tourdemaine/Day1/A.webp)
 Park loop road along the coastline is a one-way drive. We missed the stop for Boulder Beach and drove as far as the Otter Cliff. Parked the car there, and walked over to the overlook. It is a great spot to observe the rugged rocky coastline of Acadia. The rocks are sharp with a hexagonal crystalline formation. It looked like an incomplete work on an expert mason. Dangerous, but mysteriously beautiful. There is a trail along the coastline called Ocean Path Trail. We walked on the trail for a while, and we found a beautiful spot where we can sit and relax for a while. Spend some calm and quiet moments at that spot which is an elevated platform above the ocean. It was a refreshing experience after all that walking throughout the day.
-![](images/2017/tourdemaine/Day1/13.jpg)
+![](images/2017/tourdemaine/Day1/13.webp)
 Later we headed back to Bar Harbor to check into the hotel. The check-in process was simple. Since we pre-booked, they had all the paperwork ready. The room was decent, even had a bunch of kitchen utensils in case we wanted to cook. Besides, Bar Harbor was the happening town in the Acadia National Park area.
 
 By the time we freshened up, it was 9 pm. I soon realized that most of the restaurants in the Bar Harbor area close by 9 PM on Saturdays. I thought there might be exceptions on long weekends as its peak season. Not the case here.
@@ -240,11 +240,11 @@ We went back to the hotel and then straight to bed.
 I woke up around 6 AM today. The first thing I did was to make sure I didn’t have any physical pain or discomfort as I had a slight knee pain the previous night. But nada! I am A-ok!
 
 We got ready in a flash. Nikhil asked me to play some devotional music to spread “positive energy” around. After we got ready, we headed out to the dining room of the hotel where we had a complimentary breakfast. Again, the Quality Inn had a very good quality breakfast. I grabbed  French toast, eggs, sausages. We needed those extra calories as we had long hiking plans for the day.
-![](images/2017/tourdemaine/Day2/14a.jpg)
+![](images/2017/tourdemaine/Day2/14a.webp)
 Today’s plan is to hike the Penobscot Mountain. With its tall and exposed cliffs looking down on Jordan Pond from the west, Penobscot Mountain (the 5th highest peak in Acadia) is the impressive north-south mountain that sits opposite of the Jordan Pond/Bubbles pantheon. A hike up Penobscot Mountain via the Spring Trail makes for a strenuous and invigorating hike with incredible alpine views. I then plan to extend the adventure by further hiking north to the taller neighboring Sargent Mountain (the 2nd highest peak in Acadia). Once we reach the summit, we have many ways to get back to the parking lot. If everyone is up for it, I plan to connect this hike to two other beautiful trails close by which can also lead us back to the parking lot.
-![](images/2017/tourdemaine/Day2/15.jpg)
+![](images/2017/tourdemaine/Day2/15.webp)
 At Jordan Pond Parking lot to do the Penobscot and Sargent Mountain trails. There were almost 3 or 4 other cars at the parking lot. We walked over to the Jordan Pond where the trail started. As we approached the banks of the pond, we all got stupefied by the pristine calm waters surrounded by lush, majestic mountains in all directions. It was so serene. There was very little wind. Hence the water was as still as a mirror. The scene looked straight out of a painting. While we thought this scene couldn’t be any more majestic, a couple walked over with their kayaks, silently got in and paddled away. This is as good as a view can get. A view worth being a benchmark to be compared against others. We felt bad for not renting a kayak.
-![](images/2017/tourdemaine/Day2/16.jpg)
+![](images/2017/tourdemaine/Day2/16.webp)
 
 * _Date:    May 28, 2017 at 1:04:15 PM EDT_
 * _Weather:    61°F Sunny_
@@ -252,15 +252,15 @@ At Jordan Pond Parking lot to do the Penobscot and Sargent Mountain trails. Ther
 
 ### At the Summit
 
-![](images/2017/tourdemaine/Day2/17.jpg)
+![](images/2017/tourdemaine/Day2/17.webp)
 Sitting at the summit of Sargent Mountain and enjoying the panoramic view. I'm sitting right to the summit marker overlooking the Atlantic Ocean towards the North West.  From this point, I have gorgeous views of Eagle Lake towards my right and Jordan Pond on my back. Earth looks like a green velvet cloth. These various ponds, lakes, rivers, and ocean looks like blue jewels. I lied down for a while breathing the fresh air and being thankful for all these incredible experiences.
-![](images/2017/tourdemaine/Day2/18.jpg)
+![](images/2017/tourdemaine/Day2/18.webp)
 There are certain realizations that you can only get through hikes like these, because of the way our minds are conditioned. We judge/measure our lives through achievements or milestones. Everything that we do since birth is categorized into different sections and graded. The first word we utter (how fast did the baby achieve it), the first step we take (again, how soon we achieved it), exams, competitions, languages learned, countries traveled, everything. We shouldn't be doing that, yet we are conditioned to measure life using these milestones. All hikes have a destination.  And when we achieve it, we forget ourselves, At least for a moment we become a part of the experience, we become nature(even though we are a part of it by birth). And the view from the Sargent Mountain summit is phenomenal: you look at any direction around you, and you can see miles and miles of forests, water bodies, small islands, mountains, and little towns at a distance. Almost inexplicable. The hike was long and tiring. Truly I became part of the moment. It is in moments like these we forget ourselves. It is when we forget ourselves, we truly become happy. Just think about that for a moment, recall an incident when you become truly happy, you were not self-occupied at that moment, you had forgotten yourself. So, maybe the key to happiness is really in our ability and circumstances where we forget ourselves. Food for thought.
-![](images/2017/tourdemaine/Day2/19.jpg)
+![](images/2017/tourdemaine/Day2/19.webp)
 Before Sargent, we hiked the Penobscot Mountain Train which is an adjacent Peak, a little shorter, albeit a fabulous hike.
 
 We climbed big boulders of rocks, passed some old carriage roads commissioned and build on the watch of John D Rockefeller.  Several open spaces with fantastic panoramic views. We also some great bridges built on the edge of the mountain. All along the hike, we had splendid views of the Atlantic Ocean.
-![](images/2017/tourdemaine/Day2/19a.jpg)
+![](images/2017/tourdemaine/Day2/19a.webp)
 Met and spoke to many fellow hikers. Good vibes everywhere.
 
 We met a couple when we were taking a short break. The lady told us that she was still sore from the long hike they did yesterday and hence might be slow. She asked us to feel free about passing them. And they went on. We also started right behind them. But we never got a sight of them after that. That will tell you how slow we were (or how fast those two were?)
@@ -270,7 +270,7 @@ But I think it's a good thing that we didn’t strain ourselves. I urged the Sha
 The trail markers also got a new name by this time. I have no idea how, but after a point, we started calling them “Trail Maakri”.
 
 When we reached the top of Penobscot Mountain, surprisingly we had full network connectivity. So I called my sister and spoke for a while. I also had a video call with my mom, who sounded envious of the views. She loves to travel, but don't get to as much as she wishes.
-![](images/2017/tourdemaine/Day2/19b.jpg)
+![](images/2017/tourdemaine/Day2/19b.webp)
 Unlike Shambhus, I liked today’s hike better since we traverse a variety of terrains. The hike begins at a section of dense forests, and then it is quickly followed by a gravel road(carriage road) then there is a short section wherein we had to do a bit of rock scrambling. The last stretch was a long and steady uphill climb. There were many little ponds and puddles between the rocks which were also a nice surprise.
 
 * _Date:    May 28, 2017 at 4:43:06 PM EDT_
@@ -281,9 +281,9 @@ Unlike Shambhus, I liked today’s hike better since we traverse a variety of te
 At Lighthouse Inn for lunch.
 
 On return from Sargent Mountain, we took the longer trail with a stop at Deer Brook Bridge. The trail was long and tiring. We met many other hikers along the way. I like nature trails like this. You feel connected always. Hiking rekindles our natural innate urge to explore. And that's infinitely more satisfying than driving to an overlook and watching a scene. I digress again.
-![](images/2017/tourdemaine/Day2/20.jpg)
+![](images/2017/tourdemaine/Day2/20.webp)
 We took a lot of pictures along the trail. Deer Brooke bridge is a majestic bridge over one of the carriage roads. From there we wanted to get to Jordan Pond House where we wanted to check out their famous Pop Overs and Jam. But there was still a long way ahead, and we were still up in the hills. That's when we realized that all this time we were hiking down alongside a small stream that leads to Jordan Pond. So this better be heading there. We followed the stream down; soon we also spotted the blue trail makris which were placed to mark the course of a trail. After we reached Jordan Pond, we still had 2 miles to hike around the Pond to reach the restaurant and parking lot.
-![](images/2017/tourdemaine/Day2/21.jpg)
+![](images/2017/tourdemaine/Day2/21.webp)
 The Jordan Pond trail gives the hiker mind-numbing scenic views. Wooden planks are neatly aligned throughout the trail which makes it a family-friendly hike as opposed to all the other hikes we did so far.
 
 We were extremely hungry and thirsty by then. We had exhausted all the water we carried and had most of the good snacks we had with us. But hey, Jordan Pond Restaurant is right beside where we parked our cars, and apparently, they are the highest-rated restaurant in the area. Their Pop Overs and Strawberry jam combination are world-famous, and they have been serving those at this restaurant for over 100 years. I can’t wait to be there and have a sumptuous and well-deserved lunch.
@@ -295,28 +295,28 @@ But the popovers?
 I pulled out Yelp and found that there is another restaurant 3 miles from Jordan Pond, named Lighthouse Inn. That might be a cooler option since we can visit the lighthouse and also have lunch.
 
 We soon reached Lighthouse Inn to find that lighthouse is just a name, they just had a 2 feet tall replica lighthouse model in front of the restaurant, and that is what we get. But on the positive side, the waitress was great! She had a very positive air around her and gave us some great suggestions.
-![](images/2017/tourdemaine/Day2/22.jpg)
+![](images/2017/tourdemaine/Day2/22.webp)
 We got fried calamari and crab cakes(really awesome) for appetizers. I got a loser roll, Sarath Shambhu got a Tuna Melt Sandwich, Shambhu Annan got a crab sandwich.
 
 Meanwhile, Sarath Shambhu and I got into a debate over the need to pronounce things right and about the need to follow the norms and etiquettes of other countries while we are living/traveling in them. It was a healthy conversation and its always good to hear/see the perspectives of other people. I feel that humans learn from other humans better and faster than we learn from books or other mediums. Whatever. Moving along.
 
 After the late afternoon lunch, shambhus asked me what the evening plans were. I told then that, all the official hiking for Tour de Maine was over. But if they were up for it, we can do the south-bubble trail, which is a short and easy hike up the south-bubble mountain. They said yes without even blinking an eye. The Bubble trailhead was just 4 miles away from the restaurant.
-![](images/2017/tourdemaine/Day2/23.jpg)
+![](images/2017/tourdemaine/Day2/23.webp)
 We passed by many families and elder people on this hike, which was unusual because all the other hikes we did was not recommended for kids and had very little family crowd in them. We reached the summit in 20 minutes. In addition to being a wonderful viewpoint, South-Bubble also has a famous tourist attraction: Bubble Rock (aka. Balanced Rock), a large boulder that was carried by glaciers and deposited at the seemingly precarious edge of a cliff. We relaxed there for a bit, took some funny pictures near the rock and we climbed down. We hiked back down wondering about the odds of that huge rock rolling down the mountain towards us.
-![](images/2017/tourdemaine/Day2/23a.jpg)
+![](images/2017/tourdemaine/Day2/23a.webp)
 The final destination for the day was Cadillac Mountain.
 Cadillac Mountain is the largest and tallest mountain in Acadia National Park, rising roughly 1522 feet above sea level. The top of Cadillac Mountain is one of the first spots in the United States to get hit by sunrise.
 
 Which is also the highest peak in the park. What makes it special is that Cadillac Mountain is the place where the first ray of the sun hits the USA every morning. And I told Shambhus that it would be a great experience to visit this place for sunrise. Since its the warmer months in the US, the sun rises early and sets late. I had checked the sunrise time, and it was 4:55 AM. Immediately Sarath said that there is no way he is gonna wake up for it. I acknowledged it and said, its fine. Shambhu Annan was like, we both can try to go tomorrow morning for sunrise. I said we’ll see.
 
 The drive up to the mountain was easy with some very scenic passes. The fact that the sun was already starting to set made the scene even more beautiful. The golden rays of the setting sun were passing through the low-lying clouds, which were below our level at this point. Since it is possible to drive up to the very top of the mountain, it was super crowded. I am so glad we did the sergeant mountain hike. The view from Sargent Mountain is better than that of the Cadillac Mountain. Besides, Cadillac Mountain has many trees that would obstruct the view at many places, whereas sergeant mountain summit is barren. Anyway, we enjoyed the view for a few minutes. It was getting really cold out there. I made a mental note of where to come to catch the sunrise since it would be pretty dark before sunrise in case we decide to drive up here tomorrow morning.
-![](images/2017/tourdemaine/Day2/24.jpg)
+![](images/2017/tourdemaine/Day2/24.webp)
 We then proceeded to find a spot from where we can watch the sunset. Like I said earlier, it was crowded and some great views were obstructed by trees. So, we decided to drive a little down the mountain where we had seen many cars parked and had unobstructed views of the ocean. We found a space to park the car, got out, took the camera and tripod and walked over to the overlook.
 
 We got a nice spot, and I set up the camera on the tripod and took some wide-angle pictures of the view. I later changed to a Telephoto lens (read zoom lens) to take the pictures of the far off islands that were glimmering in the sunset rays.
 
 The sunset was a flop. Sun disappeared behind some clouds on the horizon. Hence we couldn’t capture it as expected. Even then, there were plenty of things around to observe other than the sun.
-![](images/2017/tourdemaine/Day2/25.jpg)
+![](images/2017/tourdemaine/Day2/25.webp)
 We proceeded to the car. Sarath and Shambhu Annan kept all our belongings in the trunk; I hopped on to the driver's seat. I asked Sarath Shambhu to find a place where we can get a good lobster. Rather than dining in, we can get a cooked lobster home and figure how to eat it.
 
 I turned ON the ignition and moved a few yards forward when I noticed that something was just not right. That's when I realized that the car’s trunk was open!!
@@ -324,7 +324,7 @@ I turned ON the ignition and moved a few yards forward when I noticed that somet
 I immediately pressed the button to close it. Did something fall out? I asked Shambhu Annan to look back and check whether we had dropped anything on the road. He checked and reassured that nothing had fallen out of the car. Cool!
 
 We then found a restaurant with good ratings that have the famous 2 pounds baked/cooked lobster on the menu. Maine is famous for its lobsters. We reached the restaurant in 15 minutes, ordered the food for taking out. We got some burgers too on the side. I was told that there would be 20 minutes wait. We just hung out outside until the food came.
-![](images/2017/tourdemaine/Day2/25a.jpg)
+![](images/2017/tourdemaine/Day2/25a.webp)
 We came home; I took a shower. Then Shambhu Annan went to take a shower. I took all the camera equipment out of my daypack to pack them into the camera bag.
 
 Something was missing. My wide-angle lens! It was not in there!!
@@ -362,7 +362,7 @@ The prodigal son (lens) has finally come home. Moreover, this was the lens I nee
 I then checked the battery compartment to find that there was no battery in it. So what? I carry at least four batteries with me all the time. I looked in the camera bag: none were there! Sarath in a rush got the camera and forgot to get the batteries that were lying next to it in the room. And that's a wrap!
 
 We stood there for another 10-15 minutes, just gazing at the pure wonder above us. I felt so little. Remembered one of my famous comic strip from Calvin and the Hobbes series.
-![](images/2017/tourdemaine/Day2/25b.jpg)
+![](images/2017/tourdemaine/Day2/25b.webp)
 We then got in the car and came back home: to feast on the lobsters.
 
 Since none of us had any prior experience of cracking open the lobster shell, we watched a couple of youtube videos for guidance. Even still, we had a tough time cracking open the shells. After what felt like an hour and a half, the carcass of the lobster laid there shattered into gazillion pieces. It looked like an epic war scene.
@@ -388,7 +388,7 @@ Today I had Ham and Eggs with a French Toast with Tater Tots on the side. Gulped
 I went back to the room to get our bags, checked everything to make sure we didn’t leave anything behind, proceeded to the hotel office to checkout. All A-Okay!
 
 The first point of interest for the day is Schooner Point Overlook. Short 10 minutes drive to the Schooner overlook was overflowing with scenic beauty. It was cloudy and drizzling. We stopped for some pictures near a Beaver Dam which faces the Champlain Mountain. The fog was slowly descending the 1000ft tall Mountain with lush greenery all around. The way different elements of nature come together to create such beautiful and mesmerizing scenery always amazes me.
-![](images/2017/tourdemaine/Day3/27.jpg)
+![](images/2017/tourdemaine/Day3/27.webp)
 
 * _Date:    May 29, 2017 at 10:38:05 AM EDT_
 * _Weather:    46°F Cloudy_
@@ -397,7 +397,7 @@ The first point of interest for the day is Schooner Point Overlook. Short 10 min
 ### Hobo gets a hashtag
 
 Schooner overlook has a short trail to the shore where you have to scramble down around the sharp rock formations to get to the tide pools. While the scenery is mostly level compared to the dramatic terrain of the more popular sections of Acadia National Park, this area is a safer and more leisurely spot to explore Acadia's rugged coastline.
-![](images/2017/tourdemaine/Day3/26.jpg)
+![](images/2017/tourdemaine/Day3/26.webp)
 Tide pools are small pools that form in the crevices or depressions in the rocks close to the shore. During high tide, a variety of wildlife ranging from Starfishes to mussels get washed into these pools, and during low tide, these pools get exposed. It is always best to be viewed a little after the low(-est) tide time. 8:20 AM was the predicted low tide time according to an online weather website. Sure enough, I could see many of such pools. It was extremely difficult to get to the pools as all the rocks near the shore were covered with algae making it slippery to walk. I managed to get to one and called others to walk over.
 
 “Don’t walk over the green stuff, it's slippery. I said the green stuff is slippery!”
@@ -411,7 +411,7 @@ PS: The brand new Nikon camera of Shambhu suffered no injuries as well, thankful
 Shambhu later said that he has this habit of falling at least once on every trip. Like #headstandaroundtheworld he does a #slipandfallaroundtheworld.
 
 Also, Shambhu Annan declared that he is parting ways with his faithful HOBO sweatshirt now that it is irreparably damaged.
-![](images/2017/tourdemaine/Day3/27a.jpg)
+![](images/2017/tourdemaine/Day3/27a.webp)
 
 * _Date:    May 29, 2017 at 2:00:28 PM EDT_
 
@@ -422,7 +422,7 @@ Following all the drama at Schooner Point, we decided to drive through the entir
 As we approached the Jordan Pond, we found that there was very little crowd today. Perfect opportunity to try the Pop Overs and Jam from the famous Jordan Pond Restaurant.
 
 And of course, we got seated right away. We got seated at a window-side table with a spectacular view of the North and South Bubbles. We ordered Chai and Popovers. The Chai was good with some cinnamon seasoned over it. Soon the Pop Overs arrived. If I said yesterday that it was just bread and jam, think about it as the story of the fox who couldn’t jump up and reach the grapes who declared them as bitter. The popovers were tender, yet crispy and delicious. The jam, well. I don’t like strawberry flavor that much, but this jam was one of the best I’ve ever had! Phenomenal!
-![](images/2017/tourdemaine/Day3/28.jpg)
+![](images/2017/tourdemaine/Day3/28.webp)
 Mind and Belly full, we headed to the adjacent souvenir shops. Shambhu Annan got a shot glass; I got a magnet and a small sculpture of a deer sitting over a wine cork. Cool!
 
 We soon got back on the road realizing that we are running out of time. We better start for Pennsylvania now, or we’ll be reaching home super late at night. We all got to go to work tomorrow.
