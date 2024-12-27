@@ -61,7 +61,7 @@ These are the tools and technologies I work with:
 
 You can find me on:
 
-- :fontawesome-brands-linkedin: [LinkedIn](https://www.linkedin.com/in/binupradeep/)
+- :fontawesome-brands-linkedin: [LinkedIn](https://www.linkedin.com/in/binuepradeep/)
 - :fontawesome-brands-github: [GitHub](https://www.github.com/binuengoor)
 - :material-email-edit: [Email](mailto:mailto:contact@binupradeep.com)
 
