@@ -82,7 +82,7 @@ extra:
     - icon: material/email-edit
       link: mailto:contact@binupradeep.com
 
-copyright: Copyright &copy; Binu Pradeep 2024 -
+copyright: Copyright &copy; Binu Pradeep 2024
 
 markdown_extensions:
   - abbr
