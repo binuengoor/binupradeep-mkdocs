@@ -1,5 +1,5 @@
 ---
-title: rsync Command Reference
+title: rsync Guide
 description: A powerful utility for efficient file synchronization and transfer between local and remote systems
 tags: [rsync, linux, file-transfer, synchronization]
 ---
