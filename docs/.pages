@@ -1,7 +1,6 @@
 nav:
   - Home: index.md
   - Home-Networking: networking
-  - Media: media
   - Self-Hosting: selfhosted
   - Tech-Reference: reference
   - My-Apps: myapps
