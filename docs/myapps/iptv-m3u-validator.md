@@ -1,5 +1,5 @@
 ---
-title: Validate and Manage IPTV M3U Playlists with IPTV Validator
+title: M3U Playlists Validator Tool
 description: A Python-based tool to validate IPTV playlists, extract stream resolutions, and generate clean M3U files.
 tags: [IPTV, M3U, Python, LiveTV]
 ---
