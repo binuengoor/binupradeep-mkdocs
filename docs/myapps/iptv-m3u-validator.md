@@ -10,7 +10,7 @@ The **IPTV M3U Validator** is a Python-based utility that helps validate IPTV pl
 
 Whether you're managing large playlists or troubleshooting broken links, this tool simplifies the process with live terminal output, detailed logging, and automatic file generation.
 
-**GitHub Repository**: [IPTV-M3U-Validator](https://github.com/binuengoor/IPTV-M3U-Validator)
+**GitHub Repository**: [IPTV-M3U-Validator](https://github.com/binuengoor/IPTV-Tools/tree/main/M3U-Validator)
 
 ---
 
