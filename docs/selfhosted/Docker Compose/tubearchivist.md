@@ -1,5 +1,5 @@
 ---
-title: TubeArchivist - Self-Hosted YouTube Media Manager
+title: TubeArchivist
 description: Archive and manage your YouTube content with a powerful self-hosted solution using Docker.
 tags: [docker, media-server, youtube, self-hosted]
 ---

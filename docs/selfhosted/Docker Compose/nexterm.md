@@ -1,5 +1,5 @@
 ---
-title: Nexterm - Modern Server Management Tool
+title: Nexterm
 description: Deploy and manage SSH, VNC, and RDP connections through a sleek web interface using Docker.
 tags: [docker, server-management, self-hosted]
 ---

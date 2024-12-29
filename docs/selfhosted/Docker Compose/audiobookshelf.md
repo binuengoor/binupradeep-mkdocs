@@ -1,5 +1,5 @@
 ---
-title: Audiobookshelf - Self-Hosted Audiobook Server
+title: Audiobookshelf
 description: Host and stream your audiobooks and podcasts with a sleek, feature-rich media server using Docker.
 tags: [docker, media-server, audiobooks, self-hosted]
 ---

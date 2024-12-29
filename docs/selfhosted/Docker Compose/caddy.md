@@ -1,5 +1,5 @@
 ---
-title: Caddy Reverse Proxy
+title: Caddy
 description: A modern web server with automatic HTTPS and reverse proxy capabilities using wildcard certificates
 tags: [caddy, reverse-proxy]
 ---
