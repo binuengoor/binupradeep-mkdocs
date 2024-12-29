@@ -72,12 +72,13 @@ services:
         }
     }
 
-    handle { # this is so that caddy knows to return a 404 for undefined subdomains
+    handle_path /* { # this is so that caddy knows to return a 404 for undefined subdomains
         error "Not found" 404
+        respond "404 - Page not found" 404
     }
-    
+
     handle_errors {
-        respond "{err.status_code} {err.status_text}"
+        respond "Error {http.error.status_code}: {http.error.message}" {http.error.status_code}
     }
 }
 ```
