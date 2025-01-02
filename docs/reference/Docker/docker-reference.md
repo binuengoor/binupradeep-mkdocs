@@ -104,7 +104,7 @@ Maintain system health:
 docker system prune
 
 # Include unused images in cleanup
-docker system prune -a
+docker image prune -a
 
 # Remove unused volumes
 docker system prune --volumes
