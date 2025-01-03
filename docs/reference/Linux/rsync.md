@@ -1,5 +1,5 @@
 ---
-title: rsync Guide
+title: Rsync Guide
 description: A powerful utility for efficient file synchronization and transfer between local and remote systems
 tags: [rsync, linux, file-transfer, synchronization]
 ---

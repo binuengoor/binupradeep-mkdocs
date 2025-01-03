@@ -1,5 +1,5 @@
 ---
-title: Docker Management Commands
+title: Docker Guide
 description: Essential Docker commands for managing containers, images, and system resources with detailed explanations
 tags: [docker, containers, devops, cli, container-management, system-administration]
 ---

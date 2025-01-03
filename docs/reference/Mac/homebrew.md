@@ -1,5 +1,5 @@
 ---
-title: Homebrew Package Management
+title: Homebrew Guide
 description: Essential commands and best practices for managing packages with Homebrew on macOS
 tags: [mac, homebrew, brew, terminal]
 ---
