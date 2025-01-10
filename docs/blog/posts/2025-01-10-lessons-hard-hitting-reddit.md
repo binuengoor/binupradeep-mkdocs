@@ -3,8 +3,8 @@ draft: false
 date: 2025-01-10
 categories: [northstar]
 tags: [motivation, self-improvement, mindset]
-slug: tour-de-maine
-title: 10 Hard-Hitting Life Lessons from Reddit That Will Change Uur Perspective
+slug: 10-hard-hitting-life-lessons-reddit
+title: 10 Hard-Hitting Life Lessons from Reddit That Will Change Our Perspective
 description: A collection of transformative insights about comfort zones, emotional mastery, and personal growth, inspired by real discussions from the self-improvement community.
 ---
 ![Header](images/2025/2025-01-10-lessons-hard-hitting-reddit/20250110 blog.webp){ loading=lazy width="800" }
