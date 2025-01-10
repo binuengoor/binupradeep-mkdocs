@@ -1,12 +1,16 @@
 ---
+draft: false 
+date: 2025-01-10
+categories: [northstar]
+tags: [motivation, self-improvement, mindset]
+slug: tour-de-maine
 title: 10 Hard-Hitting Life Lessons from Reddit That Will Change Uur Perspective
 description: A collection of transformative insights about comfort zones, emotional mastery, and personal growth, inspired by real discussions from the self-improvement community.
-tags: [motivation, self-improvement, mindset]
 ---
-
+![Header](images/2025/2025-01-10-lessons-hard-hitting-reddit/20250110 blog.webp){ loading=lazy width="800" }
+<!-- more -->
 *Inspired by this [Reddit post](https://www.reddit.com/r/selfimprovement/comments/1hobqog/i_hit_a_major_turning_point_in_life_here_are_10/)*
 
-![](images/2025/2025-01-10-lessons-hard-hitting-reddit/20250110 blog.webp){ loading=lazy width="800" }
 
 ## Your comfort zone is your prison. The longer you stay, the smaller it gets.
 Stepping into unfamiliar territory feels unsettling, but staying indefinitely within your comfort zone gradually diminishes your potential. Growth happens by taking small, deliberate steps that expand your capabilities. Your comfort zone contains your strengths, but should be used as a foundation to build from, not a limitation.
