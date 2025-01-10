@@ -1,13 +1,13 @@
 ---
-draft: false
-date: 2024-01-10
+draft: false 
+date: 2025-01-10
 categories: [northstar]
-tags: [quotes, motivation, discipline, mindset]
+tags: [motivation, self-improvement, mindset]
 slug: favorite-quotes
 title: Collection of Impactful Life Quotes
 description: A curated collection of powerful quotes about discipline, action, and personal growth that shape my perspective
 ---
-![Header](images/2025/2025-01-10-lessons-hard-hitting-reddit/20250110 northstar.webp){ loading=lazy width="800" }
+![Header](images/2025/2025-01-10-favorite-quotes/20250110 northstar.webp){ loading=lazy width="800" }
 
 *These quotes have resonated with me over time, serving as reminders and guidance for personal growth and decision-making.*
 <!-- more -->
