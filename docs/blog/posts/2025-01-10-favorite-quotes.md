@@ -3,7 +3,7 @@ draft: false
 date: 2025-01-10
 categories: [northstar]
 tags: [motivation, self-improvement, mindset]
-slug: favorite-quotes
+slug: favorite-life-quotes
 title: Collection of Impactful Life Quotes
 description: A curated collection of powerful quotes about discipline, action, and personal growth that shape my perspective
 ---
