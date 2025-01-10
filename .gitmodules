@@ -1,0 +1,3 @@
+[submodule "image-optimizer"]
+	path = image-optimizer
+	url = https://github.com/binuengoor/Image-Optimizer-for-Web
