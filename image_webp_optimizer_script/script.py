@@ -74,7 +74,7 @@ def main():
         print("Invalid input. Using default mode 1.")
         mode = 1
     
-    supported_formats = ('.png', '.jpg', '.jpeg', '.tiff', '.bmp')
+    supported_formats = ('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif', '.webp')
     conversion_count = 0
     
     # Check if input directory is empty
