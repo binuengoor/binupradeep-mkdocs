@@ -1,7 +1,7 @@
 ---
 title: Image Optimizer for Web (WebP)
 description: A Python tool that converts images to WebP format with optimized compression settings for web use. WebP offers superior compression while maintaining high image quality, making it ideal for websites and web applications.
-tags: [python, image-optimization, compression]
+tags: [python, image, optimize, compression]
 ---
 
 # WebP Image Optimizer: Efficient Image Compression for the Web

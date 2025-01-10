@@ -1,7 +1,7 @@
 ---
 title: M3U Playlist Sorting Tool
 description: A Python utility for organizing and sorting M3U/M3U8 playlist files alphabetically with support for multiple formats and customization options.
-tags: [IPTV, M3U, Python, LiveTV]
+tags: [iptv, m3u, python, livetv]
 ---
 # M3U Sorter: Organize Your IPTV Playlists with Ease
 
