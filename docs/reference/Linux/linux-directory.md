@@ -93,6 +93,7 @@ This is a sample project...
 ```
 
 ## Common Options
+
 - `-a`: Show hidden files
 - `-h`: Human readable sizes
 - `-L n`: Limit depth to n levels

@@ -9,11 +9,13 @@ tags: [openwrt, networking, vlan, firewall, security]
 For illustration purposes, this guide uses 192.168.1.0/24 as the main network. Replace IP addresses according to your needs.
 
 I want to add two more VLANs:
+
 - VLAN 10 - for IoT
 - VLAN 20 - for Guest
 - Main LAN will become VLAN 1
 
 Requirements:
+
 - All VLANs should use AdguardHome at 192.168.1.1 for DNS
 - Only devices in VLAN 1 should be able to access LUCI
 
@@ -47,6 +49,7 @@ Consider defining public DNS on the new VLAN 10 and 20 based interfaces temporar
 
 
 Note the interface assignments:
+
 - lan interface: br.lan.1
 - IoT interface: br.lan.10
 - Guest interface: br.lan.20
@@ -63,6 +66,7 @@ The router now has lan3 port tagged for all 3 VLANs.
 Configure the VLAN-aware switch similarly to receive tagged VLAN traffic. Additional ports can be untagged on specific VLANs as needed.
 
 Example configuration:
+
 - Port 1: Tagged for VLANs 1, 10, and 20
 - Ports 4, 5: Untagged for VLAN 1
 - Port 2: Untagged for VLAN 10
@@ -80,6 +84,7 @@ Plug into port 4 or 5 on the switch for untagged VLAN traffic and access LUCI wi
 DHCP should now work for all VLANs.
 
 Next steps:
+
 1. Configure APs to receive tagged VLANs
 2. Set specific SSIDs to specific VLANs
 3. Configure firewall rules:

@@ -13,11 +13,13 @@ The WebP Image Optimizer is a powerful Python tool designed to convert and optim
 ## Key Features
 
 **Conversion Capabilities**
+
 - Supports multiple input formats (PNG, JPG, JPEG, TIFF, BMP, GIF, WEBP)
 - Preserves PNG transparency
 - Offers three optimization levels for different use cases
 
 **Quality Presets**
+
 | Mode | Quality | Best For |
 |------|---------|----------|
 | 1 | 80% | General web usage |

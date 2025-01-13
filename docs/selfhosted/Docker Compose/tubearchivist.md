@@ -72,6 +72,7 @@ services:
 ## Directory Structure
 
 Before starting, create these directories:
+
 - `youtube`: Stores downloaded videos and media
 - `cache`: For application cache data
 - `redis`: Redis database storage

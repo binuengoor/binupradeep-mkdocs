@@ -11,6 +11,7 @@ Homebrew is the most popular package manager for macOS, providing a simple and e
 ## Key Features
 
 **Package Management**
+
 - Install, update, and remove software packages
 - Manage dependencies automatically
 - Track installed formulae and casks
@@ -90,6 +91,7 @@ brew list --cask
 ```
 
 **Prerequisites**
+
 - macOS 10.14 or higher
 - Command Line Tools for Xcode
 - Administrator privileges for installation

@@ -27,6 +27,7 @@ opkg list-installed
 ## Proxmox Network Setup
 
 The system uses multiple network interfaces:
+
 - Default virtual NIC (vmbrwan0)
 - Main LAN bridge (vmbrlan0) - VLAN aware
 - Additional bridge (vmbrlan1) for troubleshooting
@@ -39,6 +40,7 @@ The system uses multiple network interfaces:
 ## VM Creation
 
 **Basic Settings**
+
 - Name: OpenWRT
 - OS: Linux 5.x
 - Memory: 256 MiB

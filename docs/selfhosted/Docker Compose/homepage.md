@@ -11,12 +11,14 @@ Homepage is a modern dashboard solution that allows you to create a centralized 
 ## Key Features
 
 **Service Organization**
+
 - Customizable layouts with multiple columns and sections
 - Service grouping with icons and descriptions
 - Quick launch functionality with search capabilities
 - Widget support for various services like Docker, Radarr, Sonarr
 
 **Dashboard Customization**
+
 - Light and dark theme options
 - Configurable card blur and header styles
 - Custom icons and descriptions for services
@@ -70,6 +72,7 @@ showStats: true
 ## Additional Features
 
 - **Widgets**: Support for various service integrations including:
+
   - Calendar
   - Weather
   - System resources
@@ -77,11 +80,13 @@ showStats: true
   - Media management tools
 
 - **Search**: Built-in search functionality with provider options
+
   - Quick launch capability
   - Description search
   - Custom search providers
 
 - **Layout**: Flexible layout system with:
+
   - Column configurations
   - Row styling
   - Header customization

@@ -32,6 +32,7 @@ du -h | sort -rh | head -5    # Top 5 largest
 ```
 
 Common flags:
+
 - `-h`: Human readable
 - `-s`: Summary only
 - `-c`: Show total

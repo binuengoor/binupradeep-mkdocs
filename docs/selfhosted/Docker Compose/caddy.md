@@ -88,17 +88,20 @@ services:
 - **Wildcard Certificate Setup**: The configuration `*.local.domain.com` requests a single wildcard certificate that covers all subdomains. This means services like `service1.local.domain.com` and `service2.local.domain.com` use the same certificate, reducing management overhead.
 
 - **Error Handling**: The configuration includes two important error handling blocks:
+
   - `handle` block with a 404 response catches undefined subdomains
   - `handle_errors` block provides custom error responses for all error conditions
 
 - **Admin API**: Port 2019 exposes Caddy's admin API, enabling integration with monitoring tools and dashboards
 
 - **Service Integration**:
+
   - HTTP services can be proxied directly
   - HTTPS services with self-signed certificates use `tls_insecure_skip_verify`
   - Each service gets its own subdomain while sharing the main wildcard certificate
 
 **Prerequisites:**
+
 - Cloudflare account managing your domain
 - Docker and Docker Compose installed
 - Cloudflare API token with DNS permissions

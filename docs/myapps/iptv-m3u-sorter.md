@@ -18,6 +18,7 @@ Whether you manage personal or shared playlists, the M3U Sorter Tool ensures you
 **Tags**: IPTV, M3U, Python, Playlist Management
 
 ## Key Features
+
 - **Alphabetical Sorting**: Automatically organizes playlist entries by channel names
 - **Multiple Formats**: Supports `.m3u` and `.m3u8` playlist files
 - **Clean Output**: Generates sorted playlists in a clear and standardized format

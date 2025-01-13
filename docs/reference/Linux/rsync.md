@@ -117,6 +117,7 @@ rsync -ahrvPz ~/large-files/ user@server:/backup/
 - Add `--progress` for individual file progress
 
 **Prerequisites:**
+
 - rsync installed on both source and destination systems
 - SSH access for remote transfers
 - Sufficient disk space
