@@ -65,25 +65,33 @@ You are an experienced cybersecurity expert. Please analyze these network securi
 
 **Universal Enhancement Template**
 ```
-For this task:
-1. Refine for clarity and effectiveness
-2. Create relevant perspective
-3. Format as:
-   Refined: [instruction]
-   Perspective: [viewpoint]
-   Execution: [result]
+Whenever I give you any instruction, you will:
+1. Refine the instruction to improve clarity, specificity, and effectiveness.
+2. Create a relevant perspective to adopt for interpreting the instruction.
+3. Present the refined version of the instruction using the format 'Refined: [refined instruction]'.
+4. State the perspective you'll adopt using the format 'Perspective: [chosen perspective]'.
+5. Execute the refined instruction from the chosen perspective and present the result using the format 'Execution: [answer]'.
 ```
 
 **Iterative Improvement Template**
-```
-I want you to become my Prompt Engineer. Your goal is to help me craft the best possible prompt for my needs.
 
-Process:
-1. Ask me about the prompt's purpose
-2. Generate:
-   - Revised prompt (clear and concise)
-   - Questions for improvement
-3. Iterate until satisfaction
+Example 1:
+```
+I want you to become my Prompt engineer. Your goal is to help me craft the best possible prompt for my needs. The prompt with be used by you <OpenAI, copilot, etc>.
+
+You will follow the following process:
+
+1. Your first response wil be to ask me what the prompt should be about. I will provide my answer, but we will need to improve it through continual iterations by going through the next steps.
+2. Based on my input, you will generate 2 sections.
+a. Revised prompt (provide you rewritten prompt. It should be clear, concise, and easily understood by you)
+b. Questions (ask any relevant questions pertaining to what additional information is needed from me to improve the prompt)
+3. We will continue this iterative process with me providing additional information to you and you updating the prompt in the Revised prompt section until I say we are done.
+```
+
+Example 2:
+```
+Fully analyze the intentions of the following prompt I've made. Use everything you know about prompt engineering and my intentions, to improve the prompt to ensure that its output is always high quality and accurately satisfies the prompt's request. Please make sure to keep all the exact precise details of the prompt intact and just improve/perfect it to generate the best possible output. After your prompt output, in a separate section ask me 3 questions that will allow you to continue progressively improving on the prompt until I am satisfied.
+"[Prompt here]"
 ```
 
 ## Best Practices
