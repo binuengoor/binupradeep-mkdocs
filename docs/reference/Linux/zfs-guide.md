@@ -12,6 +12,7 @@ ZFS (Zettabyte File System) represents a revolutionary approach to storage manag
 
 **Storage Pools (zpools)**
 Storage pools form the foundation of ZFS storage management. Think of a pool as a dynamic storage container that:
+
 - Combines multiple physical storage devices into a unified storage resource
 - Manages physical storage allocation automatically
 - Provides built-in redundancy through RAID-like configurations
@@ -20,7 +21,9 @@ Storage pools form the foundation of ZFS storage management. Think of a pool as 
 - Handles device failures and repairs automatically
 
 **Datasets**
-Datasets are the fundamental building blocks for organizing data in ZFS. They offer:
+Datasets are the fundamental building blocks for organizing data in ZFS. 
+They offer:
+
 - Flexible organization through filesystem hierarchies
 - Independent property management (compression, quotas, etc.)
 - Dynamic space sharing from the pool without pre-allocation
@@ -32,6 +35,7 @@ Datasets are the fundamental building blocks for organizing data in ZFS. They of
 
 **Snapshots**
 Snapshots provide powerful data protection and recovery capabilities:
+
 - Create instantaneous, read-only copies of filesystems or volumes
 - Initially consume no additional space
 - Store only changed blocks from the active dataset
