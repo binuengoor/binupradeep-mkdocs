@@ -24,7 +24,7 @@ Navigate to Network → Interfaces → Devices tab
 Update br-lan by adding necessary ethernet ports in the General tab.
 
 In the Bridge tab:
-![Bridge tab](../../assets/images/20241226_openwrt_vlan/openwrt_vlan_1.webp)
+![Bridge tab](../assets/images/20241226_openwrt_vlan/openwrt_vlan_1.webp)
 
 Bridge VLAN Configuration
 
@@ -37,13 +37,13 @@ Go to interfaces tab.
 Set up interfaces as needed. Place them in the "lan" firewall zone for now.
 
 Add DHCP server:
-![DHCP 1](../../assets/images/20241226_openwrt_vlan/openwrt_vlan_2.webp)
-![DHCP 2](../../assets/images/20241226_openwrt_vlan/openwrt_vlan_3.webp)
-![DHCP 3](../../assets/images/20241226_openwrt_vlan/openwrt_vlan_4.webp)
+![DHCP 1](../assets/images/20241226_openwrt_vlan/openwrt_vlan_2.webp)
+![DHCP 2](../assets/images/20241226_openwrt_vlan/openwrt_vlan_3.webp)
+![DHCP 3](../assets/images/20241226_openwrt_vlan/openwrt_vlan_4.webp)
 
 Consider defining public DNS on the new VLAN 10 and 20 based interfaces temporarily:
 
-![DHCP 4](../../assets/images/20241226_openwrt_vlan/openwrt_vlan_5.webp)
+![DHCP 4](../assets/images/20241226_openwrt_vlan/openwrt_vlan_5.webp)
 
 
 Note the interface assignments:
@@ -54,7 +54,7 @@ Note the interface assignments:
 Navigate to Network → DHCP and DNS → Devices and Ports tab
 
 Add all non-wan interfaces to "Listen Interfaces" for DHCP:
-![DHCP Listen Interfaces](../../assets/images/20241226_openwrt_vlan/openwrt_vlan_6.webp)
+![DHCP Listen Interfaces](../assets/images/20241226_openwrt_vlan/openwrt_vlan_6.webp)
 
 You can now technically click Apply changes, but wait until switch configuration is complete.
 
@@ -68,7 +68,7 @@ Example configuration:
 - Port 2: Untagged for VLAN 10
 - Port 3: Untagged for VLAN 20
 
-![Switch VLAN Configuration](../../assets/images/20241226_openwrt_vlan/openwrt_vlan_7.webp)
+![Switch VLAN Configuration](../assets/images/20241226_openwrt_vlan/openwrt_vlan_7.webp)
 
 
 Save changes and return to OpenWrt to apply changes.

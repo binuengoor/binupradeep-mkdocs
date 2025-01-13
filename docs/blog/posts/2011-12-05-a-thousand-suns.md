@@ -11,12 +11,7 @@ slug: a-thousand-suns
 
 A story of lost love, lost hope, lost happiness and lost life.
 
-### \-          by Binu Engoor Pradeep
-
-Author's Note: The following is a work of _fiction_. Any resemblance to persons living or dead is _purely_ coincidental.
-
-
-![](/images/2011/1000-suns.jpg)
+![](images/2011/1000-suns.jpg)
 
 _“What if I can desert this body and dissolve with the wind. Flow along with it absorbing all that the world carries with it: all the love, the commotions, the chaos, the hatred, the care, everything. Can it make me feel complete ever again?”_
 <!-- more -->
@@ -141,3 +136,5 @@ _“I want to get dissolved with the wind and flow along. Will it make me comple
 # EPILOGUE
 
 I still remember that day. The day which brought an end to my world. Her motionless face and dry, grey eyes greeted one black morning. There was no glow in her eyes. The thousand suns had decided to set together. And I knew, it was all over.
+
+Author's Note: The following is a work of _fiction_. Any resemblance to persons living or dead is _purely_ coincidental.
