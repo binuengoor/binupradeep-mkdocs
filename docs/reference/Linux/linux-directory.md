@@ -1,5 +1,5 @@
 ---
-title: Linux Directory Structure Visualization Tools
+title: Linux Directory Structure Tools
 description: Essential commands for exploring and visualizing directory structures in Linux.
 tags: [linux, command-line, system-admin]
 ---

@@ -1,5 +1,5 @@
 ---
-title: Linux Storage Commands - Check Disk and Directory Space
+title: Linux Storage Check
 description: Quick reference for checking storage space in Linux using df and du commands.
 tags: [linux, command-line, system-admin]
 ---

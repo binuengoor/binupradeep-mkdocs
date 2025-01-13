@@ -1,5 +1,5 @@
 ---
-title: Docker Guide
+title: Docker Quick Reference
 description: Essential Docker commands for managing containers, images, and system resources with detailed explanations
 tags: [docker, containers, devops, cli, container-management, system-administration]
 ---
