@@ -1,5 +1,5 @@
 ---
-title: Dozzle - Docker Log Viewer with Remote Agents
+title: Dozzle Logs
 description: A lightweight, real-time web interface for viewing Docker container logs with optional distributed agent support
 tags: [docker, logs, monitoring, containers]
 ---
