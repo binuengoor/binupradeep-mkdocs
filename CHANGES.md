@@ -16,3 +16,15 @@
 ### Notes
 - Always create .bak.N backup before editing config files
 - Always log changes here before making them
+
+### New Reference Page: Fish Shell Guide
+- Created: `docs/reference/Shell/fish-shell.md`
+- Added comprehensive guide covering:
+  - Installation (macOS, Ubuntu, Fedora)
+  - Configuration (config.fish, web UI)
+  - Common commands (aliases, abbreviations, functions)
+  - Key differences from Bash
+  - Tips & tricks (Starship, auto-cd, wildcards)
+  - Troubleshooting
+- Updated `.pages` to include Shell section under Tech-Reference
+- Committed and pushed to GitHub
