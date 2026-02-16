@@ -2,9 +2,7 @@ nav:
   - Home: index.md
   - Home-Networking: networking
   - Self-Hosting: selfhosted
-  - Tech-Reference:
-      - reference
-      - Shell: reference/Shell
+  - Tech-Reference: reference
   - Projects: myapps
   - Prompt-Engineering: promptengineering
   - Blog: blog
