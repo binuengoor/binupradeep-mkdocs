@@ -5,6 +5,6 @@ nav:
   - Tech-Reference:
       - reference
       - Shell: reference/Shell
-  - My-Apps: myapps
+  - Projects: myapps
   - Prompt-Engineering: promptengineering
   - Blog: blog
