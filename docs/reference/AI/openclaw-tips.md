@@ -62,20 +62,20 @@ Best practices and optimization strategies for your OpenClaw setup.
 ## 🔐 Gateway Security: Traefik Reverse Proxy
 
 ### The Problem
-OpenClaw gateway bound to LAN IP (`ws://10.1.1.122:18789`) triggers security block:
-> SECURITY ERROR: Gateway URL "ws://10.1.1.122:18789" uses plaintext ws:// to a non-loopback address.
+OpenClaw gateway bound to LAN IP (`ws://192.168.x.x:18789`) triggers security block:
+> SECURITY ERROR: Gateway URL "ws://192.168.x.x:18789" uses plaintext ws:// to a non-loopback address.
 
 ### The Solution
 Route through Traefik reverse proxy for `wss://` connections.
 
 ### Traefik Configuration
-Add to `/home/millionmax/containers/traefik/dynamic.yml`:
+Add to your Traefik dynamic config:
 
 ```yaml
 http:
   routers:
     openclaw:
-      rule: "Host(`openclaw.home.askbp.win`)"
+      rule: "Host(`openclaw.yourdomain.com`)"
       service: openclaw
       entryPoints:
         - websecure
@@ -85,18 +85,18 @@ http:
     openclaw:
       loadBalancer:
         servers:
-          - url: "http://10.1.1.122:18789"
+          - url: "http://GATEWAY_IP:18789"
   middlewares:
     openclaw-headers:
       headers:
         customRequestHeaders:
           X-Forwarded-Proto: "https"
-          X-Forwarded-Host: "openclaw.home.askbp.win"
+          X-Forwarded-Host: "openclaw.yourdomain.com"
 ```
 
 ### OpenClaw Configuration
 ```bash
-openclaw config set gateway.trustedProxies '["10.1.1.41"]'
+openclaw config set gateway.trustedProxies '["TRAEFIK_IP"]'
 openclaw config set gateway.auth.mode token
 openclaw gateway stop && openclaw gateway start
 ```
@@ -112,9 +112,9 @@ openclaw config set gateway.controlUi.allowInsecureAuth true
 ### Final Settings
 | Setting | Value |
 |---------|-------|
-| Gateway URL | wss://openclaw.home.askbp.win |
+| Gateway URL | wss://openclaw.yourdomain.com |
 | gateway.bind | lan |
-| gateway.trustedProxies | ["10.1.1.41"] |
+| gateway.trustedProxies | ["TRAEFIK_IP"] |
 | gateway.controlUi.allowInsecureAuth | true |
 
 ### Key Lessons
