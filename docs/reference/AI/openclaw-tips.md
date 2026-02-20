@@ -59,6 +59,69 @@ Best practices and optimization strategies for your OpenClaw setup.
 ### Security
 - **Prompt Guard**: Protect against prompt injection
 
+## 🔐 Gateway Security: Traefik Reverse Proxy
+
+### The Problem
+OpenClaw gateway bound to LAN IP (`ws://10.1.1.122:18789`) triggers security block:
+> SECURITY ERROR: Gateway URL "ws://10.1.1.122:18789" uses plaintext ws:// to a non-loopback address.
+
+### The Solution
+Route through Traefik reverse proxy for `wss://` connections.
+
+### Traefik Configuration
+Add to `/home/millionmax/containers/traefik/dynamic.yml`:
+
+```yaml
+http:
+  routers:
+    openclaw:
+      rule: "Host(`openclaw.home.askbp.win`)"
+      service: openclaw
+      entryPoints:
+        - websecure
+      middlewares:
+        - openclaw-headers
+  services:
+    openclaw:
+      loadBalancer:
+        servers:
+          - url: "http://10.1.1.122:18789"
+  middlewares:
+    openclaw-headers:
+      headers:
+        customRequestHeaders:
+          X-Forwarded-Proto: "https"
+          X-Forwarded-Host: "openclaw.home.askbp.win"
+```
+
+### OpenClaw Configuration
+```bash
+openclaw config set gateway.trustedProxies '["10.1.1.41"]'
+openclaw config set gateway.auth.mode token
+openclaw gateway stop && openclaw gateway start
+```
+
+### The 1008 "Pairing Required" Error
+Browser WebSocket limitation — browsers can't pass auth tokens during WS handshake.
+
+**Fix:**
+```bash
+openclaw config set gateway.controlUi.allowInsecureAuth true
+```
+
+### Final Settings
+| Setting | Value |
+|---------|-------|
+| Gateway URL | wss://openclaw.home.askbp.win |
+| gateway.bind | lan |
+| gateway.trustedProxies | ["10.1.1.41"] |
+| gateway.controlUi.allowInsecureAuth | true |
+
+### Key Lessons
+1. Never add duplicate `services:` block in Traefik YAML
+2. `serversTransport: insecure-transport` is only for HTTPS backends
+3. Setting customRequestHeader to `""` preserves the client's header
+
 ## ⏰ Proactivity
 
 ### Heartbeat
@@ -117,4 +180,4 @@ Best practices and optimization strategies for your OpenClaw setup.
 
 ---
 
-*Last updated: 2026-02-17*
+*Last updated: 2026-02-20*
