@@ -93,6 +93,29 @@ yt-dlp --write-thumbnail URL
 yt-dlp --write-info-json URL
 ```
 
+## Subtitle & Transcript Downloads
+
+```bash
+# Download subtitles only (skip video) - clean timestamped SRT format
+yt-dlp --write-sub --write-auto-sub --skip-download --convert-subs srt --sub-langs en "VIDEO_URL"
+```
+
+**What this does:**
+- `--write-sub` — Downloads available manual subtitles
+- `--write-auto-sub` — Downloads auto-generated subtitles as fallback
+- `--skip-download` — Only downloads subtitles, not the video
+- `--convert-subs srt` — Converts to standard SRT format
+- `--sub-langs en` — Specifies English (change to `all` for all languages)
+
+**Best Practice: Manual + Auto Combined**
+If you want manual subs with auto-generated as fallback in one command:
+
+```bash
+yt-dlp --write-sub --write-auto-sub --skip-download --convert-subs srt --sub-langs en -o "%(title)s" "VIDEO_URL"
+```
+
+yt-dlp will prefer manual subtitles if they exist, and fall back to auto-generated if no manual subs are available.
+
 ## Additional Features
 
 - **Rate Limiting**: Control download speed
