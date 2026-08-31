@@ -14,9 +14,9 @@ hide:
 
 I work with companies to conceptualize, design, and create ==**inclusive, effective, and impactful**== digital products. I am passionate about creating products that are not only visually appealing but also user-friendly and accessible.
 
-[:material-rocket-launch: Explore Projects](myapps/){ .md-button .md-button--primary }
-[:material-book-open-page-variant: Tech Reference](reference/){ .md-button }
-[:material-post-outline: Read Blog](blog/){ .md-button }
+[:material-rocket-launch: Explore Projects](myapps/audio-analysis-studio.md){ .md-button .md-button--primary }
+[:material-book-open-page-variant: Tech Reference](reference/Shell/fish-shell.md){ .md-button }
+[:material-post-outline: Read Blog](blog/index.md){ .md-button }
 
 ---
 ## About Me
@@ -86,10 +86,10 @@ I work with companies to conceptualize, design, and create ==**inclusive, effect
 ## Explore the Knowledge Base
 
 <div class="grid cards" markdown>
--   :material-apps: __[Projects](myapps/)__ — Self-developed web apps & containerized tools
--   :material-lan: __[Home Networking](networking/)__ — OpenWrt VLANs, Samba/NFS, and secure storage
--   :material-code-braces: __[Tech Reference](reference/)__ — High-density cheat sheets for Linux, Git, ZFS, and Fish shell
--   :material-compass: __[Blog & Northstar](blog/)__ — Personal essays, mindset reflections, and travelogues
+-   :material-apps: __[Projects](myapps/audio-analysis-studio.md)__ — Self-developed web apps & containerized tools
+-   :material-lan: __[Home Networking](networking/openwrt_vlan.md)__ — OpenWrt VLANs, Samba/NFS, and secure storage
+-   :material-code-braces: __[Tech Reference](reference/Shell/fish-shell.md)__ — High-density cheat sheets for Linux, Git, ZFS, and Fish shell
+-   :material-compass: __[Blog & Northstar](blog/index.md)__ — Personal essays, mindset reflections, and travelogues
 </div>
 
 ---
