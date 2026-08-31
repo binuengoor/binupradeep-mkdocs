@@ -1,209 +1,209 @@
 ---
-title: Fish Shell Guide
-description: A user-friendly command line shell with smart features like syntax highlighting, autosuggestions, and web-based configuration
-tags: [fish, shell, terminal, command-line, linux, mac]
+title: Fish Shell & Modern CLI Reference Guide
+description: A comprehensive reference guide for Fish Shell, modern Rust/Go command-line utilities, interactive FZF keybindings, Zoxide directory jumping, and custom productivity aliases.
+tags: [fish, terminal, shell, cli, fzf, zoxide, starship, neovim, productivity, macos, linux]
 ---
 
-# Fish Shell Guide
+# Fish Shell & Modern CLI Reference Guide
 
-Fish (Friendly Interactive Shell) is a smart and user-friendly command line shell for Linux, macOS, and other systems. Unlike bash or zsh, Fish is designed to be interactive out of the box with no configuration required.
+The **Fish Shell (Friendly Interactive Shell)** paired with modern CLI utilities (written in Rust and Go) transforms the terminal from an arcane prompt into a responsive, color-coded, and highly interactive productivity engine.
 
-## Key Features
+This reference guide covers the modern command-line tools, shell keybindings, fuzzy search shortcuts, navigation helpers, and custom automation functions configured in this setup.
 
-**Out of the Box**
-- Syntax highlighting
-- Autosuggestions based on history
-- Tab completions
-- Web-based configuration tool
+---
 
-**Modern Design**
-- No need to learn shell scripting for basic configuration
-- Sane defaults
-- Colorful prompt
+## 1. Modern CLI Tools Cheat Sheet
 
-## Installation
+Traditional Unix tools (`ls`, `cat`, `grep`, `find`, `top`, `ps`, `df`, `du`) have modern replacements with syntax highlighting, Git integration, and intuitive visual formatting.
 
-**macOS**
-```bash
-brew install fish
-```
+| Tool | Replaces | Primary Aliases | What It Does & When to Use It |
+| :--- | :--- | :--- | :--- |
+| **[eza](https://github.com/eza-community/eza)** | `ls`, `tree` | `ls`, `ll`, `la`, `lt`, `tree` | File listing with icons, color-coded permissions, Git status badges, and tree hierarchies. |
+| **[bat](https://github.com/sharkdp/bat)** | `cat`, `less` | `cat`, `catp`, `batl` | File viewer with automatic syntax highlighting, line numbers, Git modifications, and paging. |
+| **[ripgrep](https://github.com/BurntSushi/ripgrep)** | `grep` | `rg`, `rgi` | Ultra-fast recursive code search. Respects `.gitignore` by default. |
+| **[fd](https://github.com/sharkdp/fd)** | `find` | `fd` | Intuitive, colorized file search with regex and fuzzy pattern matching. |
+| **[duf](https://github.com/muesli/duf)** | `df` | `df` | Clean, visual disk space and filesystem usage table. |
+| **[dust](https://github.com/bootandy/dust)** | `du` | `du` | Instant graphical tree showing which folders consume the most disk space. |
+| **[btop](https://github.com/aristocratos/btop)** | `top`, `htop` | `top` | Interactive visual dashboard monitoring CPU, memory, disks, network, and processes. |
+| **[procs](https://github.com/dalance/procs)** | `ps` | `ps` | Human-readable process viewer with colored PID, memory, user, and TCP port columns. |
+| **[delta](https://github.com/dandavison/delta)** | `diff` | `diff` | Side-by-side syntax-highlighted git diffs with intra-line word-level change highlights. |
+| **[zoxide](https://github.com/ajeetdsouza/zoxide)** | `cd` | `z`, `zi` | Smarter `cd` that learns your most frequent directories for instant fuzzy jumping. |
+| **[fzf](https://github.com/junegunn/fzf)** | — | `Ctrl+P`, `Ctrl+F` | General-purpose interactive fuzzy finder for files, history, git commits, and processes. |
 
-**Ubuntu/Debian**
-```bash
-sudo apt update
-sudo apt install fish
-```
+---
 
-**Fedora**
-```bash
-sudo dnf install fish
-```
+## 2. Directory Navigation & Smart Jumping
 
-**Set as default shell**
-```bash
-chsh -s /usr/bin/fish
-```
-
-## Configuration
-
-### Config File Location
-- User config: `~/.config/fish/config.fish`
-
-### Using the Web UI
-```bash
-fish_config
-```
-This opens a browser-based configuration tool.
-
-### Set Theme
-```bash
-fish_config theme choose "Dracula"
-```
-
-## Common Commands
-
-### Aliases (similar to bash)
-```bash
-# Create an alias
-alias ll 'ls -lah'
-
-# Make it persist (add to config.fish)
-alias ll 'ls -lah'
-# Then save:
-funcsave ll
-```
-
-### Abbreviations (recommended over aliases)
-```bash
-# Abbreviations expand after pressing space
-abbr --add g git
-abbr --add gs git status
-abbr --add ga git add
-abbr --add gc 'git commit -m'
-abbr --add gp git push
-
-# Make persistent
-funcsave g
-```
-
-### Functions
-```bash
-# Create a function
-function ll
-    ls -lah $argv
-end
-
-# Save for future sessions
-funcsave ll
-```
-
-## Useful Functions
-
-### Git branch in prompt
-```bash
-function fish_git_prompt
-    if git rev-parse --git-dir >/dev/null 2>&1
-        set -l branch (git symbolic-ref --short HEAD 2>/dev/null; or git rev-parse --short HEAD 2>/dev/null)
-        if test "$branch"
-            echo " ($branch)"
-        end
-    end
-end
-
-# Add to prompt in config.fish
-set -g fish_prompt_dirty " ✗"
-set -g fish_prompt_clean " ✓"
-```
-
-### Quick directory navigation
-```bash
-# cd to directory and list contents
-function cl
-    cd $argv; and ls
-end
-```
-
-## Key Differences from Bash
-
-| Feature | Bash | Fish |
-|---------|------|------|
-| Variables | `VAR=value` | `set VAR value` |
-| Export | `export VAR` | `set -x VAR` |
-| Arrays | `arr=(one two)` | `set arr one two` |
-| Conditionals | `if [ $x = "y" ]` | `if test $x = "y"` |
-| Loops | `for i in *.txt` | `for i in *.txt` |
-| Functions | `function name() {}` | `function name\nend` |
-
-## Environment Variables
+### Smart CD with Zoxide
+Instead of typing lengthy relative paths (`cd ../../../Documents/Git/project`), **zoxide** tracks your history and lets you jump directly by typing partial folder names:
 
 ```bash
-# Set (temporary)
-set PATH $PATH /usr/local/bin
+# Jump to the highest-scoring directory matching "studio"
+z studio
 
-# Set persistently (add to config.fish)
-set -gx EDITOR vim
+# Open an interactive fzf picker of recent matching directories
+zi audio
 
-# Unset
-set -e VARIABLE_NAME
+# Quick jump to home
+~h
+
+# Go back to the previous directory (cd -)
+cdd
 ```
 
-## Tips & Tricks
-
-### Disable greeting
+### Quick Traverse Shortcuts
 ```bash
-set fish_greeting ""
+..      # cd ..      (up 1 level)
+...     # cd ../..   (up 2 levels)
+....    # cd ../../.. (up 3 levels)
 ```
 
-### Use Starship prompt
+### Make & Enter Directory (`mkcd`)
+Creates the entire directory path (including nested parent folders) and immediately enters it:
 ```bash
-# Install starship
-brew install starship
-
-# Add to config.fish
-starship init fish | source
+mkcd my-new-project/src/components
 ```
 
-### Search history
+---
+
+## 3. Interactive FZF Keybindings & Search
+
+FZF is preconfigured with TokyoNight theme styling, rounded borders, and real-time `bat` preview windows.
+
+| Keybinding | Action | Description |
+| :--- | :--- | :--- |
+| <kbd>Ctrl</kbd> + <kbd>P</kbd> | **Fuzzy History** | Search through full command history; press `Enter` to run or `Tab` to edit. |
+| <kbd>Ctrl</kbd> + <kbd>F</kbd> | **Fuzzy File Search** | Interactive file/folder picker with live `bat` syntax preview. |
+| <kbd>Ctrl</kbd> + <kbd>G</kbd> | **Git Log Search** | Interactive Git commit history browser with commit diff previews. |
+| <kbd>Ctrl</kbd> + <kbd>S</kbd> | **Git Status Search** | Fuzzy-pick modified files from `git status` with staged/unstaged diffs. |
+| <kbd>Ctrl</kbd> + <kbd>X</kbd> | **Fuzzy Process Killer** | Select running processes and terminate them interactively (`fkill`). |
+| <kbd>Ctrl</kbd> + <kbd>Z</kbd> | **Interactive Zoxide** | Trigger `zi` directory jumper modal. |
+| <kbd>Ctrl</kbd> + <kbd>I</kbd> | **Accept Autosuggestion** | Complete Fish's gray inline autocomplete suggestion. |
+| <kbd>Ctrl</kbd> + <kbd>E</kbd> | **Edit in Neovim** | Open current command buffer in Neovim (`$EDITOR`) for complex editing. |
+| <kbd>Ctrl</kbd> + <kbd>L</kbd> | **Clear Screen** | Clears screen while preserving terminal scrollback history. |
+| <kbd>Ctrl</kbd> + <kbd>/</kbd> | **Toggle Preview** | Toggle FZF preview pane on or off. |
+| <kbd>Ctrl</kbd> + <kbd>Y</kbd> | **Copy to Clipboard** | Copy selected FZF line to macOS clipboard (`pbcopy`). |
+
+---
+
+## 4. Git Productivity Shortcuts
+
+Common multi-word Git commands are aliased into fast two- and three-letter shortcuts:
+
 ```bash
-# Up/Down arrows search history
-# Or use Ctrl+R for reverse search
+# Status & Staging
+gs        # git status -sb (compact, branch-aware status)
+ga <file> # git add <file>
+ga .      # git add all
+
+# Committing
+gc        # git commit -v (opens Neovim with full diff context)
+gcm "msg" # git commit -m "msg"
+
+# Branching & Switching
+gb        # git branch (list local)
+gba       # git branch -a (list local + remote)
+gco <br>  # git checkout <branch>
+gcb <br>  # git checkout -b <new-branch>
+gcof      # Fuzzy checkout: interactive fzf branch picker
+
+# Syncing & History
+gp        # git push
+gpl       # git pull
+gl        # git log --oneline -20 (compact last 20 commits)
+gla       # git log --oneline --all -30 (all branches graph)
+gd        # git diff (unstaged changes via delta)
+gds       # git diff --staged (staged changes via delta)
+gr        # git remote -v
+gf        # git fetch
+gm <br>   # git merge <branch>
+grb <br>  # git rebase <branch>
+
+# Stashing
+gst       # git stash
+gstp      # git stash pop
+
+# GitHub PR Automation
+ghpr      # Opens GitHub PR comparison in your browser for current branch
 ```
 
-### Auto-cd (no need to type cd)
+---
+
+## 5. System, Network & Helper Functions
+
+### System & Diagnostic Shortcuts
 ```bash
-# Fish auto-cds to directories just by typing the path
-/home/user/projects
-# Automatically cd into it
+h              # View shell history
+hgrep <term>   # Search command history using ripgrep (e.g. hgrep docker)
+c              # Clear terminal screen
+reload         # Reload Fish configuration instantly (exec fish)
+path           # Prints system $PATH line-by-line for readable debugging
+ports          # List all active listening TCP/UDP ports (lsof -i -P -n)
+myip           # Display your current external/public IP address
+weather        # Quick ASCII 3-day weather forecast via wttr.in
 ```
 
-### Wildcards
+### Universal Archive Extractor (`extract`)
+Extracts any supported compressed archive format without remembering flags:
 ```bash
-# List all files
-ls **/*.txt
-# Recursive search
+extract backup.tar.gz
+extract dataset.zip
+extract archive.7z
+extract package.tar.bz2
 ```
 
-## Troubleshooting
-
-**Fish not starting**
+### Tmux Session Management
 ```bash
-# Check for syntax errors in config.fish
-fish -n
+tm <name>      # Create a new tmux session or attach if it already exists
+tms            # Interactive fzf switcher between active tmux sessions
 ```
 
-**List all functions**
-```bash```
-
-**Disable
-functions
- bracketed paste mode**
+### Fuzzy Process Killer (`fkill`)
 ```bash
-set fish_bracketed_paste disabled
+fkill          # Interactive fzf list to kill a rogue process (sends SIGKILL)
+fkill 15       # Send graceful SIGTERM (15) instead of SIGKILL (9)
 ```
 
-## Additional Resources
+---
 
-- [Official Documentation](https://fishshell.com/docs/current/)
-- [Fish Tutorial](https://fishshell.com/docs/current/tutorial.html)
-- [Awesome Fish](https://github.com/jorgebucaran/awesome-fish)
-- [Fish Gallery](https://github.com/fish-shell/fish-shell/wiki/Gallery)
+## 6. OpenCode AI Agent Shortcuts
+
+Direct CLI triggers for specialized OpenCode task agents:
+
+```bash
+ocf <query>      # opencode --agent finance
+och <query>      # opencode --agent health
+ochome <query>   # opencode --agent home
+ocl <query>      # opencode --agent learning
+oclog <query>    # opencode --agent logistics
+ochob <query>    # opencode --agent hobbies
+oco <query>      # opencode --agent cooking
+oclib <query>    # opencode --agent librarian
+occrit <query>   # opencode --agent brutal-critic
+ocdist <query>   # opencode --agent distiller
+ocsetup <query>  # opencode --agent project-setup
+
+# Scaffold new project workspace in Obsidian vault
+ocl-new "Market Analysis"
+# Creates: ~/Documents/Obsidian/beep-notes/5. Opencode/Inbox/YYYY-MM-DD_Market-Analysis
+```
+
+---
+
+## 7. Configuration & Plugins Architecture
+
+- **Primary Config File**: `~/.config/fish/config.fish`
+- **Plugin Manager ([Fisher](https://github.com/jorgebucaran/fisher))**:
+  ```bash
+  fisher install jorgebucaran/fisher    # Package manager
+  fisher install patrickf1/fzf.fish     # Interactive FZF integration
+  fisher install jethrokuan/z           # Zoxide / directory tracking
+  fisher list                           # List installed plugins
+  fisher update                         # Update all plugins
+  ```
+- **Prompt**: [Starship Prompt](https://starship.rs/) (`~/.config/starship.toml`).
+- **Vi Mode**: Enabled by default (`fish_vi_key_bindings`). Press <kbd>Esc</kbd> for Normal mode and <kbd>i</kbd> for Insert mode.
+- **Environment & Toolchains**:
+  - `uv` (fast Python toolchain) sourced via `~/.local/bin/env.fish`.
+  - `OrbStack` Docker engine integration.
+  - `LM Studio CLI` & `Antigravity` bin paths pre-configured in `$PATH`.

@@ -48,13 +48,14 @@ binupradeep-mkdocs/
     ├── networking/         # Network guides (OpenWrt, VLANs, Samba/NFS)
     ├── selfhosted/         # Docker Compose self-hosted service guides
     │   └── Docker Compose/
-    ├── reference/          # Quick reference cheat sheets (Linux, Git, Mac, Python, Media, Terminal)
+    ├── reference/          # Quick reference cheat sheets (AI, Linux, Git, Mac, Python, Media, Shell)
+    │   ├── AI/
     │   ├── Git/
     │   ├── Linux/
     │   ├── Mac/
     │   ├── Media/
     │   ├── Python/
-    │   └── Terminal/
+    │   └── Shell/
     ├── myapps/             # Custom applications built by Binu (OpenSpeech, Image Optimizer, etc.)
     ├── promptengineering/  # AI prompt engineering guides and templates
     └── blog/               # Material Blog plugin directory

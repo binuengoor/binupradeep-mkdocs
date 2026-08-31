@@ -46,6 +46,9 @@ docs/
 │       ├── nexterm.md
 │       └── tubearchivist.md
 ├── reference/
+│   ├── AI/
+│   │   ├── .pages
+│   │   └── openclaw-tips.md
 │   ├── Git/
 │   │   └── git-guide.md
 │   ├── Linux/
@@ -61,8 +64,11 @@ docs/
 │   ├── Python/
 │   │   ├── install_python.md
 │   │   └── python_basics.md
-│   └── Terminal/
-│       └── fish-terminal.md
+│   └── Shell/
+│       ├── .pages
+│       ├── bash-shell.md
+│       ├── fish-shell.md
+│       └── zsh-shell.md
 ├── myapps/
 │   ├── audio-analysis-studio.md
 │   ├── image-optimizer-for-web.md
