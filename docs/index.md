@@ -14,9 +14,13 @@ hide:
 
 I work with companies to conceptualize, design, and create ==**inclusive, effective, and impactful**== digital products. I am passionate about creating products that are not only visually appealing but also user-friendly and accessible.
 
+[:material-rocket-launch: Explore Projects](myapps/){ .md-button .md-button--primary }
+[:material-book-open-page-variant: Tech Reference](reference/){ .md-button }
+[:material-post-outline: Read Blog](blog/){ .md-button }
+
 ---
 ## About Me
-![Hero Image](assets/landing/binu.png){ align=right width="150px" }
+![Hero Image](assets/landing/binu.png){ align=right width="150px" class="profile-avatar" }
 
 - I am a Business Analyst/Project Management professional living in Philadelphia, PA, with over a decade of experience in healthcare and retail domains.
 - I focus on designing applications that align with customer goals by using industry-leading tools and technologies for UI design, data analysis, and visualization.
@@ -26,23 +30,66 @@ I work with companies to conceptualize, design, and create ==**inclusive, effect
 
 ---
 
-## Tools and Technologies
-
-These are the tools and technologies I work with:
+## Featured Projects
 
 <div class="grid cards" markdown>
+
+-   :material-waveform: __[Audio Analysis Studio](myapps/audio-analysis-studio.md)__
+    ---
+    Distributed multi-engine audio intelligence stack for BPM tracking, Camelot keys, chords, and LUFS mastering inspection.
+
+-   :material-timer-outline: __[Interval Timer App](myapps/interval-timer-app.md)__
+    ---
+    Modern interval timer tailored for physical therapy, mobility routines, Edge-TTS audio prompts, voice recognition, and PiP mode.
+
+-   :material-text-to-speech: __[OpenSpeech](myapps/openspeech.md)__
+    ---
+    Self-hosted text-to-speech converter using OpenAI TTS with long-form audio chunk stitching and multi-format export.
+
+-   :material-image-size-select-actual: __[Image Optimizer for Web](myapps/image-optimizer-for-web.md)__
+    ---
+    High-efficiency batch WebP converter with drag-and-drop compression presets and real-time size reduction metrics.
+
+</div>
+
+---
+
+## Tools & Technologies
+
+### Product Design, Data & Analytics
+<div class="grid cards" markdown>
 - :simple-postgresql: __SQL__ for database management
-- :simple-python: __Python__ for data analysis
-- :fontawesome-brands-figma: __Figma__ for UI design
+- :simple-python: __Python__ for data analysis & scripting
+- :fontawesome-brands-figma: __Figma__ for UI/UX product design
 - :material-chart-scatter-plot: __Tableau__ for data visualization
-- :material-microsoft: __Power BI__ for data analysis
+- :material-microsoft: __Power BI__ for business intelligence
 - :material-palette: __Adobe Creative Cloud__ for graphic design
-- :fontawesome-brands-github: __GitHub__ for version control
-- :fontawesome-brands-docker: __Docker__ for containerization
-- :simple-proxmox: __Proxmox__ for virtualization
-- :simple-googlegemini: __Google Antigravity__ for autonomous AI development
-- :material-robot: __OpenClaw__ for AI agent orchestration
-- :material-feather: __Hermes Agent__ for intelligent agent workflows
+</div>
+
+### Systems, Containers & Homelab
+<div class="grid cards" markdown>
+- :fontawesome-brands-github: __GitHub__ for version control & CI/CD
+- :fontawesome-brands-docker: __Docker__ for containerized deployments
+- :simple-proxmox: __Proxmox VE__ for virtualization & hypervisors
+- :material-lan: __OpenWrt & VLANs__ for network segmentation
+</div>
+
+### AI & Autonomous Agents
+<div class="grid cards" markdown>
+- :simple-googlegemini: __Google Antigravity__ for autonomous multi-agent development
+- :material-robot: __OpenClaw__ for AI agent orchestration & workflows
+- :material-feather: __Hermes Agent__ for intelligent reasoning & task execution
+</div>
+
+---
+
+## Explore the Knowledge Base
+
+<div class="grid cards" markdown>
+-   :material-apps: __[Projects](myapps/)__ — Self-developed web apps & containerized tools
+-   :material-lan: __[Home Networking](networking/)__ — OpenWrt VLANs, Samba/NFS, and secure storage
+-   :material-code-braces: __[Tech Reference](reference/)__ — High-density cheat sheets for Linux, Git, ZFS, and Fish shell
+-   :material-compass: __[Blog & Northstar](blog/)__ — Personal essays, mindset reflections, and travelogues
 </div>
 
 ---
@@ -66,7 +113,7 @@ You can find me on:
 
 - :fontawesome-brands-linkedin: [LinkedIn](https://www.linkedin.com/in/binuepradeep/)
 - :fontawesome-brands-github: [GitHub](https://www.github.com/binuengoor)
-- :material-email-edit: [Email](mailto:mailto:contact@binupradeep.com)
+- :material-email-edit: [Email](mailto:contact@binupradeep.com)
 
 ---
 ![Binu Pradeep Logo](assets/logo.svg){ width="60px" }
