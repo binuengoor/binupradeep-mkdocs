@@ -14,10 +14,6 @@ hide:
 
 I work with companies to conceptualize, design, and create ==**inclusive, effective, and impactful**== digital products. I am passionate about creating products that are not only visually appealing but also user-friendly and accessible.
 
-[:material-rocket-launch: Explore Projects](myapps/audio-analysis-studio.md){ .md-button .md-button--primary }
-[:material-book-open-page-variant: Tech Reference](reference/Shell/fish-shell.md){ .md-button }
-[:material-post-outline: Read Blog](blog/index.md){ .md-button }
-
 ---
 ## About Me
 ![Hero Image](assets/landing/binu.png){ align=right width="150px" class="profile-avatar" }
@@ -41,10 +37,6 @@ I work with companies to conceptualize, design, and create ==**inclusive, effect
 -   :material-timer-outline: __[Interval Timer App](myapps/interval-timer-app.md)__
     ---
     Modern interval timer tailored for physical therapy, mobility routines, Edge-TTS audio prompts, voice recognition, and PiP mode.
-
--   :material-text-to-speech: __[OpenSpeech](myapps/openspeech.md)__
-    ---
-    Self-hosted text-to-speech converter using OpenAI TTS with long-form audio chunk stitching and multi-format export.
 
 -   :material-image-size-select-actual: __[Image Optimizer for Web](myapps/image-optimizer-for-web.md)__
     ---
