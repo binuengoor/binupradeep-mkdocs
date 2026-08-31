@@ -36,7 +36,7 @@ These are the tools and technologies I work with:
 - :fontawesome-brands-figma: __Figma__ for UI design
 - :material-chart-scatter-plot: __Tableau__ for data visualization
 - :material-microsoft: __Power BI__ for data analysis
-- :simple-adobe: __Adobe Creative Cloud__ for graphic design
+- :material-palette: __Adobe Creative Cloud__ for graphic design
 - :fontawesome-brands-github: __GitHub__ for version control
 - :fontawesome-brands-docker: __Docker__ for containerization
 - :simple-proxmox: __Proxmox__ for virtualization
