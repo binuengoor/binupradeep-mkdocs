@@ -33,13 +33,16 @@ These are the tools and technologies I work with:
 <div class="grid cards" markdown>
 - :simple-postgresql: __SQL__ for database management
 - :simple-python: __Python__ for data analysis
-- :fontawesome-brands-figma:: __Figma__ for UI design
-- :simple-tableau: __Tableau__ for data visualization
+- :fontawesome-brands-figma: __Figma__ for UI design
+- :material-chart-scatter-plot: __Tableau__ for data visualization
 - :material-microsoft: __Power BI__ for data analysis
-- :simple-adobecreativecloud: __Adobe Creative Cloud__ for graphic design
+- :simple-adobe: __Adobe Creative Cloud__ for graphic design
 - :fontawesome-brands-github: __GitHub__ for version control
 - :fontawesome-brands-docker: __Docker__ for containerization
 - :simple-proxmox: __Proxmox__ for virtualization
+- :simple-googlegemini: __Google Antigravity__ for autonomous AI development
+- :material-robot: __OpenClaw__ for AI agent orchestration
+- :material-feather: __Hermes Agent__ for intelligent agent workflows
 </div>
 
 ---
