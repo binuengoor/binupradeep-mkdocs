@@ -75,17 +75,6 @@ I work with companies to conceptualize, design, and create ==**inclusive, effect
 
 ---
 
-## Explore the Knowledge Base
-
-<div class="grid cards" markdown>
--   :material-apps: __[Projects](myapps/audio-analysis-studio.md)__ — Self-developed web apps & containerized tools
--   :material-lan: __[Home Networking](networking/openwrt_vlan.md)__ — OpenWrt VLANs, Samba/NFS, and secure storage
--   :material-code-braces: __[Tech Reference](reference/Shell/fish-shell.md)__ — High-density cheat sheets for Linux, Git, ZFS, and Fish shell
--   :material-compass: __[Blog & Northstar](blog/index.md)__ — Personal essays, mindset reflections, and travelogues
-</div>
-
----
-
 ## Testimonials
 
 > "Binu's excellence at his job can be described in two ways: tenacity and passion. Few people commit so deeply to their work as Binu."  
