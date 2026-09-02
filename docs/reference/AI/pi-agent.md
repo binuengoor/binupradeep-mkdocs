@@ -34,15 +34,18 @@ graph TD
 
 ---
 
-## 🎨 Aesthetic & TUI Configuration
+## 🎨 Aesthetic & Visual Distinction
 
-Pi has been styled with a custom **Catppuccin Mocha** palette (`~/.pi/agent/themes/catppuccin-mocha.json`), aligning with cmux, Ghostty, Starship, and Fish syntax coloring.
+To ensure you can instantly tell whether you are inside the active **Pi Agent** session or your regular shell, Pi is styled with the vibrant **Dracula** theme from the community theme catalog (rather than blending indistinguishably with cmux's background):
 
 ### Settings Configuration (`~/.pi/agent/settings.json`)
 
 ```json
 {
-  "theme": "catppuccin-mocha",
+  "theme": "dracula",
+  "packages": [
+    "git:https://github.com/hasit/pi-community-themes"
+  ],
   "defaultProvider": "litellm",
   "defaultModel": "smart",
   "defaultThinkingLevel": "medium",
@@ -97,7 +100,7 @@ Type `/` followed by the template name in the Pi editor for instant workflows:
 | **`/review`** | `review.md` | Inspects recent changes (`git diff`) and summarizes quality and safety in bullet points. |
 | **`/doc`** | `doc.md` | Generates structured Markdown documentation or Obsidian notes. |
 | **`/commit`** | `commit.md` | Analyzes changes and drafts conventional Git commit messages. |
-| **`/copy`** | `clipboard.ts` | Copies the last agent response or code block directly to the macOS clipboard. |
+| **`/copy`** | Built-in | Native Pi command: copies the last assistant message directly to the clipboard. |
 | **`/litellm`** | `litellm-autodiscover.ts` | Discovers and refreshes all active models from your LiteLLM server on the fly. |
 | **`/searchproxy`** | `searchproxy.ts` | Checks SearchProxy latency, connection status, and active endpoint. |
 
@@ -140,8 +143,7 @@ Equips Pi with live web search and deep research tools:
 - Offers an instant **"Restore code state?"** prompt if an experimental edit didn't work out.
 
 ### 6. macOS Clipboard Integration (`clipboard.ts`)
-- Provides AI tools `copy_to_clipboard` and `read_clipboard`.
-- Adds the `/copy` slash command to grab responses without manual mouse selection.
+- Provides AI tools `copy_to_clipboard` and `read_clipboard` so Pi can read what you've copied or copy code snippets directly to your system clipboard on request.
 
 ### 7. Non-Coder Persona (`non-coder-persona.ts`)
 - Enforces plain-English explanations without condescending tech jargon.
