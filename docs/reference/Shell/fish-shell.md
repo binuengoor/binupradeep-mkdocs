@@ -1,7 +1,7 @@
 ---
 title: Fish Shell & Modern CLI Reference Guide
 description: A comprehensive reference guide for Fish Shell, modern Rust/Go command-line utilities, interactive FZF keybindings, Zoxide directory jumping, and custom productivity aliases.
-tags: [fish, terminal, shell, cli, fzf, zoxide, starship, neovim, productivity, macos, linux]
+tags: [fish, terminal, shell, cli, fzf, zoxide, starship, nano, yazi, cmux, productivity, macos]
 ---
 
 # Fish Shell & Modern CLI Reference Guide
@@ -14,12 +14,15 @@ This reference guide covers the modern command-line tools, shell keybindings, fu
 
 ## 1. Modern CLI Tools Cheat Sheet
 
-Traditional Unix tools (`ls`, `cat`, `grep`, `find`, `top`, `ps`, `df`, `du`) have modern replacements with syntax highlighting, Git integration, and intuitive visual formatting.
+Traditional Unix tools (`ls`, `cat`, `grep`, `find`, `top`, `ps`, `df`, `du`, `rm`) have modern replacements with syntax highlighting, Git integration, safe deletion, and intuitive visual formatting.
 
 | Tool | Replaces | Primary Aliases | What It Does & When to Use It |
 | :--- | :--- | :--- | :--- |
 | **[eza](https://github.com/eza-community/eza)** | `ls`, `tree` | `ls`, `ll`, `la`, `lt`, `tree` | File listing with icons, color-coded permissions, Git status badges, and tree hierarchies. |
-| **[bat](https://github.com/sharkdp/bat)** | `cat`, `less` | `cat`, `catp`, `batl` | File viewer with automatic syntax highlighting, line numbers, Git modifications, and paging. |
+| **[bat](https://github.com/sharkdp/bat)** | `cat`, `less` | `cat`, `catp`, `view`, `page` | Smart file viewer with automatic syntax highlighting, line numbers, and mouse-scrollable pagination. |
+| **[yazi](https://github.com/sxyazi/yazi)** | — | `files`, `fm` | Blazingly fast visual terminal file explorer with arrow navigation and instant file previews. |
+| **[trash](https://github.com/michaellass/trash)** | `rm` | `trash` | Safely moves files to macOS Trash (recoverable from GUI Trash) instead of permanent deletion. |
+| **[nano](https://www.nano-editor.org/)** | `vi`, `nvim` | `edit`, `e` | Friendly, intuitive terminal text editor with an on-screen keyboard shortcut bar. |
 | **[ripgrep](https://github.com/BurntSushi/ripgrep)** | `grep` | `rg`, `rgi` | Ultra-fast recursive code search. Respects `.gitignore` by default. |
 | **[fd](https://github.com/sharkdp/fd)** | `find` | `fd` | Intuitive, colorized file search with regex and fuzzy pattern matching. |
 | **[duf](https://github.com/muesli/duf)** | `df` | `df` | Clean, visual disk space and filesystem usage table. |
@@ -28,7 +31,7 @@ Traditional Unix tools (`ls`, `cat`, `grep`, `find`, `top`, `ps`, `df`, `du`) ha
 | **[procs](https://github.com/dalance/procs)** | `ps` | `ps` | Human-readable process viewer with colored PID, memory, user, and TCP port columns. |
 | **[delta](https://github.com/dandavison/delta)** | `diff` | `diff` | Side-by-side syntax-highlighted git diffs with intra-line word-level change highlights. |
 | **[zoxide](https://github.com/ajeetdsouza/zoxide)** | `cd` | `z`, `zi` | Smarter `cd` that learns your most frequent directories for instant fuzzy jumping. |
-| **[fzf](https://github.com/junegunn/fzf)** | — | `Ctrl+P`, `Ctrl+F` | General-purpose interactive fuzzy finder for files, history, git commits, and processes. |
+| **[fzf](https://github.com/junegunn/fzf)** | — | `Ctrl+P`, `Ctrl+R`, `Ctrl+F` | General-purpose interactive fuzzy finder for files, history, git commits, and processes. |
 
 ---
 
@@ -68,18 +71,18 @@ mkcd my-new-project/src/components
 
 ## 3. Interactive FZF Keybindings & Search
 
-FZF is preconfigured with TokyoNight theme styling, rounded borders, and real-time `bat` preview windows.
+FZF is preconfigured with Catppuccin Mocha theme styling, rounded borders, and real-time `bat` preview windows.
 
 | Keybinding | Action | Description |
 | :--- | :--- | :--- |
-| <kbd>Ctrl</kbd> + <kbd>P</kbd> | **Fuzzy History** | Search through full command history; press `Enter` to run or `Tab` to edit. |
+| <kbd>Ctrl</kbd> + <kbd>P</kbd> / <kbd>Ctrl</kbd> + <kbd>R</kbd> | **Fuzzy History** | Search through full command history; press `Enter` to run or `Tab` to edit. |
 | <kbd>Ctrl</kbd> + <kbd>F</kbd> | **Fuzzy File Search** | Interactive file/folder picker with live `bat` syntax preview. |
 | <kbd>Ctrl</kbd> + <kbd>G</kbd> | **Git Log Search** | Interactive Git commit history browser with commit diff previews. |
 | <kbd>Ctrl</kbd> + <kbd>S</kbd> | **Git Status Search** | Fuzzy-pick modified files from `git status` with staged/unstaged diffs. |
 | <kbd>Ctrl</kbd> + <kbd>X</kbd> | **Fuzzy Process Killer** | Select running processes and terminate them interactively (`fkill`). |
 | <kbd>Ctrl</kbd> + <kbd>Z</kbd> | **Interactive Zoxide** | Trigger `zi` directory jumper modal. |
-| <kbd>Ctrl</kbd> + <kbd>I</kbd> | **Accept Autosuggestion** | Complete Fish's gray inline autocomplete suggestion. |
-| <kbd>Ctrl</kbd> + <kbd>E</kbd> | **Edit in Neovim** | Open current command buffer in Neovim (`$EDITOR`) for complex editing. |
+| <kbd>Right Arrow</kbd> <kbd>→</kbd> | **Accept Autosuggestion** | Complete Fish's subtle inline autocomplete suggestion. |
+| <kbd>Ctrl</kbd> + <kbd>E</kbd> | **Edit in Nano** | Open current command buffer in Nano (`$EDITOR`) with on-screen shortcuts. |
 | <kbd>Ctrl</kbd> + <kbd>L</kbd> | **Clear Screen** | Clears screen while preserving terminal scrollback history. |
 | <kbd>Ctrl</kbd> + <kbd>/</kbd> | **Toggle Preview** | Toggle FZF preview pane on or off. |
 | <kbd>Ctrl</kbd> + <kbd>Y</kbd> | **Copy to Clipboard** | Copy selected FZF line to macOS clipboard (`pbcopy`). |
@@ -97,7 +100,7 @@ ga <file> # git add <file>
 ga .      # git add all
 
 # Committing
-gc        # git commit -v (opens Neovim with full diff context)
+gc        # git commit -v (opens Nano with full diff context)
 gcm "msg" # git commit -m "msg"
 
 # Branching & Switching
@@ -131,16 +134,23 @@ ghpr      # Opens GitHub PR comparison in your browser for current branch
 
 ## 5. System, Network & Helper Functions
 
-### System & Diagnostic Shortcuts
+### Everyday & Beginner-Friendly Shortcuts
 ```bash
+tips           # Visual, color-coded cheatsheet of all essential shortcuts
+files / fm     # Open Yazi visual terminal file manager (arrow keys to browse & preview)
+view <file>    # Open document in paginated reader (trackpad scrollable, 'q' to quit)
+edit <file>    # Open file in friendly Nano editor with shortcut guide
+o              # Instantly open current directory in macOS Finder (open .)
+trash <file>   # Move file safely to macOS Trash (recoverable from GUI Trash)
+copy / paste   # Copy to / paste from macOS system clipboard (pbcopy / pbpaste)
+ip             # Clean dual display of local network IP and public IP
+paths          # Prints system $PATH line-by-line for clean, readable inspection
+reload         # Reload Fish configuration instantly (exec fish)
+ports          # List all active listening TCP/UDP ports (lsof -i -P -n)
+weather        # Quick 1-line weather forecast summary
 h              # View shell history
 hgrep <term>   # Search command history using ripgrep (e.g. hgrep docker)
 c              # Clear terminal screen
-reload         # Reload Fish configuration instantly (exec fish)
-path           # Prints system $PATH line-by-line for readable debugging
-ports          # List all active listening TCP/UDP ports (lsof -i -P -n)
-myip           # Display your current external/public IP address
-weather        # Quick ASCII 3-day weather forecast via wttr.in
 ```
 
 ### Universal Archive Extractor (`extract`)
@@ -201,9 +211,12 @@ ocl-new "Market Analysis"
   fisher list                           # List installed plugins
   fisher update                         # Update all plugins
   ```
-- **Prompt**: [Starship Prompt](https://starship.rs/) (`~/.config/starship.toml`).
-- **Vi Mode**: Enabled by default (`fish_vi_key_bindings`). Press <kbd>Esc</kbd> for Normal mode and <kbd>i</kbd> for Insert mode.
+- **Prompt**: [Starship](https://starship.rs/) configured with Catppuccin Mocha floating capsules (`` / ``), folder badges, and dynamic execution timers (`~/.config/starship.toml`).
+- **Terminal Emulator**: [cmux](https://github.com/manaflow-ai/cmux) (libghostty engine) styled via `~/.config/ghostty/config` with Catppuccin Mocha, 90% background opacity, native macOS background blur, and 16px padding.
+- **Keybindings**: Standard macOS / Emacs bindings (`fish_default_key_bindings`). Familiar arrow key navigation and typing without Vi modal locks or accidental Escape traps.
+- **Default Editor**: Configured to `nano` (`$EDITOR` and `$VISUAL`) with on-screen shortcuts for quick, hassle-free file edits.
 - **Environment & Toolchains**:
+  - `cmux` CLI shims (`/Applications/cmux.app/Contents/Resources/bin`) for live `cmux markdown` previews and `cmux diff` side panels.
   - `uv` (fast Python toolchain) sourced via `~/.local/bin/env.fish`.
   - `OrbStack` Docker engine integration.
   - `LM Studio CLI` & `Antigravity` bin paths pre-configured in `$PATH`.
