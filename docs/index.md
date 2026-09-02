@@ -70,6 +70,7 @@ I work with companies to conceptualize, design, and create ==**inclusive, effect
 <div class="grid cards" markdown>
 - :simple-googlegemini: __Google Antigravity__ for autonomous multi-agent development
 - :material-robot: __OpenClaw__ for AI agent orchestration & workflows
+- :material-code-tags: __[Pi Agent](reference/AI/pi-agent.md)__ for extensible terminal coding & research
 - :material-feather: __Hermes Agent__ for intelligent reasoning & task execution
 </div>
 
