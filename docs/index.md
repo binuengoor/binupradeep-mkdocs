@@ -34,9 +34,9 @@ I work with companies to conceptualize, design, and create ==**inclusive, effect
     ---
     Distributed multi-engine audio intelligence stack for BPM tracking, Camelot keys, chords, and LUFS mastering inspection.
 
--   :material-timer-outline: __[Interval Timer App](myapps/interval-timer-app.md)__
+-   :material-playlist-play: __[Event & Track Manager](myapps/event-track-manager.md)__
     ---
-    Modern interval timer tailored for physical therapy, mobility routines, Edge-TTS audio prompts, voice recognition, and PiP mode.
+    Cloud-native live stage production console with Google Workspace sync, automated audio intake, and real-time audience schedule.
 
 -   :material-image-size-select-actual: __[Image Optimizer for Web](myapps/image-optimizer-for-web.md)__
     ---
