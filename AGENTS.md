@@ -56,7 +56,7 @@ binupradeep-mkdocs/
     │   ├── Media/
     │   ├── Python/
     │   └── Shell/
-    ├── myapps/             # Custom applications built by Binu (OpenSpeech, Image Optimizer, etc.)
+    ├── myapps/             # Custom applications built by Binu (Universal TTS, Universal Reader, Event Track Manager, Audio Analysis Studio, etc.)
     ├── promptengineering/  # AI prompt engineering guides and templates
     └── blog/               # Material Blog plugin directory
         ├── index.md        # Blog main page
@@ -84,7 +84,7 @@ binupradeep-mkdocs/
   5. `## Getting Started` explaining default ports, first-run setup, and usage.
 
 ### C. My Apps (`docs/myapps/*.md`)
-- **Focus**: Applications created and maintained by Binu (OpenSpeech, Image Optimizer for Web, IPTV M3U Sorter, IPTV M3U Validator, Audio Analysis Studio, Interval Timer App).
+- **Focus**: Applications created and maintained by Binu (Universal TTS, Universal Reader, Event Track Manager, Audio Analysis Studio, Interval Timer App, Image Optimizer for Web, IPTV M3U Sorter, IPTV M3U Validator).
 - **Structure**:
   1. H1 title + tagline.
   2. GitHub Repository link + Docker image link (`ghcr.io/binuengoor/...`).

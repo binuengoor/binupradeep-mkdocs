@@ -71,11 +71,13 @@ docs/
 │       └── zsh-shell.md
 ├── myapps/
 │   ├── audio-analysis-studio.md
+│   ├── event-track-manager.md
 │   ├── image-optimizer-for-web.md
 │   ├── interval-timer-app.md
 │   ├── iptv-m3u-sorter.md
 │   ├── iptv-m3u-validator.md
-│   └── openspeech.md
+│   ├── universal-reader.md
+│   └── universal-tts.md
 ├── promptengineering/
 │   └── essential-templates.md
 └── blog/
