@@ -1,0 +1,190 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import '@fontsource-variable/inter';
+import '../styles/home.css';
+import avatar from '../assets/landing/binu.png';
+import logo from '../assets/logo.svg';
+import logoLight from '../assets/logo-dark.svg';
+
+const featured = [
+  { title: 'Audio Analysis Studio', href: '/myapps/audio-analysis-studio/', icon: 'lucide:audio-waveform', text: 'Distributed multi-engine audio intelligence stack for BPM tracking, Camelot keys, chords, and LUFS mastering inspection.' },
+  { title: 'Event & Track Manager', href: '/myapps/event-track-manager/', icon: 'lucide:list-music', text: 'Cloud-native live stage production console with Google Workspace sync, automated audio intake, and real-time audience schedule.' },
+  { title: 'Universal TTS Gateway', href: '/myapps/universal-tts/', icon: 'lucide:mic', text: 'OpenAI-compatible text-to-speech gateway with Edge-TTS, Piper and Kokoro engines and an in-memory LRU cache.' },
+  { title: 'Image Optimizer for Web', href: '/myapps/image-optimizer-for-web/', icon: 'lucide:image-down', text: 'High-efficiency batch WebP converter with drag-and-drop compression presets and real-time size reduction metrics.' },
+];
+
+const stacks = [
+  { title: 'Product Design, Data & Analytics', items: [
+    ['simple-icons:postgresql', 'SQL', 'database management'],
+    ['simple-icons:python', 'Python', 'data analysis & scripting'],
+    ['simple-icons:figma', 'Figma', 'UI/UX product design'],
+    ['lucide:chart-scatter', 'Tableau', 'data visualization'],
+    ['lucide:chart-column', 'Power BI', 'business intelligence'],
+    ['lucide:palette', 'Adobe Creative Cloud', 'graphic design'],
+  ] },
+  { title: 'Systems, Containers & Homelab', items: [
+    ['simple-icons:github', 'GitHub', 'version control & CI/CD'],
+    ['simple-icons:docker', 'Docker', 'containerized deployments'],
+    ['simple-icons:proxmox', 'Proxmox VE', 'virtualization & hypervisors'],
+    ['lucide:network', 'OpenWrt & VLANs', 'network segmentation'],
+  ] },
+  { title: 'AI & Autonomous Agents', items: [
+    ['simple-icons:googlegemini', 'Google Antigravity', 'autonomous multi-agent development'],
+    ['lucide:bot', 'OpenClaw', 'AI agent orchestration & workflows'],
+    ['lucide:terminal', 'Pi Agent', 'extensible terminal coding & research', '/reference/ai/pi-agent/'],
+    ['lucide:feather', 'Hermes Agent', 'intelligent reasoning & task execution'],
+  ] },
+];
+
+const testimonials = [
+  ['Binu\'s excellence at his job can be described in two ways: tenacity and passion. Few people commit so deeply to their work as Binu.', 'Koshy, Arun'],
+  ['I worked with Binu on many projects. Binu has outstanding knowledge in Business Analysis methodologies and a great eye for design.', 'Singh, Inderjot'],
+  ['Binu is an extremely talented designer of process. He always delivers superior results and is a great person to be around.', 'Thomas, Elson'],
+];
+
+const posts = (await getCollection('docs'))
+  .filter((e) => e.id.startsWith('blog/') && e.data.date && !e.data.draft)
+  .sort((a, b) => b.data.date!.valueOf() - a.data.date!.valueOf())
+  .slice(0, 3);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+
+const title = 'Binu Pradeep — Business Analyst, homelabber, builder';
+const description = 'Portfolio, homelab guides, tech references and writing from Binu Pradeep. Minimalism and simplicity are the best tools to communicate ideas.';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://binupradeep.com/" />
+    <link rel="canonical" href="https://binupradeep.com/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <script is:inline>
+      // Share the theme choice with the Starlight pages.
+      const stored = localStorage.getItem('starlight-theme');
+      const theme = stored || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.dataset.theme = theme;
+    </script>
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="/" aria-label="Binu Pradeep home">
+        <Image src={logo} alt="" width="28" height="28" class="logo-dark" /><Image src={logoLight} alt="" width="28" height="28" class="logo-light" /> <span>Binu Pradeep</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="/networking/openwrt-vlan/">Networking</a>
+        <a href="/selfhosted/docker-compose/caddy/">Self-Hosting</a>
+        <a href="/reference/linux/zfs-guide/">Reference</a>
+        <a href="/myapps/universal-tts/">Projects</a>
+        <a href="/blog/">Writing</a>
+        <button id="theme" type="button" aria-label="Toggle theme"><Icon name="lucide:sun-moon" size={18} /></button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Business Analyst · Philadelphia, PA</p>
+        <h1>Products that are <em>inclusive, effective</em> and impactful.</h1>
+        <p class="lede">I work with companies to conceptualize, design, and create digital products that are not only visually appealing but also user-friendly and accessible.</p>
+        <div class="cta">
+          <a class="btn primary" href="/myapps/universal-tts/">See my projects</a>
+          <a class="btn" href="/blog/">Read the blog</a>
+        </div>
+      </section>
+
+      <section class="about">
+        <Image src={avatar} alt="Portrait of Binu Pradeep" width="150" height="150" class="avatar" />
+        <div>
+          <h2>About me</h2>
+          <ul>
+            <li>I am a Business Analyst / Project Management professional living in Philadelphia, PA, with over a decade of experience in healthcare and retail domains.</li>
+            <li>I focus on designing applications that align with customer goals using industry-leading tools for UI design, data analysis, and visualization.</li>
+            <li>My philosophy in work, life, and design: <strong>minimalism and simplicity</strong> are the best tools to communicate your ideas to others.</li>
+            <li>Interested in data/system analysis, Docker, networking, automations, AI, computing and technology in general.</li>
+            <li>Personal interests include singing, music, hiking, homelab/self-hosting, and watching (and playing on Xbox) football (soccer).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Featured projects</h2>
+        <div class="cards">
+          {featured.map((p) => (
+            <a class="card" href={p.href}>
+              <Icon name={p.icon} size={22} />
+              <h3>{p.title}</h3>
+              <p>{p.text}</p>
+            </a>
+          ))}
+        </div>
+        <p class="more"><a href="/myapps/audio-analysis-studio/">All projects →</a></p>
+      </section>
+
+      <section>
+        <h2>Latest writing</h2>
+        <ul class="posts">
+          {posts.map((p) => (
+            <li>
+              <a href={`/${p.id.replace(/\.mdx?$/, '')}/`}>{p.data.title}</a>
+              <time datetime={p.data.date!.toISOString()}>{fmt(p.data.date!)}</time>
+            </li>
+          ))}
+        </ul>
+        <p class="more"><a href="/blog/">All posts →</a></p>
+      </section>
+
+      <section>
+        <h2>Tools &amp; technologies</h2>
+        {stacks.map((s) => (
+          <div class="stack">
+            <h3>{s.title}</h3>
+            <ul>
+              {s.items.map(([icon, name, text, href]) => (
+                <li>
+                  <Icon name={icon} size={18} />
+                  {href ? <a href={href}><strong>{name}</strong></a> : <strong>{name}</strong>} <span>for {text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
+      <section>
+        <h2>Testimonials</h2>
+        <div class="quotes">
+          {testimonials.map(([q, who]) => (
+            <blockquote><p>“{q}”</p><footer>— {who}</footer></blockquote>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <ul class="contact">
+          <li><a href="https://www.linkedin.com/in/binuepradeep/"><Icon name="simple-icons:linkedin" size={18} /> LinkedIn</a></li>
+          <li><a href="https://github.com/binuengoor"><Icon name="simple-icons:github" size={18} /> GitHub</a></li>
+          <li><a href="mailto:contact@binupradeep.com"><Icon name="lucide:mail" size={18} /> contact@binupradeep.com</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="foot">© {new Date().getFullYear()} Binu Pradeep</footer>
+
+    <script is:inline>
+      document.getElementById('theme')?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem('starlight-theme', next); } catch {}
+      });
+    </script>
+  </body>
+</html>
