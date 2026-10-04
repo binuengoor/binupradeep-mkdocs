@@ -1,6 +1,6 @@
 # Writing & Style Guide
 
-This guide establishes the stylistic, linguistic, and visual standards for all content across `binupradeep-mkdocs`.
+This guide establishes the stylistic, linguistic, and visual standards for all content across `binupradeep-com`.
 
 ---
 

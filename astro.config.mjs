@@ -27,7 +27,7 @@ export default defineConfig({
         { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://binupradeep.com/og.png' } },
       ],
       lastUpdated: true,
-      editLink: { baseUrl: 'https://github.com/binuengoor/binupradeep-mkdocs/edit/main/' },
+      editLink: { baseUrl: 'https://github.com/binuengoor/binupradeep-com/edit/main/' },
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/binuengoor' },
         { icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/binuepradeep/' },

@@ -22,7 +22,7 @@ This repository powers **Binu Pradeep's** personal portfolio, homelab documentat
 Built with **Astro 7 + Starlight**, deployed as a static site on Cloudflare Pages.
 
 ```
-binupradeep-mkdocs/
+binupradeep-com/
 ├── astro.config.mjs        # Starlight config: sidebar topics, blog, mermaid, icons
 ├── package.json
 ├── public/                 # favicon, robots.txt, _headers
