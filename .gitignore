@@ -25,3 +25,8 @@ Pipfile.lock
 node_modules/
 .vscode/settings.json
 .venv
+
+# Astro
+dist/
+.astro/
+venv_new/
