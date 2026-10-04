@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-icon/components';
+import Site from '../layouts/Site.astro';
+import { summary, experience, certifications, education, skills, links } from '../data/resume';
+
+const title = 'Résumé — Binu Pradeep, Project Manager (PMP)';
+const description = 'Résumé of Binu Pradeep: PMP-certified Project Manager and Business Analyst with 10+ years in healthcare and retail, SQL, Tableau, Scrum and SAFe.';
+---
+<Site title={title} description={description} path="/resume/">
+  <main class="resume">
+    <section class="rhead">
+      <div>
+        <h1>Binu Pradeep</h1>
+        <p class="eyebrow">Project Manager · Business Analyst · PMP®</p>
+        <p class="meta">Philadelphia, PA · <a href={`mailto:${links.email}`}>{links.email}</a> · <a href={links.linkedin}>LinkedIn</a> · <a href={links.github}>GitHub</a></p>
+      </div>
+      <button class="btn print-btn" type="button" onclick="window.print()"><Icon name="lucide:printer" size={16} /> Save as PDF</button>
+    </section>
+
+    <section>
+      <h2>Summary</h2>
+      <p>{summary}</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <ol class="timeline">
+        {experience.map((job) => (
+          <li>
+            <div class="role"><h3>{job.title}</h3><span class="period">{job.period}</span></div>
+            <p class="ctx">{job.context}</p>
+            {job.teams.map((t) => (
+              <div class="team">
+                {t.name && <h4>{t.name}</h4>}
+                <ul>{t.points.map((p) => <li>{p}</li>)}</ul>
+                <p class="tools"><strong>Tools:</strong> {t.tools}</p>
+              </div>
+            ))}
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <ul class="certlist">
+        {certifications.map((c) => <li><span>{c.name}</span><time>{c.issued}</time></li>)}
+      </ul>
+      <p class="more noprint"><a href={links.credly}>Verify on Credly →</a> · <a href={links.tableau}>Tableau Public portfolio →</a></p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ul class="certlist">
+        {education.map((e) => (
+          <li><span><strong>{e.degree}</strong> — {e.school}{e.note && ` · ${e.note}`}</span><time>{e.period}</time></li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <dl class="skills">
+        {skills.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+      </dl>
+    </section>
+  </main>
+</Site>

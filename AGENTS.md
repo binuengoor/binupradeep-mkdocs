@@ -31,6 +31,9 @@ binupradeep-com/
 ├── .agents/                # agent rules & skills
 └── src/
     ├── pages/index.astro   # custom portfolio homepage (not Starlight)
+    ├── pages/resume.astro  # print-friendly résumé page (/resume/)
+    ├── layouts/Site.astro  # shared header/footer/meta for the custom pages
+    ├── data/resume.ts      # résumé content shared by the homepage and /resume/ (no address/phone)
     ├── styles/             # theme.css (Starlight), home.css (homepage)
     ├── assets/             # logo, landing images, guide screenshots (optimized at build)
     ├── content.config.ts
