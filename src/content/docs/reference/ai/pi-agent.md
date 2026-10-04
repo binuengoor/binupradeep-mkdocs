@@ -2,6 +2,9 @@
 title: "Pi Agent Guide"
 description: Setup, configuration, extensions, and workflows for the Pi terminal AI coding agent
 tags: [pi, ai, coding-agent, terminal, cmux, ghostty, litellm, catppuccin]
+sidebar:
+  label: "Pi Agent"
+  order: 1
 ---
 
 A comprehensive guide to configuring and using **Pi** (`@earendil-works/pi-coding-agent`), an extensible, terminal-based AI assistant tailored for macOS, **cmux** (libghostty), and local **LiteLLM** models.

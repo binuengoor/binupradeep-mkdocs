@@ -3,7 +3,8 @@ title: "OpenWrt x86 VM Configuration Guide"
 description: Guide for building and deploying custom OpenWrt images on Proxmox virtualization platform
 tags: [openwrt, proxmox, networking, router]
 sidebar:
-  label: "OpenWrt x86 VM Configuration"
+  label: "OpenWrt x86 VM"
+  order: 2
 ---
 
 Building custom OpenWrt images with specific packages and configurations makes upgrades easier by baking configurations directly into the build process. This guide covers the build process and Proxmox VM deployment steps.

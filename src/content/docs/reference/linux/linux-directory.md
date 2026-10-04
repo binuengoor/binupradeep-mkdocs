@@ -2,6 +2,8 @@
 title: "Linux Directory Structure Tools"
 description: Essential commands for exploring and visualizing directory structures in Linux.
 tags: [linux, command-line, system-admin]
+sidebar:
+  label: "Directory Structure"
 ---
 
 A collection of commands and tools for exploring and visualizing directory structures in Linux.

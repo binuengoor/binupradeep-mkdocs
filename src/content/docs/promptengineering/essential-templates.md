@@ -3,7 +3,7 @@ title: "Essential AI Prompting Techniques and Templates"
 description: A comprehensive guide to effective AI prompting techniques with practical examples and templates
 tags: [ai, prompting, llm, chatgpt, prompt-engineering, best-practices]
 sidebar:
-  label: "AI Prompting Techniques Guide"
+  label: "Prompting Techniques & Templates"
 ---
 
 AI prompting techniques are fundamental methods for getting optimal results from language models. Each technique serves different purposes and can significantly improve AI responses when used appropriately.

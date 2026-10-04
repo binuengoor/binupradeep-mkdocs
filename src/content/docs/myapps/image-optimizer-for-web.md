@@ -3,7 +3,8 @@ title: "Image Optimizer for Web: Efficient Image Compression for the Web"
 description: A web-based tool that converts common image formats to WebP with adjustable compression settings. Features a drag-and-drop interface, batch processing, and displays file size reduction metrics. Available as a Docker container for easy deployment.
 tags: [python, image, optimize, compression, docker]
 sidebar:
-  label: "Image-Optimizer-for-Web"
+  label: "Image Optimizer for Web"
+  order: 5
 ---
 
 The Image-Optimizer-for-Web is a comprehensive web-based tool designed to convert and optimize images for web use through the WebP format. This tool significantly reduces image file sizes while maintaining visual quality, making it perfect for optimizing website performance and reducing bandwidth usage.

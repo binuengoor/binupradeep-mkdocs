@@ -3,7 +3,8 @@ title: "Python Virtual environment"
 description: Some basic python operations.
 tags: [python, development]
 sidebar:
-  label: "Python - Basics"
+  label: "Virtual Environments"
+  order: 2
 ---
 
 In order to create a virtual environment, you need to have python installed on your system. Once you have python installed, you can create a virtual environment using the following command.

@@ -3,7 +3,7 @@ title: "yt-dlp - Video Download Tool"
 description: A powerful command-line tool for downloading videos from YouTube and other platforms
 tags: [youtube, download, terminal, video, audio, streaming]
 sidebar:
-  label: "yt-dlp Guide"
+  label: "yt-dlp"
 ---
 
 yt-dlp is a feature-rich command-line program to download videos from YouTube and other video platforms. It offers extensive options for quality selection, format choice, and batch downloading.

@@ -2,6 +2,9 @@
 title: "OpenClaw Tips"
 description: Tips, best practices, and optimization strategies for OpenClaw AI assistant
 tags: [openclaw, ai, automation, tips, optimization]
+sidebar:
+  label: "OpenClaw Tips"
+  order: 2
 ---
 
 Best practices and optimization strategies for your OpenClaw setup.

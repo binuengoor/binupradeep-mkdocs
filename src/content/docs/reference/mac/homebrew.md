@@ -3,7 +3,7 @@ title: "Managing Packages with Homebrew on macOS"
 description: Essential commands and best practices for managing packages with Homebrew on macOS
 tags: [mac, homebrew, brew, terminal]
 sidebar:
-  label: "Homebrew Guide"
+  label: "Homebrew"
 ---
 
 Homebrew is the most popular package manager for macOS, providing a simple and efficient way to install, update, and manage software packages. It streamlines the process of maintaining software on your Mac through command-line interface.

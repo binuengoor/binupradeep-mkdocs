@@ -3,7 +3,8 @@ title: "Comprehensive Guide to Samba and NFS File Sharing"
 description: Complete guide to configure Samba and NFS file sharing with cross-platform support and security best practices
 tags: [linux, samba, nfs, file-sharing, networking]
 sidebar:
-  label: "Samba and NFS File Sharing Setup Guide"
+  label: "Samba & NFS"
+  order: 3
 ---
 
 Samba enables seamless file sharing between Linux, Windows, and macOS systems, while NFS provides efficient native file sharing for Unix-based systems. This guide covers both services with security best practices and optimal configurations.

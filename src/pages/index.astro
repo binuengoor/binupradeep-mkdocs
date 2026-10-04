@@ -16,26 +16,36 @@ const featured = [
 ];
 
 const stacks = [
-  { title: 'Product Design, Data & Analytics', items: [
-    ['simple-icons:postgresql', 'SQL', 'database management'],
-    ['simple-icons:python', 'Python', 'data analysis & scripting'],
-    ['simple-icons:figma', 'Figma', 'UI/UX product design'],
+  { title: 'Project & Product', items: [
+    ['simple-icons:postgresql', 'SQL', 'querying and managing data'],
+    ['simple-icons:python', 'Python', 'data analysis and automation scripts'],
+    ['simple-icons:figma', 'Figma', 'UI/UX and product design'],
     ['lucide:chart-scatter', 'Tableau', 'data visualization'],
-    ['lucide:chart-column', 'Power BI', 'business intelligence'],
+    ['lucide:chart-column', 'Power BI', 'business intelligence reporting'],
     ['lucide:palette', 'Adobe Creative Cloud', 'graphic design'],
   ] },
-  { title: 'Systems, Containers & Homelab', items: [
-    ['simple-icons:github', 'GitHub', 'version control & CI/CD'],
+  { title: 'Systems & Homelab', items: [
+    ['simple-icons:github', 'GitHub', 'version control and CI/CD'],
     ['simple-icons:docker', 'Docker', 'containerized deployments'],
-    ['simple-icons:proxmox', 'Proxmox VE', 'virtualization & hypervisors'],
-    ['lucide:network', 'OpenWrt & VLANs', 'network segmentation'],
+    ['simple-icons:proxmox', 'Proxmox VE', 'virtualization and hypervisors'],
+    ['lucide:network', 'OpenWrt & VLANs', 'network segmentation', '/networking/openwrt-vlan/'],
+    ['lucide:globe-lock', 'Caddy', 'reverse proxy with wildcard HTTPS', '/selfhosted/docker-compose/caddy/'],
+    ['lucide:hard-drive', 'Linux & ZFS', 'storage, backups and administration', '/reference/linux/zfs-guide/'],
   ] },
-  { title: 'AI & Autonomous Agents', items: [
+  { title: 'AI & Agents', items: [
+    ['simple-icons:claude', 'Claude Code', 'agentic coding and automation from the terminal'],
     ['simple-icons:googlegemini', 'Google Antigravity', 'autonomous multi-agent development'],
-    ['lucide:bot', 'OpenClaw', 'AI agent orchestration & workflows'],
-    ['lucide:terminal', 'Pi Agent', 'extensible terminal coding & research', '/reference/ai/pi-agent/'],
-    ['lucide:feather', 'Hermes Agent', 'intelligent reasoning & task execution'],
+    ['lucide:bot', 'OpenClaw', 'AI agent orchestration and workflows', '/reference/ai/openclaw-tips/'],
+    ['lucide:terminal', 'Pi Agent', 'extensible terminal coding and research', '/reference/ai/pi-agent/'],
+    ['lucide:feather', 'Hermes Agent', 'reasoning and task execution'],
+    ['lucide:message-square-code', 'Prompt engineering', 'techniques and reusable templates', '/promptengineering/essential-templates/'],
   ] },
+];
+
+const focus = [
+  ['lucide:list-checks', 'Project delivery', 'Plans that stay readable: clear scope, honest timelines and stakeholders who always know where things stand.'],
+  ['lucide:search-check', 'Business analysis', 'Turning vague asks into precise requirements through system analysis, process mapping and data.'],
+  ['lucide:layout-dashboard', 'Product & data', 'Interfaces and dashboards designed so the right decision is the easy one to make.'],
 ];
 
 const testimonials = [
@@ -50,8 +60,9 @@ const posts = (await getCollection('docs'))
   .slice(0, 3);
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
 
-const title = 'Binu Pradeep — Business Analyst, homelabber, builder';
-const description = 'Portfolio, homelab guides, tech references and writing from Binu Pradeep. Minimalism and simplicity are the best tools to communicate ideas.';
+const title = 'Binu Pradeep — Project Manager, builder, homelabber';
+const description = 'Project Manager in Philadelphia with a Business Analysis background. Portfolio, self-built apps, homelab guides and writing. Minimalism and simplicity are the best tools to communicate ideas.';
+const ogImage = 'https://binupradeep.com/og.png';
 ---
 <!doctype html>
 <html lang="en">
@@ -63,6 +74,18 @@ const description = 'Portfolio, homelab guides, tech references and writing from
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Binu Pradeep" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Binu Pradeep — Project Manager, builder, homelabber" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'Person', name: 'Binu Pradeep', jobTitle: 'Project Manager',
+      url: 'https://binupradeep.com', address: { '@type': 'PostalAddress', addressLocality: 'Philadelphia', addressRegion: 'PA' },
+      sameAs: ['https://www.linkedin.com/in/binuepradeep/', 'https://github.com/binuengoor'],
+    })} />
     <meta property="og:url" content="https://binupradeep.com/" />
     <link rel="canonical" href="https://binupradeep.com/" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -91,12 +114,31 @@ const description = 'Portfolio, homelab guides, tech references and writing from
 
     <main>
       <section class="hero">
-        <p class="eyebrow">Business Analyst · Philadelphia, PA</p>
-        <h1>Products that are <em>inclusive, effective</em> and impactful.</h1>
-        <p class="lede">I work with companies to conceptualize, design, and create digital products that are not only visually appealing but also user-friendly and accessible.</p>
+        <p class="eyebrow">Project Manager · Philadelphia, PA</p>
+        <h1>Clear plans. Simple systems. <em class="nw">Products that ship.</em></h1>
+        <p class="lede">I'm a Project Manager with a Business Analysis background and over a decade across healthcare and retail. I keep delivery clear, requirements honest and solutions simple, then unwind by building tools and running a homelab.</p>
         <div class="cta">
-          <a class="btn primary" href="/myapps/universal-tts/">See my projects</a>
+          <a class="btn primary" href="#projects">See what I build</a>
           <a class="btn" href="/blog/">Read the blog</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+        <dl class="facts">
+          <div><dt>10+</dt><dd>years in delivery &amp; analysis</dd></div>
+          <div><dt>2</dt><dd>domains: healthcare &amp; retail</dd></div>
+          <div><dt>8</dt><dd>self-built apps</dd></div>
+        </dl>
+      </section>
+
+      <section class="focus">
+        <h2>What I do</h2>
+        <div class="cards three">
+          {focus.map(([icon, name, text]) => (
+            <div class="card static">
+              <Icon name={icon} size={22} />
+              <h3>{name}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -104,19 +146,19 @@ const description = 'Portfolio, homelab guides, tech references and writing from
         <Image src={avatar} alt="Portrait of Binu Pradeep" width="150" height="150" class="avatar" />
         <div>
           <h2>About me</h2>
+          <blockquote class="pull"><p>Minimalism and simplicity are the best tools to communicate your ideas to others.</p></blockquote>
           <ul>
-            <li>I am a Business Analyst / Project Management professional living in Philadelphia, PA, with over a decade of experience in healthcare and retail domains.</li>
-            <li>I focus on designing applications that align with customer goals using industry-leading tools for UI design, data analysis, and visualization.</li>
-            <li>My philosophy in work, life, and design: <strong>minimalism and simplicity</strong> are the best tools to communicate your ideas to others.</li>
-            <li>Interested in data/system analysis, Docker, networking, automations, AI, computing and technology in general.</li>
-            <li>Personal interests include singing, music, hiking, homelab/self-hosting, and watching (and playing on Xbox) football (soccer).</li>
+            <li>I'm a Project Manager and former Business Analyst based in Philadelphia, PA, with over a decade of experience in healthcare and retail.</li>
+            <li>I design applications that line up with customer goals, using industry-leading tools for UI design, data analysis and visualization.</li>
+            <li>Outside work: systems and data analysis, Docker, networking, automation and AI, plus singing, music, hiking, and football (watching, and playing on Xbox).</li>
           </ul>
         </div>
       </section>
 
-      <section>
-        <h2>Featured projects</h2>
-        <div class="cards">
+      <section id="projects">
+        <h2>Things I've built</h2>
+        <p class="sub">I build and self-host the tools I wish existed. Each one is open source and documented.</p>
+        <div class="cards two">
           {featured.map((p) => (
             <a class="card" href={p.href}>
               <Icon name={p.icon} size={22} />
@@ -125,7 +167,7 @@ const description = 'Portfolio, homelab guides, tech references and writing from
             </a>
           ))}
         </div>
-        <p class="more"><a href="/myapps/audio-analysis-studio/">All projects →</a></p>
+        <p class="more"><a href="/myapps/universal-tts/">All projects →</a></p>
       </section>
 
       <section>
@@ -142,15 +184,18 @@ const description = 'Portfolio, homelab guides, tech references and writing from
       </section>
 
       <section>
-        <h2>Tools &amp; technologies</h2>
+        <h2>Tools &amp; stack</h2>
         {stacks.map((s) => (
           <div class="stack">
             <h3>{s.title}</h3>
             <ul>
               {s.items.map(([icon, name, text, href]) => (
                 <li>
-                  <Icon name={icon} size={18} />
-                  {href ? <a href={href}><strong>{name}</strong></a> : <strong>{name}</strong>} <span>for {text}</span>
+                  <Icon name={icon} size={20} />
+                  <div>
+                    {href ? <a href={href}><strong>{name}</strong></a> : <strong>{name}</strong>}
+                    <span>{text}</span>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -167,12 +212,13 @@ const description = 'Portfolio, homelab guides, tech references and writing from
         </div>
       </section>
 
-      <section id="contact">
-        <h2>Contact</h2>
+      <section id="contact" class="contact-block">
+        <h2>Let's talk</h2>
+        <p class="sub">Open to project conversations, collaborations and good homelab debates.</p>
+        <a class="btn primary" href="mailto:contact@binupradeep.com"><Icon name="lucide:mail" size={18} /> contact@binupradeep.com</a>
         <ul class="contact">
           <li><a href="https://www.linkedin.com/in/binuepradeep/"><Icon name="simple-icons:linkedin" size={18} /> LinkedIn</a></li>
           <li><a href="https://github.com/binuengoor"><Icon name="simple-icons:github" size={18} /> GitHub</a></li>
-          <li><a href="mailto:contact@binupradeep.com"><Icon name="lucide:mail" size={18} /> contact@binupradeep.com</a></li>
         </ul>
       </section>
     </main>

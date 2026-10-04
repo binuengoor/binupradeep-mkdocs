@@ -3,7 +3,7 @@ title: "Homepage - Modern Self-Hosted Dashboard Service"
 description: A self-hosted dashboard service for organizing and accessing your web services
 tags: [docker, dashboard, homelab, services]
 sidebar:
-  label: "Homepage Dashboard"
+  label: "Homepage"
 ---
 
 Homepage is a modern dashboard solution that allows you to create a centralized access point for all your web services and applications. It features a clean interface with customizable layouts, widgets, and service integrations.

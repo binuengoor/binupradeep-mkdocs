@@ -6,7 +6,7 @@ This repository powers **Binu Pradeep's** personal portfolio, homelab documentat
 
 ## 1. Persona & Tone Guidelines
 
-- **Author**: Binu Pradeep — Business Analyst & Project Management professional based in Philadelphia, PA, with a passion for minimalism, homelab/self-hosting, networking, Docker, AI, and digital product design.
+- **Author**: Binu Pradeep — Project Manager (with a Business Analysis background) based in Philadelphia, PA, with a passion for minimalism, homelab/self-hosting, networking, Docker, AI, and digital product design.
 - **Tone**: Pragmatic, clean, structured, minimalist, authoritative yet approachable.
 - **Philosophy**: *"Minimalism and simplicity are the best tools to communicate ideas."*
 - **Formatting Standards**:

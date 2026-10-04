@@ -2,6 +2,9 @@
 title: "OpenWrt VLAN Configuration Guide"
 description: Step-by-step guide for setting up multiple VLANs with proper network isolation in OpenWrt
 tags: [openwrt, networking, vlan, firewall, security]
+sidebar:
+  label: "OpenWrt VLANs"
+  order: 1
 ---
 
 For illustration purposes, this guide uses 192.168.1.0/24 as the main network. Replace IP addresses according to your needs.
