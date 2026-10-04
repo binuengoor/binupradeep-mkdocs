@@ -1,0 +1,68 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import '@fontsource-variable/inter';
+import '../styles/home.css';
+import logo from '../assets/logo.svg';
+import logoLight from '../assets/logo-dark.svg';
+
+interface Props { title: string; description: string; path?: string; jsonLd?: object }
+const { title, description, path = '/', jsonLd } = Astro.props;
+const url = `https://binupradeep.com${path}`;
+const ogImage = 'https://binupradeep.com/og.png';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Binu Pradeep" />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Binu Pradeep — Project Manager, builder, homelabber" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+    <link rel="canonical" href={url} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+    <script is:inline>
+      // Share the theme choice with the Starlight pages.
+      const stored = localStorage.getItem('starlight-theme');
+      const theme = stored || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.dataset.theme = theme;
+    </script>
+  </head>
+  <body>
+    <header class="top">
+      <a class="brand" href="/" aria-label="Binu Pradeep home">
+        <Image src={logo} alt="" width="28" height="28" class="logo-dark" /><Image src={logoLight} alt="" width="28" height="28" class="logo-light" /> <span>Binu Pradeep</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="/resume/">Résumé</a>
+        <a href="/myapps/universal-tts/">Projects</a>
+        <a href="/blog/">Writing</a>
+        <a href="/networking/openwrt-vlan/">Networking</a>
+        <a href="/selfhosted/docker-compose/caddy/">Self-Hosting</a>
+        <a href="/reference/linux/zfs-guide/">Reference</a>
+        <button id="theme" type="button" aria-label="Toggle theme"><Icon name="lucide:sun-moon" size={18} /></button>
+      </nav>
+    </header>
+    <slot />
+    <footer class="foot">© {new Date().getFullYear()} Binu Pradeep</footer>
+    <script is:inline>
+      document.getElementById('theme')?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem('starlight-theme', next); } catch {}
+      });
+    </script>
+  </body>
+</html>

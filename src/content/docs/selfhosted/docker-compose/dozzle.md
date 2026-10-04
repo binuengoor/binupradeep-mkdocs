@@ -3,7 +3,7 @@ title: "Dozzle: Real-time Docker Log Viewer with Remote Agents"
 description: A lightweight, real-time web interface for viewing Docker container logs with optional distributed agent support
 tags: [docker, logs, monitoring, containers]
 sidebar:
-  label: "Dozzle Logs"
+  label: "Dozzle"
 ---
 
 Dozzle is a lightweight, web-based application for monitoring Docker container logs in real-time. The core Dozzle server provides local container log monitoring, while optional agents enable monitoring of remote Docker hosts from a single interface.

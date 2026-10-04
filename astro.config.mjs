@@ -16,11 +16,18 @@ export default defineConfig({
     starlight({
       title: 'Binu Pradeep',
       description:
-        'Homelab guides, tech references, self-built apps and writing by Binu Pradeep — a Business Analyst who likes minimalism, Docker, networking and AI.',
+        'Homelab guides, tech references, self-built apps and writing by Binu Pradeep — a Project Manager who likes minimalism, Docker, networking and AI.',
       logo: { light: './src/assets/logo-dark.svg', dark: './src/assets/logo.svg', alt: 'Binu Pradeep' },
       favicon: '/favicon.svg',
+      head: [
+        { tag: 'meta', attrs: { property: 'og:image', content: 'https://binupradeep.com/og.png' } },
+        { tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
+        { tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
+        { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+        { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://binupradeep.com/og.png' } },
+      ],
       lastUpdated: true,
-      editLink: { baseUrl: 'https://github.com/binuengoor/binupradeep-mkdocs/edit/main/' },
+      editLink: { baseUrl: 'https://github.com/binuengoor/binupradeep-com/edit/main/' },
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/binuengoor' },
         { icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/binuepradeep/' },

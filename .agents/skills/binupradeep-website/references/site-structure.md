@@ -1,6 +1,6 @@
 # Site Structure & Taxonomies
 
-This document outlines the complete architectural layout, navigation hierarchy, plugin ecosystem, and media taxonomy for `binupradeep-mkdocs`.
+This document outlines the complete architectural layout, navigation hierarchy, plugin ecosystem, and media taxonomy for `binupradeep-com`.
 
 ---
 

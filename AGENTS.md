@@ -6,7 +6,7 @@ This repository powers **Binu Pradeep's** personal portfolio, homelab documentat
 
 ## 1. Persona & Tone Guidelines
 
-- **Author**: Binu Pradeep — Business Analyst & Project Management professional based in Philadelphia, PA, with a passion for minimalism, homelab/self-hosting, networking, Docker, AI, and digital product design.
+- **Author**: Binu Pradeep — Project Manager (with a Business Analysis background) based in Philadelphia, PA, with a passion for minimalism, homelab/self-hosting, networking, Docker, AI, and digital product design.
 - **Tone**: Pragmatic, clean, structured, minimalist, authoritative yet approachable.
 - **Philosophy**: *"Minimalism and simplicity are the best tools to communicate ideas."*
 - **Formatting Standards**:
@@ -22,7 +22,7 @@ This repository powers **Binu Pradeep's** personal portfolio, homelab documentat
 Built with **Astro 7 + Starlight**, deployed as a static site on Cloudflare Pages.
 
 ```
-binupradeep-mkdocs/
+binupradeep-com/
 ├── astro.config.mjs        # Starlight config: sidebar topics, blog, mermaid, icons
 ├── package.json
 ├── public/                 # favicon, robots.txt, _headers
@@ -31,6 +31,9 @@ binupradeep-mkdocs/
 ├── .agents/                # agent rules & skills
 └── src/
     ├── pages/index.astro   # custom portfolio homepage (not Starlight)
+    ├── pages/resume.astro  # print-friendly résumé page (/resume/)
+    ├── layouts/Site.astro  # shared header/footer/meta for the custom pages
+    ├── data/resume.ts      # résumé content shared by the homepage and /resume/ (no address/phone)
     ├── styles/             # theme.css (Starlight), home.css (homepage)
     ├── assets/             # logo, landing images, guide screenshots (optimized at build)
     ├── content.config.ts

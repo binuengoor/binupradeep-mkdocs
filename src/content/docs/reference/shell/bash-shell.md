@@ -2,6 +2,9 @@
 title: "Bash Shell Guide"
 description: The Bourne Again Shell — a versatile and widely-used command line shell for Linux, macOS, and Unix systems
 tags: [bash, shell, terminal, command-line, linux, mac, scripting]
+sidebar:
+  label: "Bash"
+  order: 2
 ---
 
 Bash (Bourne Again Shell) is the default shell on most Linux distributions and macOS. It's a powerful, feature-rich shell that's perfect for both interactive use and scripting.

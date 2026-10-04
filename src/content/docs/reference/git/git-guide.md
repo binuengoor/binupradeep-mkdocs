@@ -3,7 +3,7 @@ title: "Git Version Control System Guide"
 description: A comprehensive guide to Git version control system including common commands and submodule management
 tags: [git, submodules, development]
 sidebar:
-  label: "Git Quick Reference"
+  label: "Git"
 ---
 
 Git is a distributed version control system that helps track changes in source code during software development. It enables multiple developers to work together on projects efficiently while maintaining a complete history of changes.

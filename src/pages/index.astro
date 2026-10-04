@@ -2,11 +2,9 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon/components';
-import '@fontsource-variable/inter';
-import '../styles/home.css';
+import Site from '../layouts/Site.astro';
 import avatar from '../assets/landing/binu.png';
-import logo from '../assets/logo.svg';
-import logoLight from '../assets/logo-dark.svg';
+import { experience, certifications, links } from '../data/resume';
 
 const featured = [
   { title: 'Audio Analysis Studio', href: '/myapps/audio-analysis-studio/', icon: 'lucide:audio-waveform', text: 'Distributed multi-engine audio intelligence stack for BPM tracking, Camelot keys, chords, and LUFS mastering inspection.' },
@@ -16,26 +14,36 @@ const featured = [
 ];
 
 const stacks = [
-  { title: 'Product Design, Data & Analytics', items: [
-    ['simple-icons:postgresql', 'SQL', 'database management'],
-    ['simple-icons:python', 'Python', 'data analysis & scripting'],
-    ['simple-icons:figma', 'Figma', 'UI/UX product design'],
-    ['lucide:chart-scatter', 'Tableau', 'data visualization'],
-    ['lucide:chart-column', 'Power BI', 'business intelligence'],
-    ['lucide:palette', 'Adobe Creative Cloud', 'graphic design'],
+  { title: 'Delivery & Analysis', items: [
+    ['simple-icons:jira', 'Jira', 'agile planning, backlogs and reporting'],
+    ['simple-icons:azuredevops', 'Azure DevOps', 'requirements, boards and pipelines'],
+    ['simple-icons:postgresql', 'SQL & Teradata', 'data analysis and requirements testing'],
+    ['simple-icons:tableau', 'Tableau', 'dashboards and data visualization'],
+    ['lucide:chart-column', 'Power BI', 'business intelligence reporting'],
+    ['simple-icons:figma', 'Figma', 'UI/UX prototyping'],
   ] },
-  { title: 'Systems, Containers & Homelab', items: [
-    ['simple-icons:github', 'GitHub', 'version control & CI/CD'],
+  { title: 'Systems & Homelab', items: [
+    ['simple-icons:github', 'GitHub', 'version control and CI/CD'],
     ['simple-icons:docker', 'Docker', 'containerized deployments'],
-    ['simple-icons:proxmox', 'Proxmox VE', 'virtualization & hypervisors'],
-    ['lucide:network', 'OpenWrt & VLANs', 'network segmentation'],
+    ['simple-icons:proxmox', 'Proxmox VE', 'virtualization and hypervisors'],
+    ['lucide:network', 'OpenWrt & VLANs', 'network segmentation', '/networking/openwrt-vlan/'],
+    ['lucide:globe-lock', 'Caddy', 'reverse proxy with wildcard HTTPS', '/selfhosted/docker-compose/caddy/'],
+    ['lucide:hard-drive', 'Linux & ZFS', 'storage, backups and administration', '/reference/linux/zfs-guide/'],
   ] },
-  { title: 'AI & Autonomous Agents', items: [
+  { title: 'AI & Agents', items: [
+    ['simple-icons:claude', 'Claude Code', 'agentic coding and automation from the terminal'],
     ['simple-icons:googlegemini', 'Google Antigravity', 'autonomous multi-agent development'],
-    ['lucide:bot', 'OpenClaw', 'AI agent orchestration & workflows'],
-    ['lucide:terminal', 'Pi Agent', 'extensible terminal coding & research', '/reference/ai/pi-agent/'],
-    ['lucide:feather', 'Hermes Agent', 'intelligent reasoning & task execution'],
+    ['lucide:bot', 'OpenClaw', 'AI agent orchestration and workflows', '/reference/ai/openclaw-tips/'],
+    ['lucide:terminal', 'Pi Agent', 'extensible terminal coding and research', '/reference/ai/pi-agent/'],
+    ['lucide:feather', 'Hermes Agent', 'reasoning and task execution'],
+    ['lucide:message-square-code', 'Prompt engineering', 'techniques and reusable templates', '/promptengineering/essential-templates/'],
   ] },
+];
+
+const focus = [
+  ['lucide:list-checks', 'Project delivery', 'PMP-certified, Scrum- and SAFe-trained. Plans that stay readable, with stakeholders who always know where things stand.'],
+  ['lucide:search-check', 'Business analysis', 'Requirements, functional specs and UAT that turn vague asks into software that works, backed by SQL and process mapping.'],
+  ['lucide:layout-dashboard', 'Product & data', 'Product ownership, Tableau dashboards and Figma prototypes designed so the right decision is the easy one.'],
 ];
 
 const testimonials = [
@@ -50,141 +58,151 @@ const posts = (await getCollection('docs'))
   .slice(0, 3);
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
 
-const title = 'Binu Pradeep — Business Analyst, homelabber, builder';
-const description = 'Portfolio, homelab guides, tech references and writing from Binu Pradeep. Minimalism and simplicity are the best tools to communicate ideas.';
+const title = 'Binu Pradeep — Project Manager (PMP), builder, homelabber';
+const description = 'PMP-certified Project Manager and Business Analyst in Philadelphia with 10+ years in healthcare and retail. Résumé, self-built apps, homelab guides and writing.';
+const jsonLd = {
+  '@context': 'https://schema.org', '@type': 'Person', name: 'Binu Pradeep', jobTitle: 'Project Manager',
+  url: 'https://binupradeep.com', address: { '@type': 'PostalAddress', addressLocality: 'Philadelphia', addressRegion: 'PA' },
+  sameAs: [links.linkedin, links.github, links.credly, links.tableau],
+};
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://binupradeep.com/" />
-    <link rel="canonical" href="https://binupradeep.com/" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <script is:inline>
-      // Share the theme choice with the Starlight pages.
-      const stored = localStorage.getItem('starlight-theme');
-      const theme = stored || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      document.documentElement.dataset.theme = theme;
-    </script>
-  </head>
-  <body>
-    <header class="top">
-      <a class="brand" href="/" aria-label="Binu Pradeep home">
-        <Image src={logo} alt="" width="28" height="28" class="logo-dark" /><Image src={logoLight} alt="" width="28" height="28" class="logo-light" /> <span>Binu Pradeep</span>
-      </a>
-      <nav aria-label="Primary">
-        <a href="/networking/openwrt-vlan/">Networking</a>
-        <a href="/selfhosted/docker-compose/caddy/">Self-Hosting</a>
-        <a href="/reference/linux/zfs-guide/">Reference</a>
-        <a href="/myapps/universal-tts/">Projects</a>
-        <a href="/blog/">Writing</a>
-        <button id="theme" type="button" aria-label="Toggle theme"><Icon name="lucide:sun-moon" size={18} /></button>
-      </nav>
-    </header>
+<Site title={title} description={description} path="/" jsonLd={jsonLd}>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Project Manager · PMP® · Philadelphia, PA</p>
+      <h1>I turn complex requirements into <em>products people use.</em></h1>
+      <p class="lede">I work with companies to conceptualize, design, and create <strong>inclusive, effective, and impactful</strong> digital products. Ten-plus years delivering healthcare data, analytics and portal products as a Project Manager and Senior Business Systems Analyst.</p>
+      <div class="cta">
+        <a class="btn primary" href="/resume/">View résumé</a>
+        <a class="btn" href={links.linkedin}>Connect on LinkedIn</a>
+        <a class="btn" href="#projects">See what I build</a>
+      </div>
+      <dl class="facts">
+        <div><dt>10+</dt><dd>years in delivery &amp; analysis</dd></div>
+        <div><dt>{certifications.length}</dt><dd>professional certifications</dd></div>
+        <div><dt>8</dt><dd>self-built apps</dd></div>
+      </dl>
+    </section>
 
-    <main>
-      <section class="hero">
-        <p class="eyebrow">Business Analyst · Philadelphia, PA</p>
-        <h1>Products that are <em>inclusive, effective</em> and impactful.</h1>
-        <p class="lede">I work with companies to conceptualize, design, and create digital products that are not only visually appealing but also user-friendly and accessible.</p>
-        <div class="cta">
-          <a class="btn primary" href="/myapps/universal-tts/">See my projects</a>
-          <a class="btn" href="/blog/">Read the blog</a>
-        </div>
-      </section>
+    <section class="creds">
+      <h2>Certified</h2>
+      <ul class="chips">
+        {certifications.filter((c) => c.featured).map((c) => <li title={`${c.name} · ${c.issued}`}>{c.short}</li>)}
+      </ul>
+      <p class="more"><a href={links.credly}>Verify on Credly →</a> · <a href={links.tableau}>Tableau Public portfolio →</a></p>
+    </section>
 
-      <section class="about">
-        <Image src={avatar} alt="Portrait of Binu Pradeep" width="150" height="150" class="avatar" />
-        <div>
-          <h2>About me</h2>
-          <ul>
-            <li>I am a Business Analyst / Project Management professional living in Philadelphia, PA, with over a decade of experience in healthcare and retail domains.</li>
-            <li>I focus on designing applications that align with customer goals using industry-leading tools for UI design, data analysis, and visualization.</li>
-            <li>My philosophy in work, life, and design: <strong>minimalism and simplicity</strong> are the best tools to communicate your ideas to others.</li>
-            <li>Interested in data/system analysis, Docker, networking, automations, AI, computing and technology in general.</li>
-            <li>Personal interests include singing, music, hiking, homelab/self-hosting, and watching (and playing on Xbox) football (soccer).</li>
-          </ul>
-        </div>
-      </section>
-
-      <section>
-        <h2>Featured projects</h2>
-        <div class="cards">
-          {featured.map((p) => (
-            <a class="card" href={p.href}>
-              <Icon name={p.icon} size={22} />
-              <h3>{p.title}</h3>
-              <p>{p.text}</p>
-            </a>
-          ))}
-        </div>
-        <p class="more"><a href="/myapps/audio-analysis-studio/">All projects →</a></p>
-      </section>
-
-      <section>
-        <h2>Latest writing</h2>
-        <ul class="posts">
-          {posts.map((p) => (
-            <li>
-              <a href={`/${p.id.replace(/\.mdx?$/, '')}/`}>{p.data.title}</a>
-              <time datetime={p.data.date!.toISOString()}>{fmt(p.data.date!)}</time>
-            </li>
-          ))}
-        </ul>
-        <p class="more"><a href="/blog/">All posts →</a></p>
-      </section>
-
-      <section>
-        <h2>Tools &amp; technologies</h2>
-        {stacks.map((s) => (
-          <div class="stack">
-            <h3>{s.title}</h3>
-            <ul>
-              {s.items.map(([icon, name, text, href]) => (
-                <li>
-                  <Icon name={icon} size={18} />
-                  {href ? <a href={href}><strong>{name}</strong></a> : <strong>{name}</strong>} <span>for {text}</span>
-                </li>
-              ))}
-            </ul>
+    <section class="focus">
+      <h2>What I do</h2>
+      <div class="cards three">
+        {focus.map(([icon, name, text]) => (
+          <div class="card static">
+            <Icon name={icon} size={22} />
+            <h3>{name}</h3>
+            <p>{text}</p>
           </div>
         ))}
-      </section>
+      </div>
+    </section>
 
-      <section>
-        <h2>Testimonials</h2>
-        <div class="quotes">
-          {testimonials.map(([q, who]) => (
-            <blockquote><p>“{q}”</p><footer>— {who}</footer></blockquote>
-          ))}
-        </div>
-      </section>
+    <section>
+      <h2>Experience</h2>
+      <ol class="timeline">
+        {experience.map((job) => (
+          <li>
+            <div class="role">
+              <h3>{job.title}</h3>
+              <span class="period">{job.period}</span>
+            </div>
+            <p class="ctx">{job.context}</p>
+            <ul>
+              {job.teams.flatMap((t) => t.points.slice(0, 2)).map((p) => <li>{p}</li>)}
+            </ul>
+          </li>
+        ))}
+      </ol>
+      <p class="more"><a href="/resume/">Full résumé →</a></p>
+    </section>
 
-      <section id="contact">
-        <h2>Contact</h2>
-        <ul class="contact">
-          <li><a href="https://www.linkedin.com/in/binuepradeep/"><Icon name="simple-icons:linkedin" size={18} /> LinkedIn</a></li>
-          <li><a href="https://github.com/binuengoor"><Icon name="simple-icons:github" size={18} /> GitHub</a></li>
-          <li><a href="mailto:contact@binupradeep.com"><Icon name="lucide:mail" size={18} /> contact@binupradeep.com</a></li>
+    <section>
+      <h2>Kind words</h2>
+      <div class="quotes">
+        {testimonials.map(([q, who]) => (
+          <blockquote><p>“{q}”</p><footer>— {who}</footer></blockquote>
+        ))}
+      </div>
+    </section>
+
+    <section class="about">
+      <Image src={avatar} alt="Portrait of Binu Pradeep" width="150" height="150" class="avatar" />
+      <div>
+        <h2>About me</h2>
+        <blockquote class="pull"><p>Minimalism and simplicity are the best tools to communicate your ideas to others.</p></blockquote>
+        <ul>
+          <li>I'm a Project Manager with a Business Analysis background, based in Philadelphia, PA, with over a decade in healthcare and retail.</li>
+          <li>I design applications that line up with customer goals, using industry-leading tools for UI design, data analysis and visualization.</li>
+          <li>Outside work: Docker, networking, automation and AI, plus singing, music, hiking, and football (watching, and playing on Xbox).</li>
         </ul>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <footer class="foot">© {new Date().getFullYear()} Binu Pradeep</footer>
+    <section id="projects">
+      <h2>Things I've built</h2>
+      <p class="sub">I build and self-host the tools I wish existed. Each one is documented, with a Docker image or source on GitHub.</p>
+      <div class="cards two">
+        {featured.map((p) => (
+          <a class="card" href={p.href}>
+            <Icon name={p.icon} size={22} />
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </a>
+        ))}
+      </div>
+      <p class="more"><a href="/myapps/universal-tts/">All projects →</a></p>
+    </section>
 
-    <script is:inline>
-      document.getElementById('theme')?.addEventListener('click', () => {
-        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-        document.documentElement.dataset.theme = next;
-        try { localStorage.setItem('starlight-theme', next); } catch {}
-      });
-    </script>
-  </body>
-</html>
+    <section>
+      <h2>Latest writing</h2>
+      <ul class="posts">
+        {posts.map((p) => (
+          <li>
+            <a href={`/${p.id.replace(/\.mdx?$/, '')}/`}>{p.data.title}</a>
+            <time datetime={p.data.date!.toISOString()}>{fmt(p.data.date!)}</time>
+          </li>
+        ))}
+      </ul>
+      <p class="more"><a href="/blog/">All posts →</a></p>
+    </section>
+
+    <section>
+      <h2>Tools &amp; stack</h2>
+      {stacks.map((s) => (
+        <div class="stack">
+          <h3>{s.title}</h3>
+          <ul>
+            {s.items.map(([icon, name, text, href]) => (
+              <li>
+                <Icon name={icon} size={20} />
+                <div>
+                  {href ? <a href={href}><strong>{name}</strong></a> : <strong>{name}</strong>}
+                  <span>{text}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <section id="contact" class="contact-block">
+      <h2>Let's talk</h2>
+      <p class="sub">Open to project conversations, collaborations and good homelab debates.</p>
+      <a class="btn primary" href={`mailto:${links.email}`}><Icon name="lucide:mail" size={18} /> {links.email}</a>
+      <ul class="contact">
+        <li><a href={links.linkedin}><Icon name="simple-icons:linkedin" size={18} /> LinkedIn</a></li>
+        <li><a href={links.github}><Icon name="simple-icons:github" size={18} /> GitHub</a></li>
+        <li><a href="/resume/"><Icon name="lucide:file-text" size={18} /> Résumé</a></li>
+      </ul>
+    </section>
+  </main>
+</Site>

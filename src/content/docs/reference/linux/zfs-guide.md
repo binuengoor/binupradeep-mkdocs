@@ -3,7 +3,7 @@ title: "ZFS Guide"
 description: A comprehensive guide to managing ZFS storage pools and filesystems with practical examples and best practices
 tags: [zfs, filesystem, storage, raid]
 sidebar:
-  label: "ZFS Administration Guide"
+  label: "ZFS"
 ---
 
 ZFS (Zettabyte File System) represents a revolutionary approach to storage management, combining a filesystem with a volume manager. Unlike traditional filesystems, ZFS provides end-to-end data integrity verification, automatic repair capabilities, efficient snapshots, and native RAID support—all while eliminating the complexity of separate volume management.

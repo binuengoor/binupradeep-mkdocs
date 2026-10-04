@@ -3,7 +3,7 @@ title: "rsync: The Smart File Transfer Tool"
 description: A powerful utility for efficient file synchronization and transfer between local and remote systems
 tags: [rsync, linux, file-transfer, synchronization]
 sidebar:
-  label: "Rsync Quick Reference"
+  label: "rsync"
 ---
 
 rsync is your go-to solution for efficiently copying files and directories. Unlike regular copy commands, rsync only transfers the parts of files that have changed, making it incredibly fast for subsequent transfers.

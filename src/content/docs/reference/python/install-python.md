@@ -3,7 +3,8 @@ title: "Use Pyenv to manage python versions"
 description: How to install and manage python versions.
 tags: [python, development]
 sidebar:
-  label: "Python - Installation and Version Management"
+  label: "Pyenv"
+  order: 1
 ---
 
 ## Install Pyenv

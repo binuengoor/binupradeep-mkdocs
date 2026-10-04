@@ -4,6 +4,7 @@ description: A self-hosted, local-first semantic document reader and continuous 
 tags: [document-reader, text-to-speech, tts, kindle-style, epub, pdf, markdown, pwa, fastapi, react]
 sidebar:
   label: "Universal Reader"
+  order: 2
 ---
 
 **Universal Reader** is a self-hosted, local-first semantic document reader and continuous audio synthesizer. It transforms digital documents, web articles, and scratchpad notes into cleanly formatted, typography-optimized reading views paired with seamless, gapless Text-to-Speech (TTS) narration. Designed for long-form listening, deep reading, and personal knowledge management (PKM), Universal Reader connects to local TTS backends (such as [Universal TTS Gateway](universal-tts.md)) or cloud providers, pairing audio playback with an interactive Kindle-grade reader.

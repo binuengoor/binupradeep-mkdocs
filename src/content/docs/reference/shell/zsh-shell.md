@@ -2,6 +2,9 @@
 title: "Zsh Shell Guide"
 description: Z Shell — a powerful shell with advanced features, plugins, and theming via Oh My Zsh
 tags: [zsh, shell, terminal, command-line, linux, mac, oh-my-zsh, scripting]
+sidebar:
+  label: "Zsh"
+  order: 3
 ---
 
 Zsh (Z Shell) is a powerful shell that extends bash with many additional features. It's especially popular thanks to Oh My Zsh, a community-driven framework for managing Zsh configuration.

@@ -3,7 +3,7 @@ title: "Essential Linux Storage Commands"
 description: Quick reference for checking storage space in Linux using df and du commands.
 tags: [linux, command-line, system-admin]
 sidebar:
-  label: "Linux Storage Check"
+  label: "Storage Commands"
 ---
 
 Quick reference for checking storage space in Linux systems.

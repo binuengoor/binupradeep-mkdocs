@@ -2,6 +2,9 @@
 title: "Fish Shell & Modern CLI Reference Guide"
 description: A comprehensive reference guide for Fish Shell, modern Rust/Go command-line utilities, interactive FZF keybindings, Zoxide directory jumping, and custom productivity aliases.
 tags: [fish, terminal, shell, cli, fzf, zoxide, starship, nano, yazi, cmux, productivity, macos]
+sidebar:
+  label: "Fish"
+  order: 1
 ---
 
 The **Fish Shell (Friendly Interactive Shell)** paired with modern CLI utilities (written in Rust and Go) transforms the terminal from an arcane prompt into a responsive, color-coded, and highly interactive productivity engine.

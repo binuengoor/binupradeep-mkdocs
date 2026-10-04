@@ -3,7 +3,7 @@ title: "rclone: Cloud Storage Made Simple"
 description: The cloud storage Swiss Army knife for transferring files between local and cloud storage providers without downloading
 tags: [rclone, cloud-storage, file-transfer, google-drive, backup]
 sidebar:
-  label: "Rclone Quick Reference"
+  label: "rclone"
 ---
 
 rclone is your go-to solution for efficiently copying files between any cloud storage services or local storage. Unlike downloading and re-uploading, rclone transfers happen directly between cloud providers at maximum speed, making it perfect for migrations and backups.
