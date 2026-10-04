@@ -26,8 +26,7 @@ binupradeep-com/
 ├── astro.config.mjs        # Starlight config: sidebar topics, blog, mermaid, icons
 ├── package.json
 ├── public/                 # favicon, robots.txt, _headers
-├── scripts/migrate-content.py   # one-off MkDocs -> Starlight migration (provenance)
-├── legacy-mkdocs/          # the previous MkDocs Material site (docs/, mkdocs.yml); delete after cutover
+├── scripts/og-image.html   # source for public/og.png (render at 1200x630)
 ├── .agents/                # agent rules & skills
 └── src/
     ├── pages/index.astro   # custom portfolio homepage (not Starlight)
