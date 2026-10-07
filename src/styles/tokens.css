@@ -1,4 +1,10 @@
-/* Design tokens shared by the homepage, résumé, 404 AND the Starlight docs/blog (see theme.css). */
+/* Design tokens shared by the homepage, résumé, 404 AND the Starlight docs/blog (see theme.css).
+   Theme colours and fonts are defined only here; theme.css and the pages derive from them. */
+:root {
+  --font-display:'Fraunces Variable', Georgia, serif;
+  --font-body:'Inter Variable', system-ui, sans-serif;
+  --font-mono:'JetBrains Mono Variable', ui-monospace, monospace;
+}
 :root, :root[data-theme='dark'] {
   --bg:#16120e; --fg:#f1e7d6; --muted:#a89d8c; --line:#3a3128; --card:#1e1913;
   --accent:#e0824f; --accent-fg:#f0a070; --teal:#4fc6cd; --lens:#00ADB5; --orange:#FF7F11;

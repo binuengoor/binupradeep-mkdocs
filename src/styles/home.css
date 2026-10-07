@@ -2,10 +2,10 @@
 * { box-sizing:border-box; }
 html { color-scheme:dark light; scroll-behavior:smooth; }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
-body { margin:0; background:var(--bg); color:var(--fg); font-family:'Inter Variable',system-ui,sans-serif; font-size:1.05rem; line-height:1.65; -webkit-font-smoothing:antialiased;
+body { margin:0; background:var(--bg); color:var(--fg); font-family:var(--font-body); font-size:1.05rem; line-height:1.65; -webkit-font-smoothing:antialiased;
   background-image:radial-gradient(var(--dots) 1px,transparent 1px); background-size:5px 5px; }
 a { color:inherit; }
-.serif, h1, h2, h3, .facts dt, .pull, blockquote p { font-family:'Fraunces Variable',Georgia,serif; }
+h1, h2, h3, .facts dt, .pull, blockquote p { font-family:var(--font-display); }
 main { max-width:980px; margin-inline:auto; padding-inline:22px; }
 #prog { position:fixed; left:0; top:0; height:4px; width:0; background:linear-gradient(90deg,var(--lens),var(--orange)); z-index:20; }
 
@@ -18,7 +18,7 @@ h1 em { color:var(--accent); font-style:italic; font-weight:400; }
 h2 { font-size:1.7rem; letter-spacing:-.01em; margin:0 0 20px; font-weight:600; }
 h3 { font-size:1.05rem; margin:0 0 6px; }
 h2.sec { display:flex; align-items:baseline; gap:14px; }
-h2.sec i { font:600 .8rem 'Inter Variable',sans-serif; font-style:normal; color:var(--teal); letter-spacing:.1em; }
+h2.sec i { font:600 .8rem var(--font-body); font-style:normal; color:var(--teal); letter-spacing:.1em; }
 h2.sec::after { content:''; flex:1; border-top:1px solid var(--line); order:3; }
 .lede { color:var(--muted); font-size:1.15rem; max-width:52ch; margin:0 0 24px; }
 .sub { color:var(--muted); margin:-8px 0 20px; max-width:62ch; }
@@ -45,7 +45,7 @@ h2.sec::after { content:''; flex:1; border-top:1px solid var(--line); order:3; }
   -webkit-mask:var(--ink) center/contain no-repeat; mask:var(--ink) center/contain no-repeat; }
 
 /* Pull quote band + glasses dividers */
-.band { margin:0; font:italic 400 clamp(1.4rem,3vw,2rem)/1.25 'Fraunces Variable',serif; border-block:2px solid var(--fg); padding:24px 0; text-align:center; }
+.band { margin:0; font:italic 400 clamp(1.4rem,3vw,2rem)/1.25 var(--font-display); border-block:2px solid var(--fg); padding:24px 0; text-align:center; }
 .gl { display:flex; align-items:center; margin:30px 0 0; }
 .gl::before, .gl::after { content:''; flex:1; border-top:1.5px solid var(--line); }
 .gl svg { width:92px; height:34px; margin:0 14px; overflow:visible; }
@@ -65,7 +65,7 @@ h2.sec::after { content:''; flex:1; border-top:1px solid var(--line); order:3; }
 .cards { display:grid; gap:16px; } .cards.three { grid-template-columns:repeat(3,1fr); } .cards.two { grid-template-columns:repeat(2,1fr); }
 .card { display:block; padding:20px; border:1.5px solid var(--fg); background:var(--card); border-radius:12px; text-decoration:none; transition:transform .15s,box-shadow .15s; }
 a.card:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--shadow); }
-.card h3 { font-family:'Fraunces Variable',serif; font-size:1.25rem; margin:0 0 4px; } .card p { margin:0; color:var(--muted); font-size:.92rem; }
+.card h3 { font-family:var(--font-display); font-size:1.25rem; margin:0 0 4px; } .card p { margin:0; color:var(--muted); font-size:.92rem; }
 
 /* Skills + stack chips */
 .skills { display:grid; grid-template-columns:max-content 1fr; gap:8px 24px; margin:0 0 22px; font-size:.95rem; } .skills dt { font-weight:600; } .skills dd { margin:0; color:var(--muted); }
@@ -79,7 +79,7 @@ a.card:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--shadow
 .timeline > li { padding:0 0 26px 24px; position:relative; }
 .timeline > li::before { content:''; position:absolute; left:-8px; top:8px; width:14px; height:14px; border-radius:50%; background:var(--lens); border:2px solid var(--fg); }
 .role { display:flex; justify-content:space-between; gap:16px; align-items:baseline; flex-wrap:wrap; }
-.role h3 { margin:0; font-family:'Fraunces Variable',serif; font-size:1.3rem; } .period { color:var(--muted); font-size:.85rem; white-space:nowrap; }
+.role h3 { margin:0; font-family:var(--font-display); font-size:1.3rem; } .period { color:var(--muted); font-size:.85rem; white-space:nowrap; }
 .ctx { margin:2px 0 8px; color:var(--teal); font-size:.9rem; }
 .timeline ul { margin:0; padding-left:1.1rem; color:var(--muted); font-size:.95rem; } .timeline ul li { margin-bottom:5px; }
 .team h4 { margin:14px 0 6px; font-size:.95rem; } .tools { margin:8px 0 0; font-size:.85rem; color:var(--muted); } .tools strong { color:var(--fg); }
@@ -89,7 +89,7 @@ a.card:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--shadow
 .post { display:block; padding:18px; border:1.5px solid var(--fg); background:var(--card); border-radius:12px; text-decoration:none; transition:transform .15s,box-shadow .15s; }
 .post:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--shadow); }
 .post .tag { font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); font-weight:600; }
-.post h3 { font-family:'Fraunces Variable',serif; font-size:1.1rem; line-height:1.25; margin:6px 0 4px; } .post time { color:var(--muted); font-size:.8rem; }
+.post h3 { font-family:var(--font-display); font-size:1.1rem; line-height:1.25; margin:6px 0 4px; } .post time { color:var(--muted); font-size:.8rem; }
 
 /* About, kind words, contact */
 .about { display:grid; grid-template-columns:230px 1fr; gap:32px; align-items:start; }
@@ -101,11 +101,10 @@ blockquote { margin:0; padding:12px 0 0; border-top:3px solid var(--accent); } b
 blockquote footer { color:var(--muted); font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; font-weight:600; }
 .contact-block { padding-bottom:20px; } .contact-block p { margin:0 0 14px; }
 .contact { list-style:none; padding:0; margin:14px 0 0; display:flex; gap:12px; flex-wrap:wrap; }
-.nw { white-space:nowrap; } @media (max-width:520px) { .nw { white-space:normal; } }
 
 /* 404 */
 .nf { text-align:center; padding-block:70px 20px; }
-.nf .big { display:flex; justify-content:center; align-items:center; gap:6px; font:800 clamp(5rem,20vw,11rem)/.8 'Fraunces Variable',serif; letter-spacing:-.05em; }
+.nf .big { display:flex; justify-content:center; align-items:center; gap:6px; font:800 clamp(5rem,20vw,11rem)/.8 var(--font-display); letter-spacing:-.05em; }
 .nf .big .face { width:.85em; height:.85em; cursor:pointer; }
 .nf .big .face.down .glasses { transform:translateY(58px); }
 .nf p { color:var(--muted); max-width:44ch; margin:0 auto 22px; }

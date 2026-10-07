@@ -36,6 +36,7 @@ binupradeep-com/
     ├── layouts/Site.astro  # layout for the custom pages: <head>, shared header/footer, progress bar
     ├── components/
     │   ├── SiteHeader.astro / SiteFooter.astro / ThemeToggle.astro / LogoFace.astro   # shared chrome
+    │   ├── GlassesDivider.astro                                                       # section divider on the homepage
     │   ├── Starlight{Header,Footer,ThemeSelect,MobileMenuFooter}.astro               # Starlight overrides
     │   ├── BlobPhoto.astro / CaricatureHero.astro                                     # homepage portrait pieces
     ├── data/
@@ -46,7 +47,7 @@ binupradeep-com/
     │   ├── chrome.css      # header, logo, theme toggle, footer (shared by every page)
     │   ├── home.css        # homepage / résumé / 404 layout
     │   └── theme.css       # maps the tokens onto Starlight's variables (docs + blog)
-    ├── assets/             # logo, landing images (photo, caricature ink), guide screenshots (optimized at build)
+    ├── assets/             # landing images (hero photo, caricature ink), guide screenshots (optimized at build)
     ├── content.config.ts
     └── content/docs/
         ├── networking/  selfhosted/docker-compose/  reference/{ai,git,linux,mac,media,python,shell}/
@@ -91,7 +92,7 @@ The homepage, résumé, 404, docs and blog share one **warm editorial** look. Do
 
 | Piece | Where | Notes |
 |---|---|---|
-| Palette (light = cream, dark = warm near-black) | `src/styles/tokens.css` | Accent rust, teal `#00ADB5`, orange `#FF7F11` come from the bp logo. Both themes live here. |
+| Palette + fonts (light = cream, dark = warm near-black) | `src/styles/tokens.css` | The single source: `theme.css` derives all of Starlight's colours from these via `color-mix`. Teal `#00ADB5` and orange `#FF7F11` come from the bp logo. |
 | Header / footer / logo / theme toggle | `src/components/Site*.astro`, `src/styles/chrome.css` | One header used by the homepage layout **and** Starlight (via `StarlightHeader.astro`). |
 | Nav links | `src/data/nav.ts` | Single source. The current section is underlined (`aria-current`). |
 | Starlight colours, fonts, blog cards | `src/styles/theme.css` | Maps tokens onto `--sl-color-*`. Headings use Fraunces; body Inter; code JetBrains Mono. |
@@ -140,3 +141,26 @@ Cloudflare Pages: build command `npm run build`, output directory `dist`, Node 2
 - **Overridden Starlight components:** `Header`, `Footer`, `ThemeSelect`, `MobileMenuFooter` (see `astro.config.mjs`). If you add a plugin that overrides one of these, Starlight will warn; merge the two on purpose.
 - **Frontmatter titles are the page H1.** Never repeat the title as `# Heading` in the body.
 - **Don't delete posts that "look" duplicated.** Check content and tags first (the two Tour posts share a copied title but are different trips).
+
+## 9. Upgrading Astro / Starlight / plugins
+
+What our customisation touches, from most to least upgrade-safe:
+
+| Part | Depends on | Upgrade risk | If it breaks |
+|---|---|---|---|
+| Colours and fonts (`tokens.css`, the `--sl-*` block in `theme.css`) | Starlight's documented CSS variables | Low | Colours look off |
+| `customCss`, `disable404Route`, `components` overrides (Header, Footer, ThemeSelect, MobileMenuFooter) | Documented Starlight config | Low-medium | Build **fails or warns loudly** |
+| Imports of `@astrojs/starlight/components/Search.astro` and `Footer.astro` in the overrides | Starlight's component paths | Medium | Build fails (loud, easy to spot) |
+| Selectors after the `--sl-*` block in `theme.css` (`.sl-markdown-content`, `.sidebar-content`, `.sl-blog-*`, `h1#_top` ...) | Starlight / starlight-blog **internal** class names (not public API) | Medium | Silent and cosmetic: a style stops applying |
+| `starlight-blog`, `starlight-sidebar-topics`, `starlight-links-validator` | Third-party `0.x` plugins | Highest | Behaviour changes between minors |
+| Homepage, résumé, 404, `SiteHeader/Footer` | Only Astro core (`getCollection`, `astro:assets`, `class:list`) and our own CSS | Low | Build fails |
+
+Safety nets already in place: `package.json` uses caret ranges, and on `0.x` packages a caret only allows **patch** updates (`^0.42.5` never jumps to `0.43`), so `npm update` is safe; minor/major bumps are always a deliberate step. `npm run build` also fails on broken links.
+
+How to upgrade:
+1. New branch. `npm outdated`, then bump one thing at a time (Starlight and its plugins together).
+2. `npm run build` and fix errors or warnings (a plugin overriding a component we also override shows up here).
+3. Look at, in light **and** dark, at desktop and 375px: homepage, `/resume/`, a docs page (sidebar, code blocks, "On this page"), `/blog/` and one post, the mobile docs menu, and a wrong URL for the 404.
+4. Open a PR and check the Cloudflare preview before merging.
+
+Tested 2026-10-07: the in-range patch updates (Astro 7.3.6, MDX 8.0.3) built with no visible change on any of the 68 pages. Mermaid 12 (outside `astro-mermaid`'s declared peer range) built, but diagram rendering is client-side and was not verified.

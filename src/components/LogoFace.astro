@@ -1,10 +1,10 @@
 ---
 // The bp logo as an inline SVG: a face with glasses. The lenses hold eyes that follow the cursor
-// (see the script in Site.astro). Decorative only, so it is hidden from assistive tech.
+// (see the script in SiteHeader.astro). Decorative only, so it is hidden from assistive tech.
 interface Props { class?: string }
 const { class: className = '' } = Astro.props;
 ---
-<svg class={`face ${className}`} viewBox="0 0 1024 1024" aria-hidden="true" focusable="false">
+<svg class:list={['face', className]} viewBox="0 0 1024 1024" aria-hidden="true" focusable="false">
   <g class="frame" fill="currentColor">
     <path d="M98.7422 142.629C98.7422 118.391 118.391 98.7422 142.629 98.7422H171.887V512H98.7422V142.629Z" />
     <path d="M501.027 512C501.027 400.91 410.973 310.855 299.887 310.855C188.797 310.855 98.7422 400.91 98.7422 512C98.7422 623.09 188.797 713.145 299.887 713.145C410.973 713.145 501.027 623.09 501.027 512Z" />

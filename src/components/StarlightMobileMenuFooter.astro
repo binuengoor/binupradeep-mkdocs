@@ -6,7 +6,7 @@ const path = Astro.url.pathname;
 ---
 <nav class="mobile-sections" aria-label="Site sections">
   <a href="/">Home</a>
-  {navLinks.map((l) => <a href={l.href} aria-current={path.startsWith(l.match) ? 'true' : undefined}>{l.label}</a>)}
+  {navLinks.map((l) => <a href={l.href} aria-current={path === l.href ? 'page' : path.startsWith(l.match) ? 'true' : undefined}>{l.label}</a>)}
 </nav>
 <style>
   .mobile-sections { display:flex; flex-wrap:wrap; gap:8px; padding-top:1rem; border-top:1px solid var(--sl-color-hairline-light); }

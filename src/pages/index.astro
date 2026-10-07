@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Site from '../layouts/Site.astro';
 import CaricatureHero from '../components/CaricatureHero.astro';
 import BlobPhoto from '../components/BlobPhoto.astro';
+import GlassesDivider from '../components/GlassesDivider.astro';
 import heroPhoto from '../assets/landing/binu-hero.webp';
 import { experience, certifications, skills, education, links } from '../data/resume';
 
@@ -65,7 +66,7 @@ const jsonLd = {
           <div><dt>8</dt><dd>self-built apps</dd></div>
         </dl>
       </div>
-      <BlobPhoto src={heroPhoto} alt="Portrait of Binu Pradeep, smiling, wearing glasses and an olive overshirt" class="hero-photo" widths={[480, 640, 1023]} sizes="(max-width: 820px) 90vw, 480px" loading="eager" />
+      <BlobPhoto src={heroPhoto} alt="Portrait of Binu Pradeep, smiling, wearing glasses and an olive overshirt" widths={[480, 640, 1023]} sizes="(max-width: 820px) 90vw, 480px" loading="eager" />
     </header>
 
     <p class="band">“Minimalism and simplicity are the best tools to communicate your ideas.”</p>
@@ -80,7 +81,7 @@ const jsonLd = {
       <p class="more"><a href={links.credly}>Verify on Credly →</a> · <a href={links.tableau}>Tableau Public portfolio →</a></p>
     </section>
 
-    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <GlassesDivider />
     <section>
       <h2 class="sec"><i>02</i>What I do</h2>
       <div class="cards three">
@@ -90,7 +91,7 @@ const jsonLd = {
       </div>
     </section>
 
-    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <GlassesDivider />
     <section>
       <h2 class="sec"><i>03</i>Skills &amp; stack</h2>
       <dl class="skills">
@@ -104,7 +105,7 @@ const jsonLd = {
       ))}
     </section>
 
-    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <GlassesDivider />
     <section>
       <h2 class="sec"><i>04</i>Experience</h2>
       <ol class="timeline">
@@ -119,7 +120,7 @@ const jsonLd = {
       <p class="more"><a href="/resume/">Full résumé →</a></p>
     </section>
 
-    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <GlassesDivider />
     <section id="projects">
       <h2 class="sec"><i>05</i>Things I've built</h2>
       <p class="sub">I build and self-host the tools I wish existed. Each one is documented, with a Docker image or source on GitHub.</p>
@@ -131,7 +132,7 @@ const jsonLd = {
       <p class="more"><a href="/myapps/universal-tts/">All projects →</a> · <a href="/reference/linux/zfs-guide/">Homelab guides &amp; cheat sheets →</a></p>
     </section>
 
-    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <GlassesDivider />
     <section>
       <h2 class="sec"><i>06</i>Writing</h2>
       <div class="shelf">
@@ -146,7 +147,7 @@ const jsonLd = {
       <p class="more"><a href="/blog/">All posts →</a></p>
     </section>
 
-    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <GlassesDivider />
     <section class="aboutsec">
       <h2 class="sec"><i>07</i>About me</h2>
       <div class="about">
@@ -155,14 +156,14 @@ const jsonLd = {
           <div class="pull"><p>Minimalism and simplicity are the best tools to communicate your ideas to others.</p></div>
           <ul>
             <li>I'm a Project Manager with a Business Analysis background, based in Philadelphia, PA, with over a decade in healthcare and retail.</li>
-            <li>{education.map((e) => e.degree.replace(/^(M\.S\.|MBA|B\.Tech),?\s*/, '$1 ')).join(' · ')}.</li>
+            <li>{education.map((e) => e.degree.replace(',', '')).join(' · ')}.</li>
             <li>Outside work: Docker, networking, automation and AI, plus singing, music, hiking, and football (watching, and playing on Xbox).</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <GlassesDivider />
     <section>
       <h2 class="sec"><i>08</i>Kind words</h2>
       <div class="quotes">
@@ -172,7 +173,7 @@ const jsonLd = {
       </div>
     </section>
 
-    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <GlassesDivider />
     <section id="contact" class="contact-block">
       <h2 class="sec"><i>09</i>Say hello</h2>
       <p>Open to project conversations, collaborations and good homelab debates.</p>

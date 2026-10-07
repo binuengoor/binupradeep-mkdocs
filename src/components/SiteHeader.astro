@@ -13,13 +13,13 @@ const path = Astro.url.pathname;
 // Starlight already wraps its header slot in <header>, so use a plain <div> there to avoid nested banner landmarks.
 const Tag = variant === 'docs' ? 'div' : 'header';
 ---
-<Tag class={`top ${variant === 'docs' ? 'in-docs' : ''}`}>
+<Tag class:list={['top', { 'in-docs': variant === 'docs' }]}>
   <a class="brand" href="/" aria-label="Binu Pradeep home">
     <LogoFace /> <span>Binu Pradeep</span>
   </a>
   <nav aria-label="Primary">
     {navLinks.map((l) => (
-      <a href={l.href} aria-current={path.startsWith(l.match) ? 'true' : undefined}>{l.label}</a>
+      <a href={l.href} aria-current={path === l.href ? 'page' : path.startsWith(l.match) ? 'true' : undefined}>{l.label}</a>
     ))}
   </nav>
   <div class="top-end">
@@ -32,24 +32,34 @@ const Tag = variant === 'docs' ? 'div' : 'header';
   // The logo's eyes follow the cursor and blink. Skipped for people who prefer reduced motion.
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const faces = [...document.querySelectorAll<SVGSVGElement>('.face')];
-    addEventListener('pointermove', (e) => {
+    let last: PointerEvent | null = null;
+    let queued = false;
+
+    const look = () => {
+      queued = false;
+      if (!last) return;
       for (const f of faces) {
         const r = f.getBoundingClientRect();
         if (!r.width) continue;
-        const s = r.width / 1024;
+        const s = r.width / 1024; // the logo's viewBox is 1024 wide
         f.querySelectorAll<SVGGElement>('.eye').forEach((g) => {
-          const cx = r.left + Number(g.dataset.cx) * s;
-          const cy = r.top + Number(g.dataset.cy) * s;
-          const dx = e.clientX - cx, dy = e.clientY - cy;
+          const dx = last!.clientX - (r.left + Number(g.dataset.cx) * s);
+          const dy = last!.clientY - (r.top + Number(g.dataset.cy) * s);
           const d = Math.hypot(dx, dy) || 1;
-          const m = Math.min(58, d / s / 6);
+          const m = Math.min(58, d / s / 6); // pupil travel in viewBox units, capped inside the lens
           g.querySelectorAll<SVGElement>('.pupil,.gleam').forEach((c) => {
             c.style.transform = `translate(${(dx / d) * m}px,${(dy / d) * m}px)`;
           });
         });
       }
+    };
+    addEventListener('pointermove', (e) => {
+      last = e;
+      if (!queued) { queued = true; requestAnimationFrame(look); }
     }, { passive: true });
+
     setInterval(() => {
+      if (document.hidden) return;
       faces.forEach((f) => f.classList.add('blink'));
       setTimeout(() => faces.forEach((f) => f.classList.remove('blink')), 260);
     }, 3800);

@@ -1,8 +1,8 @@
 /* Site chrome: header, logo face, theme toggle, footer. Shared by every page (homepage, résumé, 404, docs, blog). */
-.top { display:flex; align-items:center; gap:22px; max-width:980px; margin-inline:auto; padding:20px 22px; flex-wrap:wrap; position:relative; font-family:'Inter Variable',system-ui,sans-serif; line-height:1.4; }
+.top { display:flex; align-items:center; gap:22px; max-width:980px; margin-inline:auto; padding:20px 22px; flex-wrap:wrap; position:relative; font-family:var(--font-body); line-height:1.4; }
 .top::after, .foot::before { content:''; position:absolute; left:22px; right:22px; border-top:2px solid var(--fg); }
 .top::after { bottom:0; } .foot::before { top:0; }
-.top .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--fg); font-family:'Fraunces Variable',Georgia,serif; font-weight:800; font-size:1.55rem; letter-spacing:-.02em; white-space:nowrap; }
+.top .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--fg); font-family:var(--font-display); font-weight:800; font-size:1.55rem; letter-spacing:-.02em; white-space:nowrap; }
 .face { width:40px; height:40px; color:var(--fg); overflow:visible; flex:none; }
 .top .face { transition:transform .4s; } .top .brand:hover .face { transform:rotate(-8deg) scale(1.08); }
 .face .pupil, .face .gleam { transition:transform .08s linear; }
@@ -29,7 +29,7 @@
 @media (max-width:63rem) { .top.in-docs nav { display:none; } .top.in-docs { gap:12px; } }
 
 /* Footer */
-.foot { position:relative; max-width:980px; margin-inline:auto; padding:30px 22px 44px; margin-top:30px; color:var(--muted); font-family:'Inter Variable',system-ui,sans-serif; font-size:.85rem; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.foot { position:relative; max-width:980px; margin-inline:auto; padding:30px 22px 44px; margin-top:30px; color:var(--muted); font-family:var(--font-body); font-size:.85rem; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
 .foot .face { width:28px; height:28px; }
 .foot-links { display:flex; gap:16px; margin-left:auto; } .foot-links a { color:var(--muted); text-decoration:none; } .foot-links a:hover { color:var(--accent-fg); text-decoration:underline; }
 .foot.in-docs { max-width:none; padding-inline:0; margin-top:40px; } .foot.in-docs::before { left:0; right:0; }

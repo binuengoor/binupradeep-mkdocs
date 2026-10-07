@@ -32,12 +32,11 @@ Header links point at a *real page* inside each section (a section has no index 
 src/
 ├── pages/            index.astro  resume.astro  404.astro
 ├── layouts/          Site.astro
-├── components/       SiteHeader  SiteFooter  ThemeToggle  LogoFace  BlobPhoto  CaricatureHero
+├── components/       SiteHeader  SiteFooter  ThemeToggle  LogoFace  GlassesDivider  BlobPhoto  CaricatureHero
 │                     StarlightHeader  StarlightFooter  StarlightThemeSelect  StarlightMobileMenuFooter
 ├── data/             resume.ts  nav.ts
 ├── styles/           tokens.css  chrome.css  home.css  theme.css
 ├── assets/
-│   ├── logo.svg, logo-dark.svg
 │   ├── landing/      binu-hero.webp (hero photo), binu.png, bp-hero-ink.svg (original caricature linework)
 │   └── images/       <topic>/ guide screenshots (e.g. openwrt-vlan/)
 └── content/docs/
@@ -65,7 +64,7 @@ scripts/og-image.html source for og.png
 - **`starlight-blog`**: blog at `/blog/` (`navigation: 'none'`, since the shared header carries the Writing link).
 - **`starlight-links-validator`**: fails the build on broken internal links.
 - **`astro-mermaid`**: renders ```` ```mermaid ```` fences (must come before Starlight).
-- **`astro-icon`** with `lucide` and `simple-icons` sets: icons in `.astro`/`.mdx`.
+- **`astro-icon`** with the `lucide` set: icons in `.astro`/`.mdx` (currently only the résumé print button uses one).
 - **`@astrojs/mdx`**: `.mdx` pages (needed for tabs/cards components).
 - **Starlight options of note**: `disable404Route: true` (custom `404.astro`), component overrides for `Header`, `Footer`, `ThemeSelect`, `MobileMenuFooter`.
 

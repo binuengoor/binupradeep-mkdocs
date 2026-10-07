@@ -1,49 +1,34 @@
 /* Starlight (docs + blog) in the same warm editorial theme as the homepage.
-   Palette tokens come from tokens.css; here they are mapped onto Starlight's own colour variables. */
+   Palette tokens come from tokens.css; here they are mapped onto Starlight's own colour variables.
+
+   UPGRADE NOTE. Two kinds of rules live here:
+   - The `:root { --sl-* }` block below uses Starlight's DOCUMENTED CSS variables: stable across upgrades.
+   - Everything after it targets Starlight / starlight-blog INTERNAL class names (.sl-markdown-content, .sidebar-content,
+     .pagination-links, .sl-blog-*, h1#_top ...). Those are not part of Starlight's public API and may be renamed in a
+     minor release. If a style silently stops applying after an upgrade, look here first. Failure is cosmetic only. */
 :root {
-  --sl-font: 'Inter Variable', system-ui, sans-serif;
-  --sl-font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
-  --font-display: 'Fraunces Variable', Georgia, serif;
+  --sl-font: var(--font-body);
+  --sl-font-mono: var(--font-mono);
   --sl-nav-height: 4rem;
   --sl-content-width: 46rem;
-}
 
-/* ---- Dark (default) ---- */
-:root, :root[data-theme='dark'] {
-  --sl-color-white: #f1e7d6;
-  --sl-color-gray-1: #e4d9c6;
-  --sl-color-gray-2: #cdc3b1;
-  --sl-color-gray-3: #a89d8c;
-  --sl-color-gray-4: #6d6455;
-  --sl-color-gray-5: #3a3128;
-  --sl-color-gray-6: #1e1913;
-  --sl-color-black: #16120e;
-  --sl-color-accent-low: #3a1c10;
-  --sl-color-accent: #e0824f;
-  --sl-color-accent-high: #f0a070;
-  --sl-color-bg-nav: #16120e;
-  --sl-color-bg-sidebar: #16120e;
-  --sl-color-hairline: #2c241b;
-  --sl-color-hairline-light: #3a3128;
-}
-/* ---- Light ---- */
-:root[data-theme='light'] {
-  --sl-color-white: #1d1a16;
-  --sl-color-gray-1: #2b2620;
-  --sl-color-gray-2: #4a4338;
-  --sl-color-gray-3: #6f665a;
-  --sl-color-gray-4: #8d8272;
-  --sl-color-gray-5: #d9cdb8;
-  --sl-color-gray-6: #efe6d2;
-  --sl-color-gray-7: #fbf6ec;
-  --sl-color-black: #f6efe3;
-  --sl-color-accent-low: #ffe3d0;
-  --sl-color-accent: #b8431a;
-  --sl-color-accent-high: #7c2d12;
-  --sl-color-bg-nav: #f6efe3;
-  --sl-color-bg-sidebar: #f6efe3;
-  --sl-color-hairline: #e3d8c2;
-  --sl-color-hairline-light: #d9cdb8;
+  /* Starlight's 7-step gray scale + accent, derived from the shared tokens so light and dark both follow automatically. */
+  --sl-color-white: var(--fg);
+  --sl-color-gray-1: color-mix(in srgb, var(--fg) 92%, var(--bg));
+  --sl-color-gray-2: color-mix(in srgb, var(--fg) 76%, var(--bg));
+  --sl-color-gray-3: var(--muted);
+  --sl-color-gray-4: color-mix(in srgb, var(--muted) 70%, var(--bg));
+  --sl-color-gray-5: var(--line);
+  --sl-color-gray-6: color-mix(in srgb, var(--line) 35%, var(--bg));
+  --sl-color-gray-7: var(--card);
+  --sl-color-black: var(--bg);
+  --sl-color-accent-low: color-mix(in srgb, var(--accent) 16%, var(--bg));
+  --sl-color-accent: var(--accent);
+  --sl-color-accent-high: var(--accent-fg);
+  --sl-color-bg-nav: var(--bg);
+  --sl-color-bg-sidebar: var(--bg);
+  --sl-color-hairline: color-mix(in srgb, var(--line) 55%, var(--bg));
+  --sl-color-hairline-light: var(--line);
 }
 
 body { background-image:radial-gradient(var(--dots) 1px,transparent 1px); background-size:5px 5px; }

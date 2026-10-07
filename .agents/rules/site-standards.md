@@ -39,7 +39,7 @@ tags: [travel, roadtrip]     # categories (northstar | shortstory | travel) are 
 - Callouts: `:::note`, `:::tip`, `:::caution`, `:::danger` (optionally `:::note[Custom title]`).
 - Tabs / cards / steps need `.mdx` and `import { Tabs, TabItem, Card, CardGrid } from '@astrojs/starlight/components';`.
 - Diagrams: fenced ```` ```mermaid ```` blocks. Quote edge labels containing `()<>`: `A -->|"Hit (<1ms)"| B`.
-- Icons: use `astro-icon` (`<Icon name="lucide:..." />` / `simple-icons:...`) in `.astro`/`.mdx`; no `:material-*:` shortcodes.
+- Icons: use `astro-icon` (`<Icon name="lucide:..." />`; only the `lucide` set is installed, add another `@iconify-json/*` set if you need one) in `.astro`/`.mdx`; no `:material-*:` shortcodes.
 - Images: standard Markdown. In `.mdx`, `<br>` must be `<br />` and bare `<` / `{` in prose must be escaped.
 - Images stored in `src/assets/` are referenced relatively and get optimized at build time.
 

@@ -47,7 +47,7 @@ In `.mdx`, write `<br />` (not `<br>`) and escape bare `<` and `{` in prose.
 Fenced ```` ```mermaid ```` blocks. Quote edge labels that contain `()<>`: `A -->|"Hit (<1ms)"| B`.
 
 ### Icons
-Use `astro-icon` in `.astro`/`.mdx`: `<Icon name="lucide:..." />` or `simple-icons:...`. There are no `:material-*:` shortcodes.
+Use `astro-icon` in `.astro`/`.mdx`: `<Icon name="lucide:..." />` (only the `lucide` set is installed; add another `@iconify-json/*` package for more). There are no `:material-*:` shortcodes.
 
 ---
 

@@ -17,7 +17,6 @@ export default defineConfig({
       title: 'Binu Pradeep',
       description:
         'Homelab guides, tech references, self-built apps and writing by Binu Pradeep — a Project Manager who likes minimalism, Docker, networking and AI.',
-      logo: { light: './src/assets/logo-dark.svg', dark: './src/assets/logo.svg', alt: 'Binu Pradeep' },
       favicon: '/favicon.svg',
       head: [
         { tag: 'meta', attrs: { property: 'og:image', content: 'https://binupradeep.com/og.png' } },
@@ -30,11 +29,6 @@ export default defineConfig({
       disable404Route: true,
       lastUpdated: true,
       editLink: { baseUrl: 'https://github.com/binuengoor/binupradeep-com/edit/main/' },
-      social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/binuengoor' },
-        { icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/binuepradeep/' },
-        { icon: 'email', label: 'Email', href: 'mailto:contact@binupradeep.com' },
-      ],
       expressiveCode: { shiki: { langAlias: { env: 'ini', m3u: 'txt', caddyfile: 'nginx' } } },
       customCss: [
         '@fontsource-variable/inter',

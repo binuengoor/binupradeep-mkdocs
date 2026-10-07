@@ -23,6 +23,12 @@ Notable changes to binupradeep.com, newest first. Git history has the detail; th
 - Résumé print: sections now flow across pages (was leaving page 1 nearly blank); each job and certification stays together.
 - `tour-de-west` and `tour-de-maine` shared one copied title. They are different trips (Maine is the sequel), so both were kept and retitled "Tour de West: ..." / "Tour de Maine: ... (the sequel)". URLs unchanged.
 
+**Cleanup and code review**
+- Removed dead code: Starlight `logo`/`social` config (the header is ours now), `logo*.svg` and the old `binu.png`, the unused `simple-icons` package, an empty `.gitmodules`, two unused CSS rules. Verified the built docs, blog, 404 and project pages are byte-identical afterwards.
+- One source of truth for colours and fonts: `theme.css` now derives Starlight's palette from `tokens.css` (it had a second hard-coded copy).
+- `AGENTS.md` §9 documents what an Astro/Starlight upgrade can affect; `theme.css` marks which rules rely on Starlight internals.
+- Eye tracking throttled to one update per frame; nav marks the exact page `aria-current="page"`; the eight glasses dividers are one component; `astro check` is clean.
+
 **Docs**
 - `AGENTS.md`, `.agents/rules/site-standards.md` and the `binupradeep-website` skill (workflows, structure, style guide, templates) rewritten for Astro + Starlight and the new theme.
 
