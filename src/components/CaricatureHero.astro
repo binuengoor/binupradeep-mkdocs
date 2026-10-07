@@ -1,0 +1,74 @@
+---
+// Hand-drawn caricature (the original ink drawing) brought back with colour and live glasses.
+// Three stacked layers share one 494x700 coordinate space:
+//   1. colour fills  2. the original ink linework (an <img>, so it stays small and cached)  3. glasses + eyes.
+// The panel behind it is warm in both themes, so the dark ink stays readable in dark mode.
+import ink from '../assets/landing/bp-hero-ink.svg';
+---
+<figure class="caricature">
+  <div class="stage" id="car-stage" role="img" aria-label="Hand-drawn caricature of Binu with glasses. The eyes follow your cursor; click to make him wink.">
+    <div class="char3" id="car-char">
+      <svg class="layer colour" viewBox="0 0 494 700" aria-hidden="true" focusable="false">
+        <g transform="translate(6 5)">
+          <path d="M45 340C20 220 60 80 160 30C230 -5 330 -5 400 40C455 80 490 190 470 300L440 340Z" fill="#241c18" />
+          <path d="M205 560L300 560L318 700L190 700Z" fill="#c98f62" />
+          <ellipse cx="62" cy="430" rx="52" ry="70" transform="rotate(8 62 430)" fill="#cf8f5e" />
+          <ellipse cx="462" cy="385" rx="40" ry="60" fill="#cf8f5e" />
+          <path d="M110 215C150 150 260 120 340 135C395 150 410 210 410 270C420 380 400 470 345 560C315 610 285 645 250 650C215 640 150 590 120 500C100 440 100 300 110 215Z" fill="#dba172" />
+          <path d="M165 560C200 640 300 640 340 560C335 600 300 660 250 662C205 655 175 610 165 560Z" fill="#6b4a36" opacity=".55" />
+          <circle cx="150" cy="470" r="34" fill="#e8806a" opacity=".35" /><circle cx="372" cy="440" r="34" fill="#e8806a" opacity=".35" />
+          <path d="M0 700L185 640L255 700Z" fill="#2f5d3a" /><path d="M320 700L350 640L494 700Z" fill="#2f5d3a" />
+          <path d="M185 640L318 640L330 700L200 700Z" fill="#1d2227" />
+        </g>
+      </svg>
+      <img class="layer inkimg" src={ink.src} alt="" width="494" height="700" draggable="false" />
+      <svg class="layer specs" viewBox="0 0 494 700" aria-hidden="true" focusable="false">
+        <g transform="rotate(-6 188 398)"><rect x="112" y="352" width="152" height="92" rx="18" fill="#f8efe0" /></g>
+        <g transform="rotate(-6 342 376)"><rect x="272" y="333" width="140" height="86" rx="18" fill="#f8efe0" /></g>
+        <g class="ceyeL" data-cx="190" data-cy="396"><circle cx="190" cy="396" r="25" fill="#6b4226" /><circle cx="190" cy="396" r="13" fill="#0d0c0b" /><circle cx="182" cy="388" r="6" fill="#fff" /></g>
+        <g class="ceyeR" data-cx="342" data-cy="376"><circle cx="342" cy="376" r="23" fill="#6b4226" /><circle cx="342" cy="376" r="12" fill="#0d0c0b" /><circle cx="335" cy="369" r="6" fill="#fff" /></g>
+        <g transform="rotate(-6 188 398)"><rect x="112" y="352" width="152" height="92" rx="18" fill="#00ADB5" opacity=".26" /><rect x="112" y="352" width="152" height="92" rx="18" fill="none" stroke="#1a1a1a" stroke-width="10" /><path d="M128 372L200 364" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5" /></g>
+        <g transform="rotate(-6 342 376)"><rect x="272" y="333" width="140" height="86" rx="18" fill="#00ADB5" opacity=".26" /><rect x="272" y="333" width="140" height="86" rx="18" fill="none" stroke="#1a1a1a" stroke-width="10" /><path d="M288 353L350 346" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".5" /></g>
+        <path d="M262 380C268 366 270 362 278 360" stroke="#FF7F11" stroke-width="12" stroke-linecap="round" fill="none" />
+      </svg>
+    </div>
+    <span class="hint">click me</span>
+  </div>
+  <p class="car-bubble" id="car-bubble" aria-live="polite" hidden></p>
+  <figcaption>Hand-drawn caricature from years ago, coloured in.</figcaption>
+</figure>
+
+<script>
+  const stage = document.getElementById('car-stage');
+  const char = document.getElementById('car-char');
+  const bubble = document.getElementById('car-bubble');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const quips = ['Old drawing, new colours. Still me.', 'Scope creep detected. Squinting.', 'That wink was strictly professional.', 'Requirements gathered. Coffee next.'];
+  let q = 0;
+
+  if (stage && char) {
+    if (!reduced) {
+      addEventListener('pointermove', (e) => {
+        const r = char.getBoundingClientRect();
+        if (!r.width) return;
+        const s = r.width / 494;
+        for (const [sel, cx, cy] of [['.ceyeL', 190, 396], ['.ceyeR', 342, 376]] as const) {
+          const dx = e.clientX - (r.left + cx * s), dy = e.clientY - (r.top + cy * s);
+          const d = Math.hypot(dx, dy) || 1;
+          const m = Math.min(11, d / s / 12);
+          char.querySelectorAll<SVGElement>(`${sel} circle`).forEach((c) => {
+            c.style.transform = `translate(${(dx / d) * m}px,${(dy / d) * m}px)`;
+          });
+        }
+        const hx = (e.clientX - (r.left + r.width / 2)) / innerWidth;
+        char.style.transform = `rotate(${Math.max(-3, Math.min(3, hx * 6))}deg)`;
+      }, { passive: true });
+      setInterval(() => { char.classList.add('blink'); setTimeout(() => char.classList.remove('blink'), 260); }, 3800);
+    }
+    stage.addEventListener('click', () => {
+      char.classList.remove('wink'); void char.getBoundingClientRect(); char.classList.add('wink');
+      setTimeout(() => char.classList.remove('wink'), 950);
+      if (bubble) { bubble.hidden = false; bubble.textContent = quips[q++ % quips.length]; }
+    });
+  }
+</script>
