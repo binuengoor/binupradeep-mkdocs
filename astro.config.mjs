@@ -50,6 +50,7 @@ export default defineConfig({
         Header: './src/components/StarlightHeader.astro',
         Footer: './src/components/StarlightFooter.astro',
         ThemeSelect: './src/components/StarlightThemeSelect.astro',
+        MobileMenuFooter: './src/components/StarlightMobileMenuFooter.astro',
       },
       plugins: [
         starlightLinksValidator({ errorOnRelativeLinks: false }),

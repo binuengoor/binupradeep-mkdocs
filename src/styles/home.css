@@ -130,6 +130,6 @@ blockquote footer { color:var(--muted); font-size:.78rem; letter-spacing:.1em; t
   :root, :root[data-theme='dark'], :root[data-theme='light'] { --bg:#fff; --fg:#111; --muted:#444; --line:#ccc; --card:#fff; --accent:#b8431a; --accent-fg:#7c2d12; --teal:#0e6a70; --dots:transparent; }
   body { background-image:none; }
   .top, .foot, .noprint, .print-btn, #prog, .gl { display:none !important; }
-  body { font-size:10.5pt; line-height:1.45; } section { padding-block:14px; break-inside:avoid-page; }
-  .timeline > li { break-inside:avoid; } a { text-decoration:none; }
+  body { font-size:10.5pt; line-height:1.45; } section { padding-block:14px; }
+  h2, h3 { break-after:avoid; } .timeline > li, .certlist li, .team { break-inside:avoid; } a { text-decoration:none; }
 }
