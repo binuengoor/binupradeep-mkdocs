@@ -27,10 +27,11 @@ tags: [travel, roadtrip]     # categories (northstar | shortstory | travel) are 
 ```
 
 - Put `<!-- excerpt -->` after the opening paragraph (the blog index teaser).
+- Give every post a **unique title** (the blog index and homepage list posts by title). Do not delete a post because its title looks like another's; check the content and tags first.
 - Post images go in `src/content/docs/blog/images/YYYY/<slug>/` and are referenced relatively: `![Header](images/YYYY/<slug>/header.webp)`.
 
 ## 2. Navigation
-- Top-level sections are "topics" configured in `astro.config.mjs` (`starlightSidebarTopics`). A new top-level folder needs a new topic entry.
+- Top-level sections are "topics" configured in `astro.config.mjs` (`starlightSidebarTopics`). A new top-level folder needs a new topic entry **and** a link in `src/data/nav.ts` (the header and the mobile docs menu read that file).
 - Inside a section the sidebar is auto-generated; order with `sidebar: { order: N }` in frontmatter.
 - Folder and file names are lowercase kebab-case (`docker-compose/`, `openwrt-vlan.md`).
 
@@ -51,3 +52,9 @@ tags: [travel, roadtrip]     # categories (northstar | shortstory | travel) are 
 npm run build     # must pass; the links validator fails the build on broken internal links
 npm run dev       # local preview at http://localhost:4321
 ```
+
+## 6. Theme & shared chrome
+- One warm editorial theme covers the homepage, résumé, 404, docs and blog. Colours live in `src/styles/tokens.css` (light + dark), Starlight mapping in `src/styles/theme.css`, header/footer in `src/styles/chrome.css`.
+- Never hard-code colours in a page or content file; use the tokens (`var(--bg)`, `var(--fg)`, `var(--accent)`, `var(--teal)`, `var(--orange)`...) so both themes keep working.
+- Check new visual work in **both** themes and at phone width (375px), and with `prefers-reduced-motion`.
+- The header, footer and theme toggle are shared components. Change them once in `src/components/Site*.astro`; never duplicate them in a page.

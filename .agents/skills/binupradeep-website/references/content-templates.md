@@ -1,21 +1,21 @@
 # Content Templates
 
-Use these standardized templates when creating new pages across the website.
+Use these standardized templates when creating new pages. All content lives in `src/content/docs/`. The frontmatter `title` is the page H1, so the body starts with prose or `##` headings (never a duplicate `# Heading`).
 
 ---
 
 ## 1. Self-Hosted Docker Compose Template
 
-**File Path**: `docs/selfhosted/Docker Compose/<service-name>.md`
+**File Path**: `src/content/docs/selfhosted/docker-compose/<service-name>.md`
 
 ```markdown
 ---
-title: <Service Name>
+title: "<Service Name>: <Short Catchy Subtitle>"
 description: <1-sentence description of the service and its purpose>
 tags: [docker, self-hosted, <topic-tags>]
+sidebar:
+  label: "<Service Name>"
 ---
-
-# <Service Name>: <Short Catchy Subtitle>
 
 <1-2 paragraph introduction explaining what the tool is, why it's useful, and who it is for.>
 
@@ -65,18 +65,19 @@ After deployment, access the interface at `http://<your-server-ip>:<host-port>`.
 
 ---
 
-## 2. MyApps Documentation Template
+## 2. My Apps Documentation Template
 
-**File Path**: `docs/myapps/<app-slug>.md`
+**File Path**: `src/content/docs/myapps/<app-slug>.md`
 
 ```markdown
 ---
-title: <App Name>
+title: "<App Name>: <Subtitle>"
 description: <Short description of the application>
 tags: [<tag1>, <tag2>, <tag3>]
+sidebar:
+  label: "<App Name>"
+  order: <n>
 ---
-
-# <App Name>: <Subtitle>
 
 **<App Name>** is <summary of what the application does>.
 
@@ -142,16 +143,16 @@ python3 script.py # or npm start
 
 ## 3. Tech Reference Guide Template
 
-**File Path**: `docs/reference/<Category>/<topic>.md`
+**File Path**: `src/content/docs/reference/<category>/<topic>.md`
 
 ```markdown
 ---
-title: <Topic Name> Reference Guide
+title: "<Topic Name> Reference Guide"
 description: <Comprehensive guide/cheat sheet to topic>
 tags: [<category>, <topic>, reference]
+sidebar:
+  label: "<Topic Name>"
 ---
-
-# <Topic Name> Guide
 
 <Brief overview of technology/tool and its core purpose.>
 
@@ -195,16 +196,16 @@ command --advanced-option | pipe_target
 
 ## 4. Home Networking Template
 
-**File Path**: `docs/networking/<topic>.md`
+**File Path**: `src/content/docs/networking/<topic>.md`
 
 ```markdown
 ---
-title: <Network Setup Title>
+title: "<Network Setup Title>"
 description: <Step-by-step guide for network topic>
 tags: [networking, <specific-tech>, security]
+sidebar:
+  label: "<Short Name>"
 ---
-
-# <Network Setup Title>
 
 <Scenario setup, architecture context, IP schema, and prerequisites.>
 
@@ -212,11 +213,11 @@ tags: [networking, <specific-tech>, security]
 
 ### Step 1: <Action Name>
 <Instructions>
-![Screenshot 1](../assets/images/<folder>/<img1>.webp)
+![Screenshot 1](../../../assets/images/<folder>/<img1>.webp)
 
 ### Step 2: <Action Name>
 <Instructions>
-![Screenshot 2](../assets/images/<folder>/<img2>.webp)
+![Screenshot 2](../../../assets/images/<folder>/<img2>.webp)
 
 ## Verification
 
@@ -231,23 +232,20 @@ tags: [networking, <specific-tech>, security]
 
 ## 5. Blog Post Template
 
-**File Path**: `docs/blog/posts/YYYY-MM-DD-<slug>.md`
+**File Path**: `src/content/docs/blog/<slug>.md` (URL `/blog/<slug>/`). Images go in `src/content/docs/blog/images/YYYY/<slug>/`.
 
 ```markdown
 ---
-draft: false
+title: <Post Title>              # must be unique across the blog
 date: YYYY-MM-DD
-categories: [northstar] # or shortstory, travel
-tags: [tag1, tag2, tag3]
-slug: <url-slug>
-title: <Post Title>
 description: <1-sentence post summary>
+tags: [northstar, tag2, tag3]    # first tag is the category: northstar | shortstory | travel
 ---
 
-![Header](images/YYYY/<slug>/header.webp){ loading=lazy width="800" }
+![Header](images/YYYY/<slug>/header.webp)
 
 <Engaging opening paragraph or quote that hooks the reader.>
-<!-- more -->
+<!-- excerpt -->
 
 ## <Section 1 Heading>
 

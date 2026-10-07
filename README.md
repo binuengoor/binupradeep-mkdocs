@@ -12,4 +12,4 @@ npm run build    # static site in dist/
 
 **Cloudflare Pages settings:** build command `npm run build`, output directory `dist`, environment variable `NODE_VERSION=22`.
 
-Content lives in `src/content/docs/`; see [AGENTS.md](AGENTS.md) for conventions. The old MkDocs Material site is preserved in git history (tag `pre-astro-migration`).
+Content lives in `src/content/docs/`; see [AGENTS.md](AGENTS.md) for conventions. The last MkDocs Material version is git commit `1c7049a` (2026-09-12).
