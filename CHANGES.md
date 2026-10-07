@@ -18,6 +18,8 @@ Notable changes to binupradeep.com, newest first. Git history has the detail; th
 - Homepage intentionally has no search (Starlight's search exists on docs pages only).
 
 **Fixes**
+- Theme: first visit follows the device (light/dark); until you press the toggle the site also follows the device if it switches while a page is open. Pressing the toggle saves your choice.
+- Verified in WebKit (Safari's engine) with an iPhone profile, light and dark: photo blob clip, caricature mask, open docs menu, no horizontal overflow.
 - Résumé print: sections now flow across pages (was leaving page 1 nearly blank); each job and certification stays together.
 - `tour-de-west` and `tour-de-maine` shared one copied title. They are different trips (Maine is the sequel), so both were kept and retitled "Tour de West: ..." / "Tour de Maine: ... (the sequel)". URLs unchanged.
 
