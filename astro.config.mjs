@@ -26,6 +26,8 @@ export default defineConfig({
         { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
         { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://binupradeep.com/og.png' } },
       ],
+      // The site has its own 404 page (src/pages/404.astro).
+      disable404Route: true,
       lastUpdated: true,
       editLink: { baseUrl: 'https://github.com/binuengoor/binupradeep-com/edit/main/' },
       social: [

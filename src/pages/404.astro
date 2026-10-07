@@ -1,0 +1,21 @@
+---
+import Site from '../layouts/Site.astro';
+import LogoFace from '../components/LogoFace.astro';
+---
+<Site title="Page not found — Binu Pradeep" description="That page isn't where I left it." path="/404/">
+  <main class="nf">
+    <div class="big" aria-hidden="true">4<LogoFace />4</div>
+    <h1>Hold on, let me <em>adjust my glasses.</em></h1>
+    <p>That page isn't where I left it. Click my face, check again, or pick a place to go.</p>
+    <div class="cta" style="justify-content:center">
+      <a class="btn primary" href="/">Back home</a>
+      <a class="btn" href="/resume/">Résumé</a>
+      <a class="btn" href="/reference/linux/zfs-guide/">Reference cheat sheets</a>
+      <a class="btn" href="/blog/">Blog</a>
+    </div>
+  </main>
+  <script>
+    // Click the big face: the glasses slide down and back up.
+    document.querySelector('.nf .big .face')?.addEventListener('click', (e) => (e.currentTarget as SVGElement).classList.toggle('down'));
+  </script>
+</Site>

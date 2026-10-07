@@ -1,62 +1,42 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import { Icon } from 'astro-icon/components';
 import Site from '../layouts/Site.astro';
+import heroPhoto from '../assets/landing/binu-hero.webp';
 import avatar from '../assets/landing/binu.png';
-import { experience, certifications, links } from '../data/resume';
+import { experience, certifications, skills, education, links } from '../data/resume';
 
 const featured = [
-  { title: 'Audio Analysis Studio', href: '/myapps/audio-analysis-studio/', icon: 'lucide:audio-waveform', text: 'Distributed multi-engine audio intelligence stack for BPM tracking, Camelot keys, chords, and LUFS mastering inspection.' },
-  { title: 'Event & Track Manager', href: '/myapps/event-track-manager/', icon: 'lucide:list-music', text: 'Cloud-native live stage production console with Google Workspace sync, automated audio intake, and real-time audience schedule.' },
-  { title: 'Universal TTS Gateway', href: '/myapps/universal-tts/', icon: 'lucide:mic', text: 'OpenAI-compatible text-to-speech gateway with Edge-TTS, Piper and Kokoro engines and an in-memory LRU cache.' },
-  { title: 'Image Optimizer for Web', href: '/myapps/image-optimizer-for-web/', icon: 'lucide:image-down', text: 'High-efficiency batch WebP converter with drag-and-drop compression presets and real-time size reduction metrics.' },
+  { title: 'Audio Analysis Studio', href: '/myapps/audio-analysis-studio/', text: 'Distributed multi-engine audio intelligence stack for BPM tracking, Camelot keys, chords, and LUFS mastering inspection.' },
+  { title: 'Event & Track Manager', href: '/myapps/event-track-manager/', text: 'Cloud-native live stage production console with Google Workspace sync, automated audio intake, and real-time audience schedule.' },
+  { title: 'Universal TTS Gateway', href: '/myapps/universal-tts/', text: 'OpenAI-compatible text-to-speech gateway with Edge-TTS, Piper and Kokoro engines and an in-memory LRU cache.' },
+  { title: 'Image Optimizer for Web', href: '/myapps/image-optimizer-for-web/', text: 'High-efficiency batch WebP converter with drag-and-drop compression presets and real-time size reduction metrics.' },
 ];
 
-const stacks = [
-  { title: 'Delivery & Analysis', items: [
-    ['simple-icons:jira', 'Jira', 'agile planning, backlogs and reporting'],
-    ['simple-icons:azuredevops', 'Azure DevOps', 'requirements, boards and pipelines'],
-    ['simple-icons:postgresql', 'SQL & Teradata', 'data analysis and requirements testing'],
-    ['simple-icons:tableau', 'Tableau', 'dashboards and data visualization'],
-    ['lucide:chart-column', 'Power BI', 'business intelligence reporting'],
-    ['simple-icons:figma', 'Figma', 'UI/UX prototyping'],
-  ] },
-  { title: 'Systems & Homelab', items: [
-    ['simple-icons:github', 'GitHub', 'version control and CI/CD'],
-    ['simple-icons:docker', 'Docker', 'containerized deployments'],
-    ['simple-icons:proxmox', 'Proxmox VE', 'virtualization and hypervisors'],
-    ['lucide:network', 'OpenWrt & VLANs', 'network segmentation', '/networking/openwrt-vlan/'],
-    ['lucide:globe-lock', 'Caddy', 'reverse proxy with wildcard HTTPS', '/selfhosted/docker-compose/caddy/'],
-    ['lucide:hard-drive', 'Linux & ZFS', 'storage, backups and administration', '/reference/linux/zfs-guide/'],
-  ] },
-  { title: 'AI & Agents', items: [
-    ['simple-icons:claude', 'Claude Code', 'agentic coding and automation from the terminal'],
-    ['simple-icons:googlegemini', 'Google Antigravity', 'autonomous multi-agent development'],
-    ['lucide:bot', 'OpenClaw', 'AI agent orchestration and workflows', '/reference/ai/openclaw-tips/'],
-    ['lucide:terminal', 'Pi Agent', 'extensible terminal coding and research', '/reference/ai/pi-agent/'],
-    ['lucide:feather', 'Hermes Agent', 'reasoning and task execution'],
-    ['lucide:message-square-code', 'Prompt engineering', 'techniques and reusable templates', '/promptengineering/essential-templates/'],
-  ] },
+const stacks: { title: string; items: [string, string?][] }[] = [
+  { title: 'Delivery & analysis', items: [['Jira'], ['Azure DevOps'], ['SQL & Teradata'], ['Tableau'], ['Power BI'], ['Figma'], ['UML & Visio']] },
+  { title: 'Systems & homelab', items: [['GitHub'], ['Docker'], ['Proxmox VE'], ['OpenWrt & VLANs', '/networking/openwrt-vlan/'], ['Caddy', '/selfhosted/docker-compose/caddy/'], ['Linux & ZFS', '/reference/linux/zfs-guide/']] },
+  { title: 'AI & agents', items: [['Claude Code'], ['Google Antigravity'], ['OpenClaw', '/reference/ai/openclaw-tips/'], ['Pi Agent', '/reference/ai/pi-agent/'], ['Hermes Agent'], ['Prompt engineering', '/promptengineering/essential-templates/']] },
 ];
 
 const focus = [
-  ['lucide:list-checks', 'Project delivery', 'PMP-certified, Scrum- and SAFe-trained. Plans that stay readable, with stakeholders who always know where things stand.'],
-  ['lucide:search-check', 'Business analysis', 'Requirements, functional specs and UAT that turn vague asks into software that works, backed by SQL and process mapping.'],
-  ['lucide:layout-dashboard', 'Product & data', 'Product ownership, Tableau dashboards and Figma prototypes designed so the right decision is the easy one.'],
+  ['Project delivery', 'PMP-certified, Scrum- and SAFe-trained. Plans that stay readable, with stakeholders who always know where things stand.'],
+  ['Business analysis', 'Requirements, functional specs and UAT that turn vague asks into software that works, backed by SQL and process mapping.'],
+  ['Product & data', 'Product ownership, Tableau dashboards and Figma prototypes designed so the right decision is the easy one.'],
 ];
 
 const testimonials = [
-  ['Binu\'s excellence at his job can be described in two ways: tenacity and passion. Few people commit so deeply to their work as Binu.', 'Koshy, Arun'],
-  ['I worked with Binu on many projects. Binu has outstanding knowledge in Business Analysis methodologies and a great eye for design.', 'Singh, Inderjot'],
-  ['Binu is an extremely talented designer of process. He always delivers superior results and is a great person to be around.', 'Thomas, Elson'],
+  ["Binu's excellence at his job can be described in two ways: tenacity and passion. Few people commit so deeply to their work as Binu.", 'Arun Koshy'],
+  ['I worked with Binu on many projects. Binu has outstanding knowledge in Business Analysis methodologies and a great eye for design.', 'Inderjot Singh'],
+  ['Binu is an extremely talented designer of process. He always delivers superior results and is a great person to be around.', 'Elson Thomas'],
 ];
 
 const posts = (await getCollection('docs'))
   .filter((e) => e.id.startsWith('blog/') && e.data.date && !e.data.draft)
   .sort((a, b) => b.data.date!.valueOf() - a.data.date!.valueOf())
-  .slice(0, 3);
+  .slice(0, 4);
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' });
+const tagOf = (t?: string[]) => (t && t[0] ? t[0] : 'post');
 
 const title = 'Binu Pradeep — Project Manager (PMP), builder, homelabber';
 const description = 'PMP-certified Project Manager and Business Analyst in Philadelphia with 10+ years in healthcare and retail. Résumé, self-built apps, homelab guides and writing.';
@@ -68,64 +48,128 @@ const jsonLd = {
 ---
 <Site title={title} description={description} path="/" jsonLd={jsonLd}>
   <main>
-    <section class="hero">
-      <p class="eyebrow">Project Manager · PMP® · Philadelphia, PA</p>
-      <h1>I turn complex requirements into <em>products people use.</em></h1>
-      <p class="lede">I work with companies to conceptualize, design, and create <strong>inclusive, effective, and impactful</strong> digital products. Ten-plus years delivering healthcare data, analytics and portal products as a Project Manager and Senior Business Systems Analyst.</p>
-      <div class="cta">
-        <a class="btn primary" href="/resume/">View résumé</a>
-        <a class="btn" href={links.linkedin}>Connect on LinkedIn</a>
-        <a class="btn" href="#projects">See what I build</a>
+    <header class="hero">
+      <div>
+        <p class="kick">Project Manager · PMP® · Philadelphia, PA</p>
+        <h1>I turn complex requirements into <em>products people use.</em></h1>
+        <p class="lede">I work with companies to conceptualize, design, and create <strong>inclusive, effective, and impactful</strong> digital products. Ten-plus years delivering healthcare data, analytics and portal products as a Project Manager and Senior Business Systems Analyst. Away from work: music, a homelab, and building tools I wish existed.</p>
+        <div class="cta">
+          <a class="btn primary" href="/resume/">View résumé</a>
+          <a class="btn" href="#projects">Things I've built</a>
+          <a class="btn" href="/blog/">Read the blog</a>
+        </div>
+        <dl class="facts">
+          <div><dt>10+</dt><dd>years in delivery &amp; analysis</dd></div>
+          <div><dt>{certifications.length}</dt><dd>certifications</dd></div>
+          <div><dt>8</dt><dd>self-built apps</dd></div>
+        </dl>
       </div>
-      <dl class="facts">
-        <div><dt>10+</dt><dd>years in delivery &amp; analysis</dd></div>
-        <div><dt>{certifications.length}</dt><dd>professional certifications</dd></div>
-        <div><dt>8</dt><dd>self-built apps</dd></div>
-      </dl>
-    </section>
+      <div class="blobwrap">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><clipPath id="blobClip" clipPathUnits="objectBoundingBox"><path d="M0.46 0.02C0.66 -0.02 0.9 0.08 0.95 0.3C1.0 0.48 0.93 0.58 0.97 0.74C1.0 0.9 0.82 1.0 0.62 0.97C0.46 0.95 0.36 1.02 0.2 0.96C0.03 0.9 0.04 0.72 0.02 0.55C0.0 0.38 0.06 0.3 0.08 0.2C0.12 0.07 0.28 0.05 0.46 0.02Z" /></clipPath></defs></svg>
+        <div class="blob">
+          <Image src={heroPhoto} alt="Portrait of Binu Pradeep, smiling, wearing glasses and an olive overshirt" widths={[480, 640, 1023]} sizes="(max-width: 820px) 90vw, 480px" loading="eager" />
+        </div>
+        <span class="dot d1" aria-hidden="true"></span><span class="dot d2" aria-hidden="true"></span>
+      </div>
+    </header>
 
-    <section class="creds">
-      <h2>Certified</h2>
-      <ul class="chips">
-        {certifications.filter((c) => c.featured).map((c) => <li title={`${c.name} · ${c.issued}`}>{c.short}</li>)}
+    <p class="band">“Minimalism and simplicity are the best tools to communicate your ideas.”</p>
+
+    <section id="certs">
+      <h2 class="sec"><i>01</i>Certified</h2>
+      <ul class="certs">
+        {certifications.map((c) => (
+          <li class={c.featured ? 'f' : ''}><b>{c.short}</b><span>{c.name}</span><time>{c.issued}</time></li>
+        ))}
       </ul>
       <p class="more"><a href={links.credly}>Verify on Credly →</a> · <a href={links.tableau}>Tableau Public portfolio →</a></p>
     </section>
 
-    <section class="focus">
-      <h2>What I do</h2>
+    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <section>
+      <h2 class="sec"><i>02</i>What I do</h2>
       <div class="cards three">
-        {focus.map(([icon, name, text]) => (
-          <div class="card static">
-            <Icon name={icon} size={22} />
-            <h3>{name}</h3>
-            <p>{text}</p>
-          </div>
+        {focus.map(([name, text]) => (
+          <div class="card"><h3>{name}</h3><p>{text}</p></div>
         ))}
       </div>
     </section>
 
+    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
     <section>
-      <h2>Experience</h2>
+      <h2 class="sec"><i>03</i>Skills &amp; stack</h2>
+      <dl class="skills">
+        {skills.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+      </dl>
+      {stacks.map((s) => (
+        <div class="stack">
+          <h3>{s.title}</h3>
+          <ul>{s.items.map(([name, href]) => <li>{href ? <a href={href}>{name}</a> : <span>{name}</span>}</li>)}</ul>
+        </div>
+      ))}
+    </section>
+
+    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <section>
+      <h2 class="sec"><i>04</i>Experience</h2>
       <ol class="timeline">
         {experience.map((job) => (
           <li>
-            <div class="role">
-              <h3>{job.title}</h3>
-              <span class="period">{job.period}</span>
-            </div>
+            <div class="role"><h3>{job.title}</h3><span class="period">{job.period}</span></div>
             <p class="ctx">{job.context}</p>
-            <ul>
-              {job.teams.flatMap((t) => t.points.slice(0, 2)).map((p) => <li>{p}</li>)}
-            </ul>
+            <ul>{job.teams.flatMap((t) => t.points.slice(0, 2)).map((p) => <li>{p}</li>)}</ul>
           </li>
         ))}
       </ol>
       <p class="more"><a href="/resume/">Full résumé →</a></p>
     </section>
 
+    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <section id="projects">
+      <h2 class="sec"><i>05</i>Things I've built</h2>
+      <p class="sub">I build and self-host the tools I wish existed. Each one is documented, with a Docker image or source on GitHub.</p>
+      <div class="cards two">
+        {featured.map((p) => (
+          <a class="card" href={p.href}><h3>{p.title}</h3><p>{p.text}</p></a>
+        ))}
+      </div>
+      <p class="more"><a href="/myapps/universal-tts/">All projects →</a> · <a href="/reference/linux/zfs-guide/">Homelab guides &amp; cheat sheets →</a></p>
+    </section>
+
+    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
     <section>
-      <h2>Kind words</h2>
+      <h2 class="sec"><i>06</i>Writing</h2>
+      <div class="shelf">
+        {posts.map((p) => (
+          <a class="post" href={`/${p.id.replace(/\.mdx?$/, '')}/`}>
+            <span class="tag">{tagOf(p.data.tags)}</span>
+            <h3>{p.data.title}</h3>
+            <time datetime={p.data.date!.toISOString()}>{fmt(p.data.date!)}</time>
+          </a>
+        ))}
+      </div>
+      <p class="more"><a href="/blog/">All posts →</a></p>
+    </section>
+
+    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <section class="aboutsec">
+      <h2 class="sec"><i>07</i>About me</h2>
+      <div class="about">
+        <Image src={avatar} alt="Portrait of Binu Pradeep" width="150" height="150" class="avatar" />
+        <div>
+          <div class="pull"><p>Minimalism and simplicity are the best tools to communicate your ideas to others.</p></div>
+          <ul>
+            <li>I'm a Project Manager with a Business Analysis background, based in Philadelphia, PA, with over a decade in healthcare and retail.</li>
+            <li>{education.map((e) => e.degree.replace(/^(M\.S\.|MBA|B\.Tech),?\s*/, '$1 ')).join(' · ')}.</li>
+            <li>Outside work: Docker, networking, automation and AI, plus singing, music, hiking, and football (watching, and playing on Xbox).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
+    <section>
+      <h2 class="sec"><i>08</i>Kind words</h2>
       <div class="quotes">
         {testimonials.map(([q, who]) => (
           <blockquote><p>“{q}”</p><footer>— {who}</footer></blockquote>
@@ -133,76 +177,26 @@ const jsonLd = {
       </div>
     </section>
 
-    <section class="about">
-      <Image src={avatar} alt="Portrait of Binu Pradeep" width="150" height="150" class="avatar" />
-      <div>
-        <h2>About me</h2>
-        <blockquote class="pull"><p>Minimalism and simplicity are the best tools to communicate your ideas to others.</p></blockquote>
-        <ul>
-          <li>I'm a Project Manager with a Business Analysis background, based in Philadelphia, PA, with over a decade in healthcare and retail.</li>
-          <li>I design applications that line up with customer goals, using industry-leading tools for UI design, data analysis and visualization.</li>
-          <li>Outside work: Docker, networking, automation and AI, plus singing, music, hiking, and football (watching, and playing on Xbox).</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Things I've built</h2>
-      <p class="sub">I build and self-host the tools I wish existed. Each one is documented, with a Docker image or source on GitHub.</p>
-      <div class="cards two">
-        {featured.map((p) => (
-          <a class="card" href={p.href}>
-            <Icon name={p.icon} size={22} />
-            <h3>{p.title}</h3>
-            <p>{p.text}</p>
-          </a>
-        ))}
-      </div>
-      <p class="more"><a href="/myapps/universal-tts/">All projects →</a></p>
-    </section>
-
-    <section>
-      <h2>Latest writing</h2>
-      <ul class="posts">
-        {posts.map((p) => (
-          <li>
-            <a href={`/${p.id.replace(/\.mdx?$/, '')}/`}>{p.data.title}</a>
-            <time datetime={p.data.date!.toISOString()}>{fmt(p.data.date!)}</time>
-          </li>
-        ))}
-      </ul>
-      <p class="more"><a href="/blog/">All posts →</a></p>
-    </section>
-
-    <section>
-      <h2>Tools &amp; stack</h2>
-      {stacks.map((s) => (
-        <div class="stack">
-          <h3>{s.title}</h3>
-          <ul>
-            {s.items.map(([icon, name, text, href]) => (
-              <li>
-                <Icon name={icon} size={20} />
-                <div>
-                  {href ? <a href={href}><strong>{name}</strong></a> : <strong>{name}</strong>}
-                  <span>{text}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </section>
-
+    <div class="gl" aria-hidden="true"><svg viewBox="0 0 92 34"><circle cx="22" cy="17" r="14" /><circle cx="70" cy="17" r="14" /><rect x="36" y="14" width="20" height="6" rx="3" /><circle class="pp" cx="22" cy="17" r="5" /><circle class="pp" cx="70" cy="17" r="5" /></svg></div>
     <section id="contact" class="contact-block">
-      <h2>Let's talk</h2>
-      <p class="sub">Open to project conversations, collaborations and good homelab debates.</p>
-      <a class="btn primary" href={`mailto:${links.email}`}><Icon name="lucide:mail" size={18} /> {links.email}</a>
-      <ul class="contact">
-        <li><a href={links.linkedin}><Icon name="simple-icons:linkedin" size={18} /> LinkedIn</a></li>
-        <li><a href={links.github}><Icon name="simple-icons:github" size={18} /> GitHub</a></li>
-        <li><a href="/resume/"><Icon name="lucide:file-text" size={18} /> Résumé</a></li>
-      </ul>
+      <h2 class="sec"><i>09</i>Say hello</h2>
+      <p>Open to project conversations, collaborations and good homelab debates.</p>
+      <div class="cta">
+        <a class="btn primary" href={`mailto:${links.email}`}>{links.email}</a>
+        <a class="btn" href={links.linkedin}>LinkedIn</a>
+        <a class="btn" href={links.github}>GitHub</a>
+        <a class="btn" href="/resume/">Résumé</a>
+      </div>
     </section>
   </main>
+  <script>
+    // Glasses dividers: the lenses fill in as each one scrolls into view.
+    const dividers = document.querySelectorAll('.gl');
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+      dividers.forEach((d) => d.classList.add('on'));
+    } else {
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { threshold: 0.9 });
+      dividers.forEach((d) => io.observe(d));
+    }
+  </script>
 </Site>

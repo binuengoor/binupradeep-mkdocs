@@ -1,0 +1,27 @@
+---
+// The bp logo as an inline SVG: a face with glasses. The lenses hold eyes that follow the cursor
+// (see the script in Site.astro). Decorative only, so it is hidden from assistive tech.
+interface Props { class?: string }
+const { class: className = '' } = Astro.props;
+---
+<svg class={`face ${className}`} viewBox="0 0 1024 1024" aria-hidden="true" focusable="false">
+  <g class="frame" fill="currentColor">
+    <path d="M98.7422 142.629C98.7422 118.391 118.391 98.7422 142.629 98.7422H171.887V512H98.7422V142.629Z" />
+    <path d="M501.027 512C501.027 400.91 410.973 310.855 299.887 310.855C188.797 310.855 98.7422 400.91 98.7422 512C98.7422 623.09 188.797 713.145 299.887 713.145C410.973 713.145 501.027 623.09 501.027 512Z" />
+    <path d="M522.973 925.258H552.23C576.465 925.258 596.113 905.609 596.113 881.371V512H522.973V925.258Z" />
+    <path d="M925.258 512C925.258 400.91 835.203 310.855 724.113 310.855C613.027 310.855 522.973 400.91 522.973 512C522.973 623.09 613.027 713.145 724.113 713.145C835.203 713.145 925.258 623.09 925.258 512Z" />
+  </g>
+  <g class="glasses">
+    <path class="bridge" fill-rule="evenodd" clip-rule="evenodd" fill="#FF7F11" d="M413.258 570.074C422.57 552.324 427.84 532.121 427.84 510.684C427.84 490.242 423.051 470.922 414.527 453.777H609.383C600.859 470.922 596.07 490.242 596.07 510.684C596.07 532.121 601.34 552.324 610.652 570.074H413.258Z" />
+    <circle class="lens" cx="299.887" cy="512" r="128" fill="#00ADB5" />
+    <circle class="lens" cx="724.113" cy="512" r="128" fill="#00ADB5" />
+    <g class="eye" data-cx="299.887" data-cy="512">
+      <circle class="pupil" cx="299.887" cy="512" r="46" fill="#0d0c0b" />
+      <circle class="gleam" cx="283" cy="494" r="12" fill="#fff" opacity=".9" />
+    </g>
+    <g class="eye" data-cx="724.113" data-cy="512">
+      <circle class="pupil" cx="724.113" cy="512" r="46" fill="#0d0c0b" />
+      <circle class="gleam" cx="707" cy="494" r="12" fill="#fff" opacity=".9" />
+    </g>
+  </g>
+</svg>
