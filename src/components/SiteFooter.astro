@@ -1,0 +1,18 @@
+---
+import '../styles/tokens.css';
+import '../styles/chrome.css';
+import LogoFace from './LogoFace.astro';
+import { links } from '../data/resume';
+
+interface Props { variant?: 'site' | 'docs' }
+const { variant = 'site' } = Astro.props;
+---
+<footer class={`foot ${variant === 'docs' ? 'in-docs' : ''}`}>
+  <LogoFace /> <span>© {new Date().getFullYear()} Binu Pradeep</span>
+  <span class="foot-links">
+    <a href={links.github}>GitHub</a>
+    <a href={links.linkedin}>LinkedIn</a>
+    <a href={`mailto:${links.email}`}>Email</a>
+    <a href="/blog/rss.xml">RSS</a>
+  </span>
+</footer>

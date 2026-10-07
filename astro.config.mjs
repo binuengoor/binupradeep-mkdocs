@@ -36,7 +36,21 @@ export default defineConfig({
         { icon: 'email', label: 'Email', href: 'mailto:contact@binupradeep.com' },
       ],
       expressiveCode: { shiki: { langAlias: { env: 'ini', m3u: 'txt', caddyfile: 'nginx' } } },
-      customCss: ['@fontsource-variable/inter', '@fontsource-variable/jetbrains-mono', './src/styles/theme.css'],
+      customCss: [
+        '@fontsource-variable/inter',
+        '@fontsource-variable/jetbrains-mono',
+        '@fontsource-variable/fraunces',
+        '@fontsource-variable/fraunces/wght-italic.css',
+        './src/styles/tokens.css',
+        './src/styles/chrome.css',
+        './src/styles/theme.css',
+      ],
+      // Same header, footer and theme toggle as the homepage (see src/components/Starlight*.astro).
+      components: {
+        Header: './src/components/StarlightHeader.astro',
+        Footer: './src/components/StarlightFooter.astro',
+        ThemeSelect: './src/components/StarlightThemeSelect.astro',
+      },
       plugins: [
         starlightLinksValidator({ errorOnRelativeLinks: false }),
         starlightBlog({
@@ -44,6 +58,8 @@ export default defineConfig({
           prefix: 'blog',
           postCount: 8,
           recentPostCount: 6,
+          // The Writing link now lives in the shared header (src/data/nav.ts), so the plugin must not add its own.
+          navigation: 'none',
         }),
         starlightSidebarTopics([
           { label: 'Home Networking', icon: 'seti:json', link: '/networking/openwrt-vlan/', items: [{ autogenerate: { directory: 'networking' } }] },

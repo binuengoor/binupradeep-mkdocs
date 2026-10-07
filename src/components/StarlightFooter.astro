@@ -1,0 +1,7 @@
+---
+// Keeps Starlight's edit link / last-updated / prev-next, then adds the same footer the homepage has.
+import Default from '@astrojs/starlight/components/Footer.astro';
+import SiteFooter from './SiteFooter.astro';
+---
+<Default {...Astro.props}><slot /></Default>
+<SiteFooter variant="docs" />

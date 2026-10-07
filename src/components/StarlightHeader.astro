@@ -1,0 +1,7 @@
+---
+// Replaces Starlight's header so docs and blog pages show the exact same header as the homepage,
+// with Starlight's search added just before the theme toggle.
+import Search from '@astrojs/starlight/components/Search.astro';
+import SiteHeader from './SiteHeader.astro';
+---
+<SiteHeader variant="docs"><Search {...Astro.props} /></SiteHeader>

@@ -1,0 +1,57 @@
+---
+// The site header: logo, section links, then (optionally) search and the theme toggle.
+// Used by the homepage layout and, through StarlightHeader.astro, by every docs and blog page.
+import '../styles/tokens.css';
+import '../styles/chrome.css';
+import LogoFace from './LogoFace.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import { navLinks } from '../data/nav';
+
+interface Props { variant?: 'site' | 'docs' }
+const { variant = 'site' } = Astro.props;
+const path = Astro.url.pathname;
+// Starlight already wraps its header slot in <header>, so use a plain <div> there to avoid nested banner landmarks.
+const Tag = variant === 'docs' ? 'div' : 'header';
+---
+<Tag class={`top ${variant === 'docs' ? 'in-docs' : ''}`}>
+  <a class="brand" href="/" aria-label="Binu Pradeep home">
+    <LogoFace /> <span>Binu Pradeep</span>
+  </a>
+  <nav aria-label="Primary">
+    {navLinks.map((l) => (
+      <a href={l.href} aria-current={path.startsWith(l.match) ? 'true' : undefined}>{l.label}</a>
+    ))}
+  </nav>
+  <div class="top-end">
+    <slot />
+    <ThemeToggle />
+  </div>
+</Tag>
+
+<script>
+  // The logo's eyes follow the cursor and blink. Skipped for people who prefer reduced motion.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const faces = [...document.querySelectorAll<SVGSVGElement>('.face')];
+    addEventListener('pointermove', (e) => {
+      for (const f of faces) {
+        const r = f.getBoundingClientRect();
+        if (!r.width) continue;
+        const s = r.width / 1024;
+        f.querySelectorAll<SVGGElement>('.eye').forEach((g) => {
+          const cx = r.left + Number(g.dataset.cx) * s;
+          const cy = r.top + Number(g.dataset.cy) * s;
+          const dx = e.clientX - cx, dy = e.clientY - cy;
+          const d = Math.hypot(dx, dy) || 1;
+          const m = Math.min(58, d / s / 6);
+          g.querySelectorAll<SVGElement>('.pupil,.gleam').forEach((c) => {
+            c.style.transform = `translate(${(dx / d) * m}px,${(dy / d) * m}px)`;
+          });
+        });
+      }
+    }, { passive: true });
+    setInterval(() => {
+      faces.forEach((f) => f.classList.add('blink'));
+      setTimeout(() => faces.forEach((f) => f.classList.remove('blink')), 260);
+    }, 3800);
+  }
+</script>
