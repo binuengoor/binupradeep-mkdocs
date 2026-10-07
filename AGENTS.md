@@ -6,108 +6,161 @@ This repository powers **Binu Pradeep's** personal portfolio, homelab documentat
 
 ## 1. Persona & Tone Guidelines
 
-- **Author**: Binu Pradeep — Project Manager (with a Business Analysis background) based in Philadelphia, PA, with a passion for minimalism, homelab/self-hosting, networking, Docker, AI, and digital product design.
-- **Tone**: Pragmatic, clean, structured, minimalist, authoritative yet approachable.
+- **Author**: Binu Pradeep — Project Manager (with a Business Analysis background) based in Philadelphia, PA, with a passion for minimalism, homelab/self-hosting, networking, Docker, AI, audio, and digital product design.
+- **Tone**: Pragmatic, clean, structured, minimalist, authoritative yet approachable. The *site* has more personality (see §4); the *content* stays direct.
 - **Philosophy**: *"Minimalism and simplicity are the best tools to communicate ideas."*
 - **Formatting Standards**:
-  - Direct and actionable — avoid unnecessary filler or wordiness.
-  - Well-structured with clear hierarchy (`#`, `##`, `###`), bold feature callouts (`**Feature**: Explanation`), and annotated code snippets.
-  - Consistent frontmatter on every single markdown file.
-  - Fully formatted code blocks with correct syntax highlighting (`yaml`, `bash`, `python`, etc.).
+  - Direct and actionable. Avoid filler.
+  - Clear hierarchy (`##`, `###`), bold feature callouts (`**Feature**: Explanation`), annotated code snippets.
+  - Frontmatter on every content file.
+  - Fenced code blocks always carry a language (`yaml`, `bash`, `python`, ...).
 
 ---
 
 ## 2. Site Architecture & Directory Layout
 
-Built with **Astro 7 + Starlight**, deployed as a static site on Cloudflare Pages.
+Built with **Astro 7 + Starlight**, deployed as a static site on Cloudflare Pages. Plugins: `starlight-blog`, `starlight-sidebar-topics`, `starlight-links-validator`; Mermaid via `astro-mermaid`; icons via `astro-icon`.
 
 ```
 binupradeep-com/
-├── astro.config.mjs        # Starlight config: sidebar topics, blog, mermaid, icons
+├── astro.config.mjs        # Starlight config: sidebar topics, blog, mermaid, component overrides, custom CSS
 ├── package.json
-├── public/                 # favicon, robots.txt, _headers
+├── public/                 # favicon, robots.txt, _headers, og.png
 ├── scripts/og-image.html   # source for public/og.png (render at 1200x630)
-├── .agents/                # agent rules & skills
+├── .agents/                # agent rules & skills (see §6)
 └── src/
-    ├── pages/index.astro   # custom portfolio homepage (not Starlight)
-    ├── pages/resume.astro  # print-friendly résumé page (/resume/)
-    ├── layouts/Site.astro  # shared header/footer/meta for the custom pages
-    ├── data/resume.ts      # résumé content shared by the homepage and /resume/ (no address/phone)
-    ├── styles/             # theme.css (Starlight), home.css (homepage)
-    ├── assets/             # logo, landing images, guide screenshots (optimized at build)
+    ├── pages/
+    │   ├── index.astro     # custom homepage (NOT Starlight)
+    │   ├── resume.astro    # print-friendly résumé (/resume/)
+    │   └── 404.astro       # custom 404 ("let me adjust my glasses")
+    ├── layouts/Site.astro  # layout for the custom pages: <head>, shared header/footer, progress bar
+    ├── components/
+    │   ├── SiteHeader.astro / SiteFooter.astro / ThemeToggle.astro / LogoFace.astro   # shared chrome
+    │   ├── GlassesDivider.astro                                                       # section divider on the homepage
+    │   ├── Starlight{Header,Footer,ThemeSelect,MobileMenuFooter}.astro               # Starlight overrides
+    │   ├── BlobPhoto.astro / CaricatureHero.astro                                     # homepage portrait pieces
+    ├── data/
+    │   ├── resume.ts       # résumé content shared by the homepage and /resume/ (no address/phone)
+    │   └── nav.ts          # THE list of top-level nav links (header on every page + mobile docs menu)
+    ├── styles/
+    │   ├── tokens.css      # palette (light + dark) shared by everything
+    │   ├── chrome.css      # header, logo, theme toggle, footer (shared by every page)
+    │   ├── home.css        # homepage / résumé / 404 layout
+    │   └── theme.css       # maps the tokens onto Starlight's variables (docs + blog)
+    ├── assets/             # landing images (hero photo, caricature ink), guide screenshots (optimized at build)
     ├── content.config.ts
     └── content/docs/
         ├── networking/  selfhosted/docker-compose/  reference/{ai,git,linux,mac,media,python,shell}/
         ├── myapps/  promptengineering/
-        └── blog/           # starlight-blog posts: <slug>.md + images/
+        └── blog/           # starlight-blog posts: <slug>.md + images/YYYY/<slug>/
 ```
-
-## 3. Section Overview & Writing Conventions
-
-### A. Landing Page (`src/pages/index.astro`)
-- Minimalist hero introduction highlighting core philosophy.
-- About Me section with portrait image aligned right (`{ align=right width="150px" }`).
-- Grid card layout for tools/technologies (`<div class="grid cards" markdown>`).
-- Testimonials and social links with Material/FontAwesome icon shortcodes (`:simple-python:`, `:fontawesome-brands-github:`, etc.).
-
-### B. Self-Hosted Guides (`src/content/docs/selfhosted/docker-compose/*.md`)
-- **Focus**: Practical, ready-to-run Docker Compose setups for media servers, reverse proxies, and dashboards (e.g., Audiobookshelf, Caddy, Homepage, Nexterm, Dozzle, TubeArchivist).
-- **Structure**:
-  1. H1 title + 1-sentence value proposition.
-  2. `## Key Features` bullet points.
-  3. `## Docker Compose Installation` with standard `yaml` service definition and `docker compose up -d` command.
-  4. `## Directory Structure` listing volume mappings.
-  5. `## Getting Started` explaining default ports, first-run setup, and usage.
-
-### C. My Apps (`src/content/docs/myapps/*.md`)
-- **Focus**: Applications created and maintained by Binu (Universal TTS, Universal Reader, Event Track Manager, Audio Analysis Studio, Interval Timer App, Image Optimizer for Web, IPTV M3U Sorter, IPTV M3U Validator).
-- **Structure**:
-  1. H1 title + tagline.
-  2. GitHub Repository link + Docker image link (`ghcr.io/binuengoor/...`).
-  3. `## Key Features` breakdown.
-  4. `## Installation/Setup` (Docker Run, Docker Compose, Build from source).
-  5. `## Usage Guide` / `## Configuration Options` / `## Technical Details`.
-  6. `## Troubleshooting` and `## Future Enhancements`.
-
-### D. Tech Reference (`src/content/docs/reference/*/*.md`)
-- **Focus**: Concise, high-density reference guides for Linux (ZFS, rclone, rsync, storage), Git (submodules, branching), Mac (Homebrew), Python, and Media (yt-dlp).
-- **Structure**:
-  1. Overview & Core Concepts.
-  2. Categorized CLI commands with brief descriptions and copy-pasteable syntax.
-  3. Best practices, configuration samples, and common troubleshooting steps.
-
-### E. Home Networking (`src/content/docs/networking/*.md`)
-- **Focus**: Network configuration guides (OpenWrt VLANs, x86 Image Builder, Samba/NFS).
-- **Structure**:
-  1. Real-world scenario setup (e.g. 192.168.1.0/24 subnet, VLAN IDs).
-  2. Step-by-step instructions with step screenshots stored in `src/assets/images/<topic>/`.
-  3. Security considerations and fail-safe recovery tips.
-
-### F. Prompt Engineering (`src/content/docs/promptengineering/*.md`)
-- **Focus**: Structured AI prompting frameworks, zero/one/few-shot methods, chain-of-thought, role prompting, and reusable templates.
-
-### G. Blog Posts (`src/content/docs/blog/<slug>.md`)
-- **Categories**:
-  - `northstar`: Personal growth, mindset, curated life quotes, hard-hitting reflections.
-  - `shortstory`: Creative writing, short stories with dialogue and emotional narrative.
-  - `travel`: Travelogues (e.g. Tour de Maine, Tour de West) with day-by-day logs, itineraries, and photo galleries.
-- **Format Requirements**:
-  - Always include `<!-- excerpt -->` after the initial introductory sentence/paragraph to define the blog index teaser.
-  - Header image at top: `![Header](images/YYYY/<slug>/...)`.
 
 ---
 
-## 4. Content Rules
+## 3. Section Overview & Writing Conventions
 
-See `.agents/rules/site-standards.md` for frontmatter, navigation, syntax and blog conventions. Key points: lowercase kebab-case paths, `title` is the page H1 (no duplicate `# Heading`), blog categories are tags, `<!-- excerpt -->` marks the blog teaser.
+### A. Homepage (`src/pages/index.astro`)
+Hand-built Astro page, not markdown. Order: hero (photo in the riso blob) → pull-quote band → numbered sections (Certified, What I do, Skills & stack, Experience, Things I've built, Writing, About me, Kind words, Say hello), separated by "glasses" dividers.
+- Certifications, experience, skills, education and links come from **`src/data/resume.ts`**: edit that file, not the page. The résumé page reads the same file.
+- The four featured-project cards and the stack chips are lists at the top of `index.astro`.
+- The Writing section lists the 4 newest blog posts automatically.
+- About me shows the original hand-drawn caricature (`CaricatureHero.astro`; ink follows the theme colour via a CSS mask).
 
-## 5. Build & Local Preview
+### B. Self-Hosted Guides (`src/content/docs/selfhosted/docker-compose/*.md`)
+Practical, ready-to-run Docker Compose setups. Structure: intro sentence → `## Key Features` → `## Docker Compose Installation` (yaml + `docker compose up -d`) → `## Directory Structure` → `## Getting Started`.
+
+### C. My Apps (`src/content/docs/myapps/*.md`)
+Apps Binu built (Universal TTS, Universal Reader, Event Track Manager, Audio Analysis Studio, Interval Timer App, Image Optimizer for Web, IPTV M3U Sorter/Validator). Structure: tagline → GitHub + `ghcr.io/binuengoor/...` links → Key Features → Installation → Usage/Config → Technical Details → Troubleshooting.
+
+### D. Tech Reference (`src/content/docs/reference/<category>/*.md`)
+Concise, high-density cheat sheets (Linux, Git, Mac, Python, Media, Shell, AI). Overview → categorized commands → best practices/troubleshooting.
+
+### E. Home Networking (`src/content/docs/networking/*.md`)
+Real scenario → numbered steps with screenshots in `src/assets/images/<topic>/` → verification → failsafe/recovery.
+
+### F. Prompt Engineering (`src/content/docs/promptengineering/*.md`)
+Prompting frameworks and reusable templates.
+
+### G. Blog (`src/content/docs/blog/<slug>.md`)
+Categories are **tags**: `northstar` (reflections, quotes), `shortstory` (fiction), `travel` (travelogues). Put `<!-- excerpt -->` after the opening paragraph. Header image: `![Header](images/YYYY/<slug>/header.webp)`. The two travelogues `tour-de-west` and `tour-de-maine` are different trips (Maine is the sequel), not duplicates.
+
+---
+
+## 4. Design System (one theme for the whole site)
+
+The homepage, résumé, 404, docs and blog share one **warm editorial** look. Do not restyle a page in isolation; change the shared pieces.
+
+| Piece | Where | Notes |
+|---|---|---|
+| Palette + fonts (light = cream, dark = warm near-black) | `src/styles/tokens.css` | The single source: `theme.css` derives all of Starlight's colours from these via `color-mix`. Teal `#00ADB5` and orange `#FF7F11` come from the bp logo. |
+| Header / footer / logo / theme toggle | `src/components/Site*.astro`, `src/styles/chrome.css` | One header used by the homepage layout **and** Starlight (via `StarlightHeader.astro`). |
+| Nav links | `src/data/nav.ts` | Single source. The current section is underlined (`aria-current`). |
+| Starlight colours, fonts, blog cards | `src/styles/theme.css` | Maps tokens onto `--sl-color-*`. Headings use Fraunces; body Inter; code JetBrains Mono. |
+| Theme switch | `ThemeToggle.astro` | Sets `data-theme` on `<html>`; saved under the `starlight-theme` key (shared with Starlight). |
+
+Details worth knowing:
+- **The logo is a face with glasses.** `LogoFace.astro` draws it inline; the eyes follow the cursor and blink (script in `SiteHeader.astro`, skipped for `prefers-reduced-motion`). Keep it decorative (`aria-hidden`).
+- **Photo blob:** `#blobClip` (an SVG `clipPath`) is defined once at the top of `<main>` in `index.astro`; `BlobPhoto.astro` depends on it.
+- **Caricature:** `src/assets/landing/bp-hero-ink.svg` is the original drawing, untouched. It is painted through a CSS mask so the ink is dark on cream and light on dark. Don't recolour or "improve" the drawing.
+- **Docs have no search on the homepage** (Starlight's Pagefind search only exists on docs pages). This is intentional.
+- **Print:** `home.css` / `chrome.css` hide the header, footer and progress bar and force black-on-white. Sections may break across pages; each job/certification stays together.
+
+---
+
+## 5. Adding things: what to edit
+
+| You add… | Edit | Needs config? |
+|---|---|---|
+| A page in an existing section | Create the `.md` in the right folder | No. Sidebar is auto-generated. |
+| A blog post | `src/content/docs/blog/<slug>.md` | No. Appears in the blog and on the homepage. |
+| A certification / job / skill / education entry | `src/data/resume.ts` | No. Homepage and `/resume/` both update. |
+| A featured project card on the homepage | `featured` array in `index.astro` | No. |
+| A brand-new **top-level section** | Add a topic in `astro.config.mjs` (`starlightSidebarTopics`) **and** a link in `src/data/nav.ts` | Yes, both. |
+| A colour or font change | `src/styles/tokens.css` / `theme.css` | No. |
+
+## 6. Agent rules & skills
+
+- `.agents/rules/site-standards.md`: frontmatter, navigation, syntax, code-block rules (read this before writing content).
+- `.agents/skills/binupradeep-website/`: step-by-step workflows, structure reference, style guide and content templates.
+
+## 7. Build & Local Preview
 
 ```bash
 npm install
 npm run dev       # http://localhost:4321
-npm run build     # static output in dist/ (also validates internal links)
+npm run build     # static output in dist/ (also validates internal links; a broken link fails the build)
 npm run preview
 ```
 
 Cloudflare Pages: build command `npm run build`, output directory `dist`, Node 22+ (`NODE_VERSION` env var or `.nvmrc`). Page "last updated" dates come from git history, so the build needs a full (non-shallow) clone.
+
+## 8. Gotchas
+
+- **404:** the site has its own `src/pages/404.astro`, so `disable404Route: true` is set in the Starlight config. Remove one without the other and you get a route-collision warning (a hard error in future Astro).
+- **Blog nav:** `starlightBlog({ navigation: 'none' })`. The plugin's own "Writing" link would duplicate the shared header's.
+- **Overridden Starlight components:** `Header`, `Footer`, `ThemeSelect`, `MobileMenuFooter` (see `astro.config.mjs`). If you add a plugin that overrides one of these, Starlight will warn; merge the two on purpose.
+- **Frontmatter titles are the page H1.** Never repeat the title as `# Heading` in the body.
+- **Don't delete posts that "look" duplicated.** Check content and tags first (the two Tour posts share a copied title but are different trips).
+
+## 9. Upgrading Astro / Starlight / plugins
+
+What our customisation touches, from most to least upgrade-safe:
+
+| Part | Depends on | Upgrade risk | If it breaks |
+|---|---|---|---|
+| Colours and fonts (`tokens.css`, the `--sl-*` block in `theme.css`) | Starlight's documented CSS variables | Low | Colours look off |
+| `customCss`, `disable404Route`, `components` overrides (Header, Footer, ThemeSelect, MobileMenuFooter) | Documented Starlight config | Low-medium | Build **fails or warns loudly** |
+| Imports of `@astrojs/starlight/components/Search.astro` and `Footer.astro` in the overrides | Starlight's component paths | Medium | Build fails (loud, easy to spot) |
+| Selectors after the `--sl-*` block in `theme.css` (`.sl-markdown-content`, `.sidebar-content`, `.sl-blog-*`, `h1#_top` ...) | Starlight / starlight-blog **internal** class names (not public API) | Medium | Silent and cosmetic: a style stops applying |
+| `starlight-blog`, `starlight-sidebar-topics`, `starlight-links-validator` | Third-party `0.x` plugins | Highest | Behaviour changes between minors |
+| Homepage, résumé, 404, `SiteHeader/Footer` | Only Astro core (`getCollection`, `astro:assets`, `class:list`) and our own CSS | Low | Build fails |
+
+Safety nets already in place: `package.json` uses caret ranges, and on `0.x` packages a caret only allows **patch** updates (`^0.42.5` never jumps to `0.43`), so `npm update` is safe; minor/major bumps are always a deliberate step. `npm run build` also fails on broken links.
+
+How to upgrade:
+1. New branch. `npm outdated`, then bump one thing at a time (Starlight and its plugins together).
+2. `npm run build` and fix errors or warnings (a plugin overriding a component we also override shows up here).
+3. Look at, in light **and** dark, at desktop and 375px: homepage, `/resume/`, a docs page (sidebar, code blocks, "On this page"), `/blog/` and one post, the mobile docs menu, and a wrong URL for the 404.
+4. Open a PR and check the Cloudflare preview before merging.
+
+Tested 2026-10-07: the in-range patch updates (Astro 7.3.6, MDX 8.0.3) built with no visible change on any of the 68 pages. Mermaid 12 (outside `astro-mermaid`'s declared peer range) built, but diagram rendering is client-side and was not verified.

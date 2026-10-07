@@ -1,0 +1,15 @@
+---
+// Phone-width docs pages hide the header links, so the mobile menu ends with the same site links
+// (from src/data/nav.ts) and a Home link. This also replaces Starlight's duplicate theme/language footer.
+import { navLinks } from '../data/nav';
+const path = Astro.url.pathname;
+---
+<nav class="mobile-sections" aria-label="Site sections">
+  <a href="/">Home</a>
+  {navLinks.map((l) => <a href={l.href} aria-current={path === l.href ? 'page' : path.startsWith(l.match) ? 'true' : undefined}>{l.label}</a>)}
+</nav>
+<style>
+  .mobile-sections { display:flex; flex-wrap:wrap; gap:8px; padding-top:1rem; border-top:1px solid var(--sl-color-hairline-light); }
+  .mobile-sections a { padding:4px 12px; border:1.5px solid var(--sl-color-gray-5); border-radius:999px; color:var(--sl-color-gray-1); text-decoration:none; font-size:var(--sl-text-sm); }
+  .mobile-sections a[aria-current] { border-color:var(--orange); }
+</style>

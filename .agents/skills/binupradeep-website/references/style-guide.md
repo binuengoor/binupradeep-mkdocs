@@ -1,75 +1,81 @@
 # Writing & Style Guide
 
-This guide establishes the stylistic, linguistic, and visual standards for all content across `binupradeep-com`.
+Stylistic, linguistic and visual standards for all content across `binupradeep-com` (Astro + Starlight).
 
 ---
 
 ## 1. Writing Principles & Voice
 
-1. **Clarity & Brevity**: Get straight to the point. Start with what the tool, guide, or essay is about.
-2. **Minimalism**: Simple, unpretentious explanations. Avoid excessive jargon or long-winded introductions.
-3. **Action-Oriented**: Every technical guide must provide copy-pasteable, verified commands and configurations that work out of the box.
-4. **First-Person & Inclusive**: Binu's authentic perspective ("I use...", "In my setup...", "Let's configure...").
+1. **Clarity & brevity**: get straight to the point. Start with what the tool, guide or essay is about.
+2. **Minimalism**: simple, unpretentious explanations. No excessive jargon or long introductions.
+3. **Action-oriented**: every technical guide gives copy-pasteable, verified commands and configs that work out of the box.
+4. **First person & inclusive**: Binu's authentic perspective ("I use...", "In my setup...", "Let's configure...").
 
 ---
 
 ## 2. Markdown Formatting Patterns
 
 ### Headings
-- Use a single `# Level 1` heading per document.
-- Follow logical nesting: `## Level 2` for major sections, `### Level 3` for subsections.
-- Keep headings descriptive and title-cased.
+- The frontmatter `title` is the page H1. **Do not** add a `# Heading` in the body.
+- Body headings start at `##`, then `###`. Keep them descriptive and title-cased.
 
-### Code Blocks
-- Always specify syntax language identifier:
-  - Docker Compose: `yaml`
-  - Shell commands: `bash`
-  - Configuration files: `ini`, `nginx`, `json`, `yaml`
-  - Scripts: `python`, `javascript`
-- Add explanatory comments above non-obvious commands.
-- Provide environment variable examples and mount point explanations.
+### Code blocks
+- Always specify a language: `yaml` (Compose), `bash`, `ini`, `nginx`, `json`, `python`, `javascript`, `text`.
+- Add a comment above non-obvious commands; show example env vars and mount points.
 
-### Callout Boxes (Admonitions)
-Use standard MkDocs Material admonitions sparingly to highlight crucial notes:
+### Callouts (Starlight asides)
+Use sparingly for crucial notes:
 ```markdown
-!!! note "Important Note"
-    Detailed explanatory note.
+:::note[Important note]
+Detailed explanatory note.
+:::
 
-!!! warning "Failsafe Precaution"
-    Always configure an untagged fallback port before applying bridge changes.
+:::caution[Failsafe precaution]
+Always configure an untagged fallback port before applying bridge changes.
+:::
 ```
+Variants: `:::note`, `:::tip`, `:::caution`, `:::danger`.
 
-### Grid Cards
-For listing tools or services in a visual grid, use:
-```html
-<div class="grid cards" markdown>
-- :simple-docker: __Docker__ for container management
-- :simple-python: __Python__ for scripting
-</div>
+### Tabs, cards, steps
+Need an `.mdx` file and an import:
+```mdx
+import { Tabs, TabItem, Card, CardGrid } from '@astrojs/starlight/components';
 ```
+In `.mdx`, write `<br />` (not `<br>`) and escape bare `<` and `{` in prose.
+
+### Diagrams
+Fenced ```` ```mermaid ```` blocks. Quote edge labels that contain `()<>`: `A -->|"Hit (<1ms)"| B`.
+
+### Icons
+Use `astro-icon` in `.astro`/`.mdx`: `<Icon name="lucide:..." />` (only the `lucide` set is installed; add another `@iconify-json/*` package for more). There are no `:material-*:` shortcodes.
 
 ---
 
 ## 3. Visuals & Image Embedding
 
-- **Standard guide screenshots**:
-  `![Description](../assets/images/<folder>/<name>.webp){ width="700px" }`
-- **Blog header images**:
-  `![Header](images/YYYY/<slug>/<name>.webp){ loading=lazy width="800" }`
-- **Side-aligned images** (e.g. portraits):
-  `![Portrait](assets/landing/binu.png){ align=right width="150px" }`
-- **Format**: Prefer `.webp` or `.svg` for crisp rendering and low bandwidth.
+- **Guide screenshots**: saved in `src/assets/images/<topic>/`, e.g. `![Description](../../../assets/images/<topic>/<name>.webp)` (they are optimized at build).
+- **Blog images**: in `src/content/docs/blog/images/YYYY/<slug>/`, e.g. `![Header](images/YYYY/<slug>/header.webp)`.
+- **Format**: prefer `.webp` or `.svg`.
+- Do not use attribute lists like `{ width="700px" }`; size with CSS if needed.
 
 ---
 
 ## 4. Tags & Taxonomies
 
-- Tags must be lowercase, alphanumeric, with hyphens where needed (e.g., `self-hosted`, `docker`, `openwrt`, `vlan`, `prompt-engineering`).
-- Tag each technical article with 3 to 6 relevant tags.
-- Tag list page is automatically populated via `tags.md` with `<!-- material/tags -->`.
+- Lowercase kebab-case (`self-hosted`, `docker`, `openwrt`, `vlan`, `prompt-engineering`).
+- 3-6 tags per technical article. Blog posts put the category tag first (`northstar` | `shortstory` | `travel`).
 
 ---
 
 ## 5. Blog Excerpt Divider
 
-Every blog post must have the `<!-- more -->` comment placed immediately after the lead paragraph. This ensures MkDocs Material renders a clean snippet on the main blog index page before truncating.
+Every blog post puts `<!-- excerpt -->` right after the lead paragraph. That is what the blog index shows as the teaser.
+
+---
+
+## 6. Visual Language (when touching styles or components)
+
+- Use theme tokens (`var(--bg)`, `var(--fg)`, `var(--accent)`, `var(--teal)`, `var(--orange)`), never raw colours, so light and dark both work.
+- Headings: Fraunces. Body: Inter. Code: JetBrains Mono.
+- Personality lives in the homepage, blog and small details (the logo's eyes, the glasses dividers, the 404). Docs pages stay plain and fast to read.
+- Respect `prefers-reduced-motion`; keep decorative graphics `aria-hidden`.

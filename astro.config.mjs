@@ -17,7 +17,6 @@ export default defineConfig({
       title: 'Binu Pradeep',
       description:
         'Homelab guides, tech references, self-built apps and writing by Binu Pradeep — a Project Manager who likes minimalism, Docker, networking and AI.',
-      logo: { light: './src/assets/logo-dark.svg', dark: './src/assets/logo.svg', alt: 'Binu Pradeep' },
       favicon: '/favicon.svg',
       head: [
         { tag: 'meta', attrs: { property: 'og:image', content: 'https://binupradeep.com/og.png' } },
@@ -26,15 +25,27 @@ export default defineConfig({
         { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
         { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://binupradeep.com/og.png' } },
       ],
+      // The site has its own 404 page (src/pages/404.astro).
+      disable404Route: true,
       lastUpdated: true,
       editLink: { baseUrl: 'https://github.com/binuengoor/binupradeep-com/edit/main/' },
-      social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/binuengoor' },
-        { icon: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/binuepradeep/' },
-        { icon: 'email', label: 'Email', href: 'mailto:contact@binupradeep.com' },
-      ],
       expressiveCode: { shiki: { langAlias: { env: 'ini', m3u: 'txt', caddyfile: 'nginx' } } },
-      customCss: ['@fontsource-variable/inter', '@fontsource-variable/jetbrains-mono', './src/styles/theme.css'],
+      customCss: [
+        '@fontsource-variable/inter',
+        '@fontsource-variable/jetbrains-mono',
+        '@fontsource-variable/fraunces',
+        '@fontsource-variable/fraunces/wght-italic.css',
+        './src/styles/tokens.css',
+        './src/styles/chrome.css',
+        './src/styles/theme.css',
+      ],
+      // Same header, footer and theme toggle as the homepage (see src/components/Starlight*.astro).
+      components: {
+        Header: './src/components/StarlightHeader.astro',
+        Footer: './src/components/StarlightFooter.astro',
+        ThemeSelect: './src/components/StarlightThemeSelect.astro',
+        MobileMenuFooter: './src/components/StarlightMobileMenuFooter.astro',
+      },
       plugins: [
         starlightLinksValidator({ errorOnRelativeLinks: false }),
         starlightBlog({
@@ -42,6 +53,8 @@ export default defineConfig({
           prefix: 'blog',
           postCount: 8,
           recentPostCount: 6,
+          // The Writing link now lives in the shared header (src/data/nav.ts), so the plugin must not add its own.
+          navigation: 'none',
         }),
         starlightSidebarTopics([
           { label: 'Home Networking', icon: 'seti:json', link: '/networking/openwrt-vlan/', items: [{ autogenerate: { directory: 'networking' } }] },

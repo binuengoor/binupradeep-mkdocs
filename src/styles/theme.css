@@ -1,18 +1,70 @@
+/* Starlight (docs + blog) in the same warm editorial theme as the homepage.
+   Palette tokens come from tokens.css; here they are mapped onto Starlight's own colour variables.
+
+   UPGRADE NOTE. Two kinds of rules live here:
+   - The `:root { --sl-* }` block below uses Starlight's DOCUMENTED CSS variables: stable across upgrades.
+   - Everything after it targets Starlight / starlight-blog INTERNAL class names (.sl-markdown-content, .sidebar-content,
+     .pagination-links, .sl-blog-*, h1#_top ...). Those are not part of Starlight's public API and may be renamed in a
+     minor release. If a style silently stops applying after an upgrade, look here first. Failure is cosmetic only. */
 :root {
-  --sl-font: 'Inter Variable', system-ui, sans-serif;
-  --sl-font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+  --sl-font: var(--font-body);
+  --sl-font-mono: var(--font-mono);
+  --sl-nav-height: 4rem;
+  --sl-content-width: 46rem;
+
+  /* Starlight's 7-step gray scale + accent, derived from the shared tokens so light and dark both follow automatically. */
+  --sl-color-white: var(--fg);
+  --sl-color-gray-1: color-mix(in srgb, var(--fg) 92%, var(--bg));
+  --sl-color-gray-2: color-mix(in srgb, var(--fg) 76%, var(--bg));
+  --sl-color-gray-3: var(--muted);
+  --sl-color-gray-4: color-mix(in srgb, var(--muted) 70%, var(--bg));
+  --sl-color-gray-5: var(--line);
+  --sl-color-gray-6: color-mix(in srgb, var(--line) 35%, var(--bg));
+  --sl-color-gray-7: var(--card);
+  --sl-color-black: var(--bg);
+  --sl-color-accent-low: color-mix(in srgb, var(--accent) 16%, var(--bg));
+  --sl-color-accent: var(--accent);
+  --sl-color-accent-high: var(--accent-fg);
+  --sl-color-bg-nav: var(--bg);
+  --sl-color-bg-sidebar: var(--bg);
+  --sl-color-hairline: color-mix(in srgb, var(--line) 55%, var(--bg));
+  --sl-color-hairline-light: var(--line);
 }
-:root[data-theme='dark'] {
-  --sl-color-accent-low: #3a1a0c;
-  --sl-color-accent: #e8590c;
-  --sl-color-accent-high: #ffb27d;
-  --sl-color-bg: #0e0f11;
-  --sl-color-bg-nav: #0e0f11;
-  --sl-color-bg-sidebar: #0e0f11;
-}
-:root[data-theme='light'] {
-  --sl-color-accent-low: #ffe3d0;
-  --sl-color-accent: #c2410c;
-  --sl-color-accent-high: #7c2d12;
-}
-.sl-markdown-content img { border-radius: 8px; }
+
+body { background-image:radial-gradient(var(--dots) 1px,transparent 1px); background-size:5px 5px; }
+
+/* ---- Typography ---- */
+h1#_top, .sl-markdown-content :is(h1, h2, h3, h4) { font-family:var(--font-display); font-weight:600; letter-spacing:-.01em; }
+h1#_top { font-size:clamp(2rem, 5vw, 3rem); line-height:1.05; letter-spacing:-.03em; }
+.sl-markdown-content h2 { margin-top:2.2rem; }
+.sl-markdown-content a:not(.sl-anchor-link):not(.card) { text-decoration-color:var(--orange); text-underline-offset:3px; text-decoration-thickness:2px; }
+.sl-markdown-content :not(pre) > code { border-radius:6px; }
+.sl-markdown-content blockquote, .sl-markdown-content aside { border-radius:10px; }
+
+/* ---- Header: our own (see StarlightHeader.astro) ---- */
+header.header { border-bottom:2px solid var(--sl-color-white); }
+
+/* ---- Sidebar ---- */
+.sidebar-content a[aria-current='page'] { background:var(--sl-color-accent-low); color:var(--sl-color-text-accent); border-radius:6px; }
+.sidebar-content a { border-radius:6px; }
+nav.sidebar-content details > summary { font-weight:600; }
+
+/* ---- Blog (starlight-blog) ---- */
+.sl-blog-posts { gap:20px; }
+.sl-blog-preview { border:1.5px solid var(--sl-color-white); border-radius:12px; padding:20px; background:var(--card); transition:transform .15s, box-shadow .15s; }
+.sl-blog-preview:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--shadow); }
+.sl-blog-preview-title { font-family:var(--font-display); font-weight:600; }
+.sl-blog-preview-link { text-decoration:none; }
+.sl-blog-metadata, .sl-blog-metadata-date { color:var(--muted); }
+.sl-blog-tag, .sl-blog-tags a { border:1.5px solid var(--lens); border-radius:999px; background:var(--card); color:var(--sl-color-gray-1); text-decoration:none; }
+.sl-blog-tag:hover, .sl-blog-tags a:hover { border-color:var(--accent); color:var(--accent-fg); }
+.sl-blog-post-footer, .sl-blog-pagination { border-color:var(--sl-color-hairline-light); }
+
+/* ---- Misc ---- */
+.sl-markdown-content img { border-radius:10px; }
+.sl-markdown-content table { border-radius:10px; overflow:hidden; }
+.sl-markdown-content hr { border-color:var(--sl-color-hairline-light); }
+.pagination-links a { border-radius:12px; border-color:var(--sl-color-gray-5); }
+.pagination-links a:hover { border-color:var(--accent); }
+site-search button, button[data-open-modal] { border-radius:10px; }
+@media (prefers-reduced-motion:reduce) { .sl-blog-preview { transition:none; } .sl-blog-preview:hover { transform:none; } }

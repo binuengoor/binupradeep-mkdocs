@@ -1,0 +1,20 @@
+---
+import '../styles/tokens.css';
+import '../styles/chrome.css';
+import LogoFace from './LogoFace.astro';
+import { links } from '../data/resume';
+
+interface Props { variant?: 'site' | 'docs' }
+const { variant = 'site' } = Astro.props;
+// starlight-blog serves its feed at <prefix>/rss.xml; the prefix is set in astro.config.mjs.
+const rss = '/blog/rss.xml';
+---
+<footer class:list={['foot', { 'in-docs': variant === 'docs' }]}>
+  <LogoFace /> <span>© {new Date().getFullYear()} Binu Pradeep</span>
+  <span class="foot-links">
+    <a href={links.github}>GitHub</a>
+    <a href={links.linkedin}>LinkedIn</a>
+    <a href={`mailto:${links.email}`}>Email</a>
+    <a href={rss}>RSS</a>
+  </span>
+</footer>

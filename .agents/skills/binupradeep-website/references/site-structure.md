@@ -1,125 +1,85 @@
 # Site Structure & Taxonomies
 
-This document outlines the complete architectural layout, navigation hierarchy, plugin ecosystem, and media taxonomy for `binupradeep-com`.
+The complete layout, navigation, plugin and asset map for `binupradeep-com` (Astro 7 + Starlight, static output, Cloudflare Pages).
 
 ---
 
-## 1. Top-Level Navigation (`docs/.pages`)
+## 1. Navigation
 
-The navigation bar order is governed by `docs/.pages`:
+Two things drive navigation; keep them in step:
 
-| Tab Name | Path in `docs/` | Purpose |
+1. **`src/data/nav.ts`**: the links in the header on every page (and at the end of the mobile docs menu). The current section is underlined.
+2. **`astro.config.mjs` → `starlightSidebarTopics`**: the sidebar "topics" (the icon list at the top of the docs sidebar). Inside a topic, the sidebar is auto-generated from the folder.
+
+| Header link | Content folder (`src/content/docs/`) | Purpose |
 | :--- | :--- | :--- |
-| **Home** | `index.md` | Personal bio, design philosophy, skills grid, testimonials, social links |
-| **Home-Networking** | `networking/` | Network isolation, OpenWrt, VLANs, Samba/NFS file shares |
-| **Self-Hosting** | `selfhosted/Docker Compose/` | Docker Compose stack guides (Caddy, Audiobookshelf, Homepage, etc.) |
-| **Tech-Reference** | `reference/` | Linux, Git, macOS Homebrew, Python, and Media cheat sheets |
-| **My-Apps** | `myapps/` | Documentation for Binu's open-source utilities and web applications |
-| **Prompt-Engineering** | `promptengineering/` | AI system prompts, few-shot templates, and best practices |
-| **Blog** | `blog/` | Personal essays, mindset reflections (`northstar`), stories, and travelogues |
+| **Résumé** | *(page: `src/pages/resume.astro`)* | Print-friendly résumé, from `src/data/resume.ts` |
+| **Projects** | `myapps/` | Documentation for Binu's open-source utilities and web apps |
+| **Writing** | `blog/` | Essays (`northstar`), stories (`shortstory`), travelogues (`travel`) |
+| **Networking** | `networking/` | OpenWrt, VLANs, Samba/NFS |
+| **Self-Hosting** | `selfhosted/docker-compose/` | Docker Compose stack guides (Caddy, Audiobookshelf, Homepage, ...) |
+| **Reference** | `reference/` | Linux, Git, macOS, Python, Media, Shell, AI cheat sheets |
+| **Prompts** | `promptengineering/` | AI prompting frameworks and templates |
+| *(logo)* | *(page: `src/pages/index.astro`)* | Homepage |
+
+Header links point at a *real page* inside each section (a section has no index page), which is why `nav.ts` carries both an `href` and a `match` prefix.
 
 ---
 
-## 2. Directory Mapping & Content Locations
+## 2. Directory Map
 
 ```
-docs/
-├── .pages                      # Awesome-pages top nav definition
-├── index.md                    # Root landing page (no toc, no nav)
-├── tags.md                     # Central tags list (<!-- material/tags -->)
-├── stylesheets/extra.css       # Custom CSS overrides
+src/
+├── pages/            index.astro  resume.astro  404.astro
+├── layouts/          Site.astro
+├── components/       SiteHeader  SiteFooter  ThemeToggle  LogoFace  GlassesDivider  BlobPhoto  CaricatureHero
+│                     StarlightHeader  StarlightFooter  StarlightThemeSelect  StarlightMobileMenuFooter
+├── data/             resume.ts  nav.ts
+├── styles/           tokens.css  chrome.css  home.css  theme.css
 ├── assets/
-│   ├── favicon.ico
-│   ├── logo.svg
-│   ├── landing/                # Icons (figma, docker, python, tableau, etc.) & portrait
-│   └── images/                 # Guide-specific screenshots (e.g. 20241226_openwrt_vlan/)
-├── networking/
-│   ├── openwrt_vlan.md
-│   ├── openwrt_x86_image_builder.md
-│   └── samba_nfs.md
-├── selfhosted/
-│   └── Docker Compose/
-│       ├── audiobookshelf.md
-│       ├── caddy.md
-│       ├── dozzle.md
-│       ├── homepage.md
-│       ├── nexterm.md
-│       └── tubearchivist.md
-├── reference/
-│   ├── AI/
-│   │   ├── .pages
-│   │   └── openclaw-tips.md
-│   ├── Git/
-│   │   └── git-guide.md
-│   ├── Linux/
-│   │   ├── linux-directory.md
-│   │   ├── linux-storage.md
-│   │   ├── rclone.md
-│   │   ├── rsync.md
-│   │   └── zfs-guide.md
-│   ├── Mac/
-│   │   └── homebrew.md
-│   ├── Media/
-│   │   └── ytdlp.md
-│   ├── Python/
-│   │   ├── install_python.md
-│   │   └── python_basics.md
-│   └── Shell/
-│       ├── .pages
-│       ├── bash-shell.md
-│       ├── fish-shell.md
-│       └── zsh-shell.md
-├── myapps/
-│   ├── audio-analysis-studio.md
-│   ├── event-track-manager.md
-│   ├── image-optimizer-for-web.md
-│   ├── interval-timer-app.md
-│   ├── iptv-m3u-sorter.md
-│   ├── iptv-m3u-validator.md
-│   ├── universal-reader.md
-│   └── universal-tts.md
-├── promptengineering/
-│   └── essential-templates.md
-└── blog/
-    ├── index.md
-    └── posts/
-        ├── images/             # Post cover and body images organized by year
-        │   ├── 2010/
-        │   ├── 2011/
-        │   ├── 2017/
-        │   └── 2025/
-        ├── 2010-12-13-idiots-in-town.md
-        ├── 2011-12-05-a-thousand-suns.md
-        ├── 2017-03-12-the-ripple-effect.md
-        ├── 2017-05-23-tour-de-west.md
-        ├── 2017-06-21-tour-de-maine.md
-        ├── 2025-01-10-favorite-quotes.md
-        └── 2025-01-10-lessons-hard-hitting-reddit.md
+│   ├── landing/      binu-hero.webp (hero photo), binu.png, bp-hero-ink.svg (original caricature linework)
+│   └── images/       <topic>/ guide screenshots (e.g. openwrt-vlan/)
+└── content/docs/
+    ├── networking/       openwrt-vlan, openwrt-x86-image-builder, samba-nfs
+    ├── selfhosted/docker-compose/   audiobookshelf, caddy, dozzle, homepage, nexterm, tubearchivist
+    ├── reference/
+    │   ├── ai/ (openclaw-tips, pi-agent)   git/ (git-guide)   mac/ (homebrew)   media/ (ytdlp)
+    │   ├── linux/ (linux-directory, linux-storage, rclone, rsync, zfs-guide)
+    │   ├── python/ (install-python, python-basics)   shell/ (bash-shell, fish-shell, zsh-shell)
+    ├── myapps/           audio-analysis-studio, event-track-manager, image-optimizer-for-web, interval-timer-app,
+    │                     iptv-m3u-sorter, iptv-m3u-validator, universal-reader, universal-tts (.mdx)
+    ├── promptengineering/  essential-templates
+    └── blog/             10-hard-hitting-life-lessons-reddit, a-thousand-suns, favorite-life-quotes, idiots-in-town,
+                          the-ripple-effect, tour-de-maine, tour-de-west, and images/YYYY/<slug>/
+public/               favicon.ico, favicon.svg, og.png, robots.txt, _headers
+scripts/og-image.html source for og.png
 ```
 
 ---
 
-## 3. MkDocs Material Plugins Configuration
+## 3. Plugins & Integrations (`astro.config.mjs`)
 
-- **`awesome-pages`**: Automates navigation based on `.pages` files.
-- **`blog`**: Powers blog functionality (`blog_dir: blog`, `authors: false`).
-- **`git-revision-date-localized`**: Renders relative "time ago" timestamps on pages; excludes `index.md`.
-- **`resize-images`**: Resizes images from `assets-large` to `assets` target dimensions (`[800, 600]`).
-- **`search`**: Full client-side indexing with search highlighting, share, and suggestion.
-- **`social`**: Generates Open Graph social preview cards.
-- **`tags`**: Generates tag pills linking to `tags.md`.
+- **`@astrojs/starlight`**: docs framework (search via Pagefind, last-updated from git, edit links, expressive-code blocks).
+- **`starlight-sidebar-topics`**: the top-of-sidebar section switcher.
+- **`starlight-blog`**: blog at `/blog/` (`navigation: 'none'`, since the shared header carries the Writing link).
+- **`starlight-links-validator`**: fails the build on broken internal links.
+- **`astro-mermaid`**: renders ```` ```mermaid ```` fences (must come before Starlight).
+- **`astro-icon`** with the `lucide` set: icons in `.astro`/`.mdx` (currently only the résumé print button uses one).
+- **`@astrojs/mdx`**: `.mdx` pages (needed for tabs/cards components).
+- **Starlight options of note**: `disable404Route: true` (custom `404.astro`), component overrides for `Header`, `Footer`, `ThemeSelect`, `MobileMenuFooter`.
 
 ---
 
-## 4. Theme & Extensions
+## 4. Theme & Typography
 
-- **Theme Palette**: Slate scheme (`primary: black`, `accent: deep orange`).
-- **Typography**: `Roboto` for text, `Roboto Mono` for code.
-- **Enabled Markdown Extensions**:
-  - `admonition` & `pymdownx.details` (collapsible callout boxes)
-  - `pymdownx.superfences` (syntax highlighting, code fences, Mermaid diagram rendering)
-  - `pymdownx.tabbed` (content tabs)
-  - `pymdownx.tasklist` (checkboxes)
-  - `pymdownx.emoji` (Twemoji SVG generator)
-  - `mdx_truly_sane_lists` (accurate nested list parsing)
-  - `attr_list` & `md_in_html` (custom styling attributes on markdown elements)
+- **Palette**: warm editorial. Light = cream `#f6efe3` with rust accent; dark = warm near-black `#16120e`. Teal `#00ADB5` and orange `#FF7F11` come from the bp logo. All in `src/styles/tokens.css`.
+- **Type**: Fraunces (display, headings), Inter (body), JetBrains Mono (code).
+- **Logo**: a face with glasses; the lenses hold eyes that follow the cursor (`LogoFace.astro`).
+- **Theme switch**: `data-theme` on `<html>`, stored in `localStorage` under `starlight-theme`.
+
+---
+
+## 5. Taxonomy
+
+- Tags are lowercase kebab-case. Blog categories are the first tag: `northstar`, `shortstory`, `travel`.
+- Technical pages carry 3-6 relevant tags (`docker`, `self-hosted`, `openwrt`, `vlan`, ...).

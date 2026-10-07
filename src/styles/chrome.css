@@ -1,0 +1,36 @@
+/* Site chrome: header, logo face, theme toggle, footer. Shared by every page (homepage, résumé, 404, docs, blog). */
+.top { display:flex; align-items:center; gap:22px; max-width:980px; margin-inline:auto; padding:20px 22px; flex-wrap:wrap; position:relative; font-family:var(--font-body); line-height:1.4; }
+.top::after, .foot::before { content:''; position:absolute; left:22px; right:22px; border-top:2px solid var(--fg); }
+.top::after { bottom:0; } .foot::before { top:0; }
+.top .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--fg); font-family:var(--font-display); font-weight:800; font-size:1.55rem; letter-spacing:-.02em; white-space:nowrap; }
+.face { width:40px; height:40px; color:var(--fg); overflow:visible; flex:none; }
+.top .face { transition:transform .4s; } .top .brand:hover .face { transform:rotate(-8deg) scale(1.08); }
+.face .pupil, .face .gleam { transition:transform .08s linear; }
+.face .glasses { transition:transform .5s cubic-bezier(.3,1.6,.5,1); } .brand:hover .face .glasses { transform:translateY(34px); }
+.face.blink .eye { transform-box:fill-box; transform-origin:center; animation:blink .22s; }
+@keyframes blink { 50% { transform:scaleY(.08); } }
+@media (prefers-reduced-motion:reduce) { .face .glasses, .top .face { transition:none; } .face.blink .eye { animation:none; } }
+
+.top nav { display:flex; gap:18px; align-items:center; flex-wrap:wrap; font-size:.9rem; }
+.top nav a { text-decoration:none; color:var(--fg); }
+.top nav a:hover { color:var(--accent-fg); text-decoration:underline; text-underline-offset:4px; }
+.top nav a[aria-current] { text-decoration:underline; text-decoration-color:var(--orange); text-decoration-thickness:3px; text-underline-offset:6px; }
+.top-end { display:flex; align-items:center; gap:12px; margin-left:auto; }
+.theme-toggle { background:none; border:1px solid var(--line); color:var(--muted); border-radius:8px; padding:6px; display:grid; place-items:center; cursor:pointer; }
+.theme-toggle:hover { color:var(--fg); border-color:var(--fg); }
+
+/* Narrow screens (homepage): logo + toggle on the first row, links wrap underneath */
+@media (max-width:40rem) { .top:not(.in-docs) .brand { margin-right:auto; } .top:not(.in-docs) .top-end { order:2; margin-left:0; } .top:not(.in-docs) nav { order:3; width:100%; } }
+
+/* Inside the Starlight header: fill its fixed-height bar, drop the big rule (Starlight draws its own hairline) */
+.top.in-docs { max-width:none; padding:0; height:100%; flex-wrap:nowrap; gap:20px; }
+.top.in-docs::after { display:none; }
+.top.in-docs .brand { font-size:1.25rem; } .top.in-docs .face { width:30px; height:30px; }
+@media (max-width:63rem) { .top.in-docs nav { display:none; } .top.in-docs { gap:12px; } }
+
+/* Footer */
+.foot { position:relative; max-width:980px; margin-inline:auto; padding:30px 22px 44px; margin-top:30px; color:var(--muted); font-family:var(--font-body); font-size:.85rem; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.foot .face { width:28px; height:28px; }
+.foot-links { display:flex; gap:16px; margin-left:auto; } .foot-links a { color:var(--muted); text-decoration:none; } .foot-links a:hover { color:var(--accent-fg); text-decoration:underline; }
+.foot.in-docs { max-width:none; padding-inline:0; margin-top:40px; } .foot.in-docs::before { left:0; right:0; }
+@media print { .top, .foot { display:none !important; } }

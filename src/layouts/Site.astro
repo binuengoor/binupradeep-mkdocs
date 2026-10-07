@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import { Icon } from 'astro-icon/components';
 import '@fontsource-variable/inter';
+import '@fontsource-variable/fraunces';
+import '@fontsource-variable/fraunces/wght-italic.css';
 import '../styles/home.css';
-import logo from '../assets/logo.svg';
-import logoLight from '../assets/logo-dark.svg';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 interface Props { title: string; description: string; path?: string; jsonLd?: object }
 const { title, description, path = '/', jsonLd } = Astro.props;
@@ -41,28 +41,20 @@ const ogImage = 'https://binupradeep.com/og.png';
     </script>
   </head>
   <body>
-    <header class="top">
-      <a class="brand" href="/" aria-label="Binu Pradeep home">
-        <Image src={logo} alt="" width="28" height="28" class="logo-dark" /><Image src={logoLight} alt="" width="28" height="28" class="logo-light" /> <span>Binu Pradeep</span>
-      </a>
-      <nav aria-label="Primary">
-        <a href="/resume/">Résumé</a>
-        <a href="/myapps/universal-tts/">Projects</a>
-        <a href="/blog/">Writing</a>
-        <a href="/networking/openwrt-vlan/">Networking</a>
-        <a href="/selfhosted/docker-compose/caddy/">Self-Hosting</a>
-        <a href="/reference/linux/zfs-guide/">Reference</a>
-        <button id="theme" type="button" aria-label="Toggle theme"><Icon name="lucide:sun-moon" size={18} /></button>
-      </nav>
-    </header>
+    <div id="prog" aria-hidden="true"></div>
+    <SiteHeader />
     <slot />
-    <footer class="foot">© {new Date().getFullYear()} Binu Pradeep</footer>
-    <script is:inline>
-      document.getElementById('theme')?.addEventListener('click', () => {
-        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-        document.documentElement.dataset.theme = next;
-        try { localStorage.setItem('starlight-theme', next); } catch {}
-      });
+    <SiteFooter />
+    <script>
+      // Reading progress bar.
+      const bar = document.getElementById('prog');
+      const onScroll = () => {
+        const h = document.documentElement;
+        const max = h.scrollHeight - h.clientHeight;
+        if (bar) bar.style.width = max > 0 ? `${(h.scrollTop / max) * 100}%` : '0';
+      };
+      addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     </script>
   </body>
 </html>

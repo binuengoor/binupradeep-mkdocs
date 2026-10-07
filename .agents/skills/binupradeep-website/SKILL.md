@@ -1,74 +1,72 @@
 ---
 name: binupradeep-website
 description: >-
-  Manage, create, edit, and audit content and configuration for Binu Pradeep's MkDocs personal website.
+  Manage, create, edit, and audit content and configuration for Binu Pradeep's Astro + Starlight personal website.
   Use when the user asks to add or modify blog posts, self-hosted Docker guides, home networking tutorials,
-  app documentation (MyApps), tech reference cheat sheets, or when configuring MkDocs plugins and theme settings.
+  app documentation (My Apps), tech reference cheat sheets, résumé data, the homepage, navigation, or the site theme.
 ---
 
 # Binu Pradeep Website Content Manager
 
-This skill provides procedures, templates, and guidelines for authoring and maintaining content on Binu Pradeep's personal website.
+Procedures, templates and guidelines for authoring and maintaining binupradeep.com (Astro 7 + Starlight, static, Cloudflare Pages).
+Read `AGENTS.md` first for the architecture and `.agents/rules/site-standards.md` for the content rules.
 
 ---
 
 ## Content Workflows
 
+All content lives under `src/content/docs/`. File and folder names are lowercase kebab-case. The frontmatter `title` is the page H1: **do not repeat it as `# Heading` in the body.**
+
 ### 1. Adding a Self-Hosted Docker Compose Guide
-Target Directory: `docs/selfhosted/Docker Compose/<app-name>.md`
+Target: `src/content/docs/selfhosted/docker-compose/<app-name>.md`
 
-1. Create a markdown file with YAML frontmatter: `title`, `description`, and `tags: [docker, self-hosted, ...]`.
-2. Follow standard structure:
-   - H1 Title + 1-2 sentence overview.
-   - `## Key Features`: Bulleted list.
-   - `## Docker Compose Installation`: Fenced `yaml` block with complete service definition followed by `docker compose up -d`.
-   - `## Directory Structure`: List required bind mounts and volume directories.
-   - `## Getting Started`: Access URL (`http://<server-ip>:<port>`) and initial configuration steps.
-3. Reference: [Content Templates](./references/content-templates.md#1-self-hosted-docker-compose-template)
+1. Frontmatter: `title`, `description`, `tags: [docker, self-hosted, ...]`, `sidebar: { label: "<Short Name>" }`.
+2. Structure: 1-2 sentence overview → `## Key Features` → `## Docker Compose Installation` (full `yaml` service + `docker compose up -d`) → `## Directory Structure` → `## Getting Started` (URL, first-run steps).
+3. Template: [Content Templates](./references/content-templates.md#1-self-hosted-docker-compose-template)
 
-### 2. Adding a MyApps Application Documentation Page
-Target Directory: `docs/myapps/<app-slug>.md`
+### 2. Adding a My Apps Page
+Target: `src/content/docs/myapps/<app-slug>.md`
 
-1. Create file with YAML frontmatter.
-2. Structure:
-   - H1 Title + Tagline.
-   - Links: GitHub Repository and Docker Image badges/links.
-   - `## Overview`, `## Key Features`.
-   - `## Installation Options`: Docker run, Docker Compose, Local setup.
-   - `## Usage Guide`, `## Configuration Options` (Environment variables table/code block).
-   - `## Technical Details` (Architecture, dependencies).
-   - `## Troubleshooting` & `## Future Enhancements`.
-3. Reference: [Content Templates](./references/content-templates.md#2-myapps-documentation-template)
+1. Frontmatter as above (use `sidebar.order` to place it).
+2. Structure: tagline → GitHub + Docker image links → `## Key Features` → `## Installation Options` (Docker run / Compose / local) → usage and configuration (env var table) → technical details → troubleshooting → future enhancements.
+3. To feature it on the homepage, also add a card to the `featured` array in `src/pages/index.astro`.
+4. Template: [Content Templates](./references/content-templates.md#2-my-apps-documentation-template)
 
 ### 3. Adding a Tech Reference Guide
-Target Directory: `docs/reference/<Category>/<topic>.md` (e.g., `Linux`, `Git`, `Python`, `Mac`, `Media`)
+Target: `src/content/docs/reference/<category>/<topic>.md` (`ai`, `git`, `linux`, `mac`, `media`, `python`, `shell`)
 
-1. Create file with YAML frontmatter.
-2. Structure:
-   - H1 Title + Core Concepts.
-   - Categorized command sections with clean bash code snippets.
-   - Common use cases, configuration examples, and best practices.
-3. Reference: [Content Templates](./references/content-templates.md#3-tech-reference-guide-template)
+1. A new *category* folder also needs a group in the `Tech Reference` topic in `astro.config.mjs`.
+2. Structure: core concepts → categorized commands in clean `bash` blocks → best practices → troubleshooting.
+3. Template: [Content Templates](./references/content-templates.md#3-tech-reference-guide-template)
 
 ### 4. Adding a Home Networking Guide
-Target Directory: `docs/networking/<topic>.md`
+Target: `src/content/docs/networking/<topic>.md`
 
-1. Define real-world scenario (subnets, VLAN tags, firewall zones).
-2. Step-by-step walkthrough with annotated screenshots stored in `docs/assets/images/<folder>/`.
-3. Include failsafe and recovery notes (e.g., maintaining untagged management port).
-4. Reference: [Content Templates](./references/content-templates.md#4-home-networking-template)
+1. Define the real scenario (subnets, VLAN tags, firewall zones).
+2. Steps with annotated screenshots saved as `.webp` in `src/assets/images/<topic>/`, referenced relatively (`../../../assets/images/<topic>/<name>.webp`).
+3. Include failsafe/recovery notes (e.g., keep an untagged management port).
+4. Template: [Content Templates](./references/content-templates.md#4-home-networking-template)
 
 ### 5. Writing a Blog Post
-Target Directory: `docs/blog/posts/YYYY-MM-DD-<slug>.md`
+Target: `src/content/docs/blog/<slug>.md` (URL `/blog/<slug>/`)
 
-1. Set blog frontmatter (`draft: false`, `date: YYYY-MM-DD`, `categories: [category]`, `tags: [...]`, `slug: ...`, `title: ...`, `description: ...`).
-2. Insert header image: `![Header](images/YYYY/<slug>/header.webp){ loading=lazy width="800" }`.
-3. Write introductory hook followed immediately by `<!-- more -->`.
-4. Write content adhering to category tone:
-   - `northstar`: Action-oriented personal reflections, quotes, mindset shifts.
-   - `shortstory`: Creative storytelling with emotional depth and dialogue.
-   - `travel`: Narrative travelogues with itineraries, photos, and day-by-day logs.
-5. Reference: [Content Templates](./references/content-templates.md#5-blog-post-template)
+1. Frontmatter: `title` (unique!), `date: YYYY-MM-DD`, `description`, `tags` (category tag first: `northstar` | `shortstory` | `travel`).
+2. Header image in `src/content/docs/blog/images/YYYY/<slug>/` and referenced as `![Header](images/YYYY/<slug>/header.webp)`.
+3. Opening hook, then `<!-- excerpt -->`.
+4. Tone by category: `northstar` action-oriented reflection; `shortstory` creative with dialogue; `travel` narrative with day-by-day log.
+5. The post appears on the blog and, if among the 4 newest, on the homepage.
+6. Template: [Content Templates](./references/content-templates.md#5-blog-post-template)
+
+### 6. Updating résumé data (certifications, jobs, skills, education)
+Edit `src/data/resume.ts` only. The homepage and `/resume/` both read it. Keep address, phone and personal email out of it.
+
+### 7. Adding a top-level section or changing navigation
+1. Add the topic in `astro.config.mjs` (`starlightSidebarTopics`).
+2. Add the link in `src/data/nav.ts` (header on every page and the mobile docs menu).
+3. Build and check both.
+
+### 8. Changing the look
+Edit the shared pieces (see `AGENTS.md` §4): `src/styles/tokens.css`, `theme.css`, `chrome.css`, `src/components/Site*.astro`. Check light **and** dark, 375px width, and print for `/resume/`.
 
 ---
 
@@ -82,11 +80,11 @@ Target Directory: `docs/blog/posts/YYYY-MM-DD-<slug>.md`
 
 ## Verification & Build
 
-Always test the build locally before concluding work:
+Always build before concluding work. The build also validates internal links and fails on broken ones:
 ```bash
-./venv/bin/mkdocs build --strict
+npm run build
 ```
-To run the live development server:
+Live preview:
 ```bash
-./venv/bin/mkdocs serve
+npm run dev      # http://localhost:4321
 ```

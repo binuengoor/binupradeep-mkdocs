@@ -1,6 +1,6 @@
 ---
 date: 2017-05-23
-title: The One with The Hobo, The Tree Man, The Hungry Hog, Mr. Vertigo and The Headmaster
+title: "Tour de West: The One with The Hobo, The Tree Man, The Hungry Hog, Mr. Vertigo and The Headmaster"
 tags: [travel, travelogue, roadtrip, utah, california, nevada, arizona]
 ---
 
