@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
 import Site from '../layouts/Site.astro';
 import CaricatureHero from '../components/CaricatureHero.astro';
 import BlobPhoto from '../components/BlobPhoto.astro';
@@ -8,12 +9,10 @@ import heroPhoto from '../assets/landing/binu-hero.webp';
 import { experience, certifications, skills, education, links } from '../data/resume';
 
 const featured = [
-  { title: 'Life OS', href: '/myapps/life-os/', text: 'A self-hosted operating system for my family\'s records and notes: a records index, shared agent memory, a research gateway and an AI document sorter that any agent on my network can use.' },
-  { title: 'LogicMix', href: '/myapps/logicmix/', text: 'Native Swift tool that designs vocal chains from a plain-English intent, using only the plugins installed on the Mac, and injects the settings into Logic Pro.' },
-  { title: 'Audio Analysis Studio', href: '/myapps/audio-analysis-studio/', text: 'Distributed multi-engine audio intelligence stack for BPM tracking, Camelot keys, chords, and LUFS mastering inspection.' },
-  { title: 'Event & Track Manager', href: '/myapps/event-track-manager/', text: 'Cloud-native live stage production console with Google Workspace sync, automated audio intake, and real-time audience schedule.' },
-  { title: 'Universal Speech Gateway', href: '/myapps/universal-speech/', text: 'OpenAI-compatible text-to-speech and speech-to-text gateway with Edge-TTS, Kokoro and Whisper engines, automatic fallback and a sub-millisecond cache.' },
-  { title: 'Universal Reader', href: '/myapps/universal-reader/', text: 'Local-first document reader with Kindle-style typography and gapless text-to-speech narration for PDFs, ePubs and web articles.' },
+  { title: 'Life OS', href: '/myapps/life-os/', icon: 'brain-circuit', tone: '--teal', tag: 'Agent infrastructure', text: 'A self-hosted operating system for my family\'s records and notes: a records index, shared agent memory, a research gateway and an AI document sorter that any agent on my network can use.' },
+  { title: 'LogicMix', href: '/myapps/logicmix/', icon: 'sliders-vertical', tone: '--accent', tag: 'Pro audio · Swift', text: 'Native Swift tool that designs vocal chains from a plain-English intent, using only the plugins installed on the Mac, and injects the settings into Logic Pro.' },
+  { title: 'Audio Analysis Studio', href: '/myapps/audio-analysis-studio/', icon: 'audio-lines', tone: '--orange', tag: 'Audio intelligence', text: 'Distributed multi-engine audio intelligence stack for BPM tracking, Camelot keys, chords, and LUFS mastering inspection.' },
+  { title: 'Event & Track Manager', href: '/myapps/event-track-manager/', icon: 'calendar-range', tone: '--lens', tag: 'Live production', text: 'Cloud-native live stage production console with Google Workspace sync, automated audio intake, and real-time audience schedule.' },
 ];
 
 const stacks: { title: string; items: [string, string?][] }[] = [
@@ -125,10 +124,16 @@ const jsonLd = {
     <GlassesDivider />
     <section id="projects">
       <h2 class="sec"><i>05</i>Things I've built</h2>
-      <p class="sub">I build and self-host the tools I wish existed. Each one is documented, with a Docker image or source on GitHub.</p>
+      <p class="sub">I build and self-host the tools I wish existed. Each one is documented in detail on its own page.</p>
       <div class="cards two">
         {featured.map((p) => (
-          <a class="card" href={p.href}><h3>{p.title}</h3><p>{p.text}</p></a>
+          <a class="card proj" href={p.href} style={`--c: var(${p.tone})`}>
+            <span class="crest" aria-hidden="true"><Icon name={`lucide:${p.icon}`} /></span>
+            <span class="badge" aria-hidden="true"><Icon name={`lucide:${p.icon}`} /></span>
+            <small class="ptag">{p.tag}</small>
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </a>
         ))}
       </div>
       <p class="more"><a href="/myapps/life-os/">All projects →</a> · <a href="/reference/linux/zfs-guide/">Homelab guides &amp; cheat sheets →</a></p>

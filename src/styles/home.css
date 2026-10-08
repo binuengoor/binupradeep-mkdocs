@@ -67,6 +67,24 @@ h2.sec::after { content:''; flex:1; border-top:1px solid var(--line); order:3; }
 a.card:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--shadow); }
 .card h3 { font-family:var(--font-display); font-size:1.25rem; margin:0 0 4px; } .card p { margin:0; color:var(--muted); font-size:.92rem; }
 
+/* Featured project cards: a faint crest watermark plus a small badge, both tinted with the card's --c */
+.card.proj { position:relative; overflow:hidden; padding-right:72px; }
+.card.proj::before { content:''; position:absolute; top:-46px; right:-46px; width:170px; height:170px; border-radius:50%;
+  background:repeating-radial-gradient(circle, transparent 0 13px, color-mix(in srgb, var(--c) 16%, transparent) 13px 14.5px);
+  transition:transform .5s ease; pointer-events:none; }
+.card.proj .crest { position:absolute; top:-14px; right:-16px; width:118px; height:118px; color:var(--c); opacity:.12; transform:rotate(-12deg);
+  transition:transform .4s ease, opacity .3s; pointer-events:none; }
+.card.proj .crest :is(svg) { width:100%; height:100%; stroke-width:1.2; }
+.card.proj .badge { position:absolute; top:14px; right:14px; width:38px; height:38px; display:grid; place-items:center; border-radius:50%;
+  border:1.5px solid var(--c); background:var(--card); color:var(--c); box-shadow:2px 2px 0 color-mix(in srgb, var(--c) 35%, transparent); transition:transform .3s ease; }
+.card.proj .badge :is(svg) { width:20px; height:20px; }
+.card.proj .ptag { display:block; margin-bottom:6px; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600; color:var(--c); }
+a.card.proj:hover { border-color:var(--c); }
+a.card.proj:hover::before { transform:rotate(25deg) scale(1.08); }
+a.card.proj:hover .crest { opacity:.2; transform:rotate(0deg) scale(1.06); }
+a.card.proj:hover .badge { transform:rotate(-8deg) scale(1.08); }
+@media (prefers-reduced-motion: reduce) { .card.proj::before, .card.proj .crest, .card.proj .badge { transition:none; } a.card.proj:hover::before, a.card.proj:hover .crest, a.card.proj:hover .badge { transform:none; } }
+
 /* Skills + stack chips */
 .skills { display:grid; grid-template-columns:max-content 1fr; gap:8px 24px; margin:0 0 22px; font-size:.95rem; } .skills dt { font-weight:600; } .skills dd { margin:0; color:var(--muted); }
 .stack { margin-bottom:14px; } .stack h3 { font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:8px; }
