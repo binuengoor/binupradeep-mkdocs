@@ -4,10 +4,10 @@ description: A self-hosted, local-first semantic document reader and continuous 
 tags: [document-reader, text-to-speech, tts, kindle-style, epub, pdf, markdown, pwa, fastapi, react]
 sidebar:
   label: "Universal Reader"
-  order: 3
+  order: 4
 ---
 
-**Universal Reader** is a self-hosted, local-first semantic document reader and continuous audio synthesizer. It transforms digital documents, web articles, and scratchpad notes into cleanly formatted, typography-optimized reading views paired with seamless, gapless Text-to-Speech (TTS) narration. Designed for long-form listening, deep reading, and personal knowledge management (PKM), Universal Reader connects to local TTS backends (such as [Universal TTS Gateway](universal-tts.md)) or cloud providers, pairing audio playback with an interactive Kindle-grade reader.
+**Universal Reader** is a self-hosted, local-first semantic document reader and continuous audio synthesizer. It transforms digital documents, web articles, and scratchpad notes into cleanly formatted, typography-optimized reading views paired with seamless, gapless Text-to-Speech (TTS) narration. Designed for long-form listening, deep reading, and personal knowledge management (PKM), Universal Reader connects to local TTS backends (such as [Universal Speech Gateway](universal-speech.md)) or cloud providers, pairing audio playback with an interactive Kindle-grade reader.
 
 - **GitHub Repository**: [Universal-Reader](https://github.com/binuengoor/universal-reader)
 - **Docker Image**: [`ghcr.io/binuengoor/universal-reader:latest`](https://github.com/binuengoor/universal-reader/pkgs/container/universal-reader)
@@ -100,7 +100,7 @@ Reading long-form documentation, technical whitepapers, e-books, and saved web a
 
 ### Option 1: Docker Compose (Recommended)
 
-Universal Reader can run standalone or alongside [Universal TTS Gateway](universal-tts.md):
+Universal Reader can run standalone or alongside [Universal Speech Gateway](universal-speech.md):
 
 ```yaml
 services:
@@ -113,7 +113,7 @@ services:
     volumes:
       - ./data:/data
     environment:
-      - TTS_BASE_URL=http://universal-tts:8000/v1
+      - TTS_BASE_URL=http://universal-speech:8000/v1
       - TTS_API_KEY=not-needed
       - DEFAULT_MODEL=edge-tts
       - DEFAULT_VOICE=en-US-ChristopherNeural
@@ -135,9 +135,9 @@ Access the interface in your browser at `http://<server-ip>:3003`.
 
 ```yaml
 services:
-  universal-tts:
-    image: ghcr.io/binuengoor/universal-tts:latest
-    container_name: universal-tts
+  universal-speech:
+    image: ghcr.io/binuengoor/universal-speech:latest
+    container_name: universal-speech
     restart: unless-stopped
     ports:
       - "8000:8000"
@@ -154,11 +154,11 @@ services:
     volumes:
       - ./reader-data:/data
     environment:
-      - TTS_BASE_URL=http://universal-tts:8000/v1
+      - TTS_BASE_URL=http://universal-speech:8000/v1
       - DEFAULT_MODEL=edge-tts
       - DEFAULT_VOICE=en-US-AriaNeural
     depends_on:
-      - universal-tts
+      - universal-speech
 ```
 
 ### Option 3: Local Development

@@ -4,7 +4,7 @@ description: A modern, self-hosted interval timer and workout dashboard designed
 tags: [interval-timer, physical-therapy, workout, fitness, tts, voice-control, docker, nodejs, pwa]
 sidebar:
   label: "Interval Timer"
-  order: 7
+  order: 8
 ---
 
 **Interval Timer App** is a modern, responsive web application designed specifically for physical therapy routines, mobility protocols, and interval training. It offers precise multi-set and multi-rep timing, unilateral (left/right side) exercise alternation, multimedia posture lightboxes, Edge-TTS audio cues, hands-free voice commands, and a floating Picture-in-Picture countdown.

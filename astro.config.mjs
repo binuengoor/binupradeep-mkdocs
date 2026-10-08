@@ -9,6 +9,8 @@ import starlightLinksValidator from 'starlight-links-validator';
 
 export default defineConfig({
   site: 'https://binupradeep.com',
+  // The Universal TTS Gateway grew speech-to-text and was renamed; keep the old address working.
+  redirects: { '/myapps/universal-tts/': '/myapps/universal-speech/' },
   integrations: [
     // Must come before Starlight so it can process ```mermaid fences.
     mermaid({ autoTheme: true }),

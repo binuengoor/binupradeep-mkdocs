@@ -4,7 +4,7 @@ description: A high-reliability, cloud-native event production and stage playbac
 tags: [event-management, audio-playback, stage-console, google-sheets, google-drive, yt-dlp, docker, fastapi]
 sidebar:
   label: "Event & Track Manager"
-  order: 5
+  order: 6
 ---
 
 **Event & Track Manager** is a cloud-native event production, track intake, and live stage playback system built originally for **EMA Paattukoottam** (Exton Malayali Association) and adaptable to any stage musical night, concert, or talent show. It synchronizes with **Google Sheets** for performer registration and stage sequencing, uses **Google Shared Drive** for versioned backing track storage, runs an isolated **YouTube extraction worker**, and delivers a low-latency stage sound console, performer intake portal, and live public audience schedule.
