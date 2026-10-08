@@ -3,7 +3,7 @@
 // `match` is the URL prefix that marks a link as "current" while you are anywhere inside that section.
 export const navLinks = [
   { label: 'Résumé', href: '/resume/', match: '/resume/' },
-  { label: 'Projects', href: '/myapps/universal-tts/', match: '/myapps/' },
+  { label: 'Projects', href: '/myapps/life-os/', match: '/myapps/' },
   { label: 'Writing', href: '/blog/', match: '/blog/' },
   { label: 'Networking', href: '/networking/openwrt-vlan/', match: '/networking/' },
   { label: 'Self-Hosting', href: '/selfhosted/docker-compose/caddy/', match: '/selfhosted/' },

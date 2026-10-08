@@ -73,7 +73,7 @@ export default defineConfig({
               { label: 'Shell', items: [{ autogenerate: { directory: 'reference/shell' } }] },
             ],
           },
-          { label: 'Projects', icon: 'rocket', link: '/myapps/universal-tts/', items: [{ autogenerate: { directory: 'myapps' } }] },
+          { label: 'Projects', icon: 'rocket', link: '/myapps/life-os/', items: [{ autogenerate: { directory: 'myapps' } }] },
           { label: 'Prompt Engineering', icon: 'pencil', link: '/promptengineering/essential-templates/', items: [{ autogenerate: { directory: 'promptengineering' } }] },
           { label: 'Writing', id: 'writing', icon: 'document', link: '/blog/', items: [] },
         ], { topics: { writing: ['/blog', '/blog/**'] } }),

@@ -4,7 +4,7 @@ description: An AI-powered, multi-engine audio intelligence dashboard with micro
 tags: [audio-analysis, bpm-detection, key-detection, chords, song-structure, rubber-band, yt-dlp, docker, react, fastapi, microservices]
 sidebar:
   label: "Audio Analysis Studio"
-  order: 3
+  order: 4
 ---
 
 **Audio Analysis Studio** is a high-performance audio analysis dashboard powered by an asynchronous **multi-engine microservices architecture** and a modern React dark-themed UI. Drop in any audio track to extract BPM, Camelot Key, Standard Key, interactive chord progression timelines, macro song structure, master loudness (LUFS), frequency cutoffs, fake-lossless transcode verdicts, linear-frequency spectrograms, and automatically embed ID3 metadata tags.

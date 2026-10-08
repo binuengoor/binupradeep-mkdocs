@@ -8,9 +8,11 @@ import heroPhoto from '../assets/landing/binu-hero.webp';
 import { experience, certifications, skills, education, links } from '../data/resume';
 
 const featured = [
+  { title: 'Life OS', href: '/myapps/life-os/', text: 'A self-hosted operating system for my family\'s records and notes: a records index, shared agent memory, a research gateway and an AI document sorter that any agent on my network can use.' },
   { title: 'Audio Analysis Studio', href: '/myapps/audio-analysis-studio/', text: 'Distributed multi-engine audio intelligence stack for BPM tracking, Camelot keys, chords, and LUFS mastering inspection.' },
   { title: 'Event & Track Manager', href: '/myapps/event-track-manager/', text: 'Cloud-native live stage production console with Google Workspace sync, automated audio intake, and real-time audience schedule.' },
   { title: 'Universal TTS Gateway', href: '/myapps/universal-tts/', text: 'OpenAI-compatible text-to-speech gateway with Edge-TTS, Piper and Kokoro engines and an in-memory LRU cache.' },
+  { title: 'Universal Reader', href: '/myapps/universal-reader/', text: 'Local-first document reader with Kindle-style typography and gapless text-to-speech narration for PDFs, ePubs and web articles.' },
   { title: 'Image Optimizer for Web', href: '/myapps/image-optimizer-for-web/', text: 'High-efficiency batch WebP converter with drag-and-drop compression presets and real-time size reduction metrics.' },
 ];
 
@@ -129,7 +131,7 @@ const jsonLd = {
           <a class="card" href={p.href}><h3>{p.title}</h3><p>{p.text}</p></a>
         ))}
       </div>
-      <p class="more"><a href="/myapps/universal-tts/">All projects →</a> · <a href="/reference/linux/zfs-guide/">Homelab guides &amp; cheat sheets →</a></p>
+      <p class="more"><a href="/myapps/life-os/">All projects →</a> · <a href="/reference/linux/zfs-guide/">Homelab guides &amp; cheat sheets →</a></p>
     </section>
 
     <GlassesDivider />
