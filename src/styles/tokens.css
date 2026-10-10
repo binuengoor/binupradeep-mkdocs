@@ -1,17 +1,62 @@
 /* Design tokens shared by the homepage, résumé, 404 AND the Starlight docs/blog (see theme.css).
-   Theme colours and fonts are defined only here; theme.css and the pages derive from them. */
+   The single source of truth: pages and theme.css derive from it. Documented live at /design-system/.
+
+   Three tiers:
+   1. Scales (this first block): fonts, type, space, radius, border, elevation, motion. Same in light and dark.
+   2. Colour roles (second/third block): --bg, --fg, --accent ... remapped per theme. Use these, never raw hex.
+   3. Component tokens (last block): what a card / tag / button is made of, built from tiers 1 and 2. */
 :root {
+  /* ---- Fonts ---- */
   --font-display:'Fraunces Variable', Georgia, serif;
   --font-body:'Inter Variable', system-ui, sans-serif;
   --font-mono:'JetBrains Mono Variable', ui-monospace, monospace;
+
+  /* ---- Type scale (~1.25, rem) ---- */
+  --text-xs:.75rem; --text-sm:.875rem; --text-base:1.05rem; --text-lg:1.25rem;
+  --text-xl:1.7rem; --text-2xl:2.3rem; --text-3xl:3rem; --text-4xl:4.4rem;
+  --leading-tight:1.05; --leading-snug:1.25; --leading-body:1.65;
+  --tracking-tight:-.03em; --tracking-heading:-.01em; --tracking-caps:.14em;
+
+  /* ---- Space scale (4px base) ---- */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:20px;
+  --space-6:24px; --space-8:32px; --space-10:40px; --space-12:48px; --space-16:64px;
+  --page-width:980px; --page-gutter:22px; --prose-width:46rem;
+
+  /* ---- Radius ---- */
+  --radius-xs:6px; --radius-sm:8px; --radius-md:10px; --radius-lg:12px; --radius-xl:14px; --radius-pill:999px;
+
+  /* ---- Border widths ---- */
+  --bw-thin:1px; --bw-base:1.5px; --bw-thick:2px;
+
+  /* ---- Motion ---- */
+  --dur-fast:.15s; --dur-base:.3s; --dur-slow:.5s;
+  --ease-out:ease; --ease-spring:cubic-bezier(.3,1.6,.5,1);
+
+  /* ---- Status colours (callouts, alerts); readable on --bg in both themes ---- */
+  --ok:#3f8f5a; --warn:#c98a1b; --danger:#c8452f; --info:var(--teal);
 }
 :root, :root[data-theme='dark'] {
   --bg:#16120e; --fg:#f1e7d6; --muted:#a89d8c; --line:#3a3128; --card:#1e1913;
   --accent:#e0824f; --accent-fg:#f0a070; --teal:#4fc6cd; --lens:#00ADB5; --orange:#FF7F11;
   --hi:#6b4a1d; --shadow:#000; --dots:rgba(241,231,214,.05);
+  --ok:#6cc28a; --warn:#e8b04a; --danger:#ef7a64;
 }
 :root[data-theme='light'] {
   --bg:#f6efe3; --fg:#1d1a16; --muted:#6f665a; --line:#d9cdb8; --card:#fbf6ec;
   --accent:#b8431a; --accent-fg:#b8431a; --teal:#0e8a91; --lens:#00ADB5; --orange:#FF7F11;
   --hi:#ffc98a; --shadow:#1d1a16; --dots:rgba(29,26,22,.045);
+  --ok:#2f7a49; --warn:#9a6508; --danger:#b3321d;
+}
+:root {
+  /* ---- Elevation: hard offset shadows, no blur ---- */
+  --shadow-1:2px 2px 0 var(--shadow); --shadow-2:5px 5px 0 var(--shadow); --shadow-3:12px 12px 0 var(--shadow);
+  --lift:translate(-2px,-2px);   /* hover: move up-left, grow --shadow-2 under it */
+
+  /* ---- Component tokens ---- */
+  --card-border:var(--bw-base) solid var(--fg);
+  --card-radius:var(--radius-lg);
+  --card-pad:var(--space-5);
+  --tag-border:var(--bw-base) solid var(--lens);
+  --rule:var(--bw-thick) solid var(--fg);        /* header / footer / band rules */
+  --hairline:var(--bw-thin) solid var(--line);
 }

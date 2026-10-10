@@ -1,6 +1,6 @@
 /* Site chrome: header, logo face, theme toggle, footer. Shared by every page (homepage, résumé, 404, docs, blog). */
 .top { display:flex; align-items:center; gap:22px; max-width:980px; margin-inline:auto; padding:20px 22px; flex-wrap:wrap; position:relative; font-family:var(--font-body); line-height:1.4; }
-.top::after, .foot::before { content:''; position:absolute; left:22px; right:22px; border-top:2px solid var(--fg); }
+.top::after, .foot::before { content:''; position:absolute; left:22px; right:22px; border-top:var(--rule); }
 .top::after { bottom:0; } .foot::before { top:0; }
 .top .brand { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--fg); font-family:var(--font-display); font-weight:800; font-size:1.55rem; letter-spacing:-.02em; white-space:nowrap; }
 .face { width:40px; height:40px; color:var(--fg); overflow:visible; flex:none; }
@@ -16,7 +16,7 @@
 .top nav a:hover { color:var(--accent-fg); text-decoration:underline; text-underline-offset:4px; }
 .top nav a[aria-current] { text-decoration:underline; text-decoration-color:var(--orange); text-decoration-thickness:3px; text-underline-offset:6px; }
 .top-end { display:flex; align-items:center; gap:12px; margin-left:auto; }
-.theme-toggle { background:none; border:1px solid var(--line); color:var(--muted); border-radius:8px; padding:6px; display:grid; place-items:center; cursor:pointer; }
+.theme-toggle { background:none; border:1px solid var(--line); color:var(--muted); border-radius:var(--radius-sm); padding:6px; display:grid; place-items:center; cursor:pointer; }
 .theme-toggle:hover { color:var(--fg); border-color:var(--fg); }
 
 /* Narrow screens (homepage): logo + toggle on the first row, links wrap underneath */

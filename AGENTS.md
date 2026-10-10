@@ -92,11 +92,13 @@ The homepage, résumé, 404, docs and blog share one **warm editorial** look. Do
 
 | Piece | Where | Notes |
 |---|---|---|
-| Palette + fonts (light = cream, dark = warm near-black) | `src/styles/tokens.css` | The single source: `theme.css` derives all of Starlight's colours from these via `color-mix`. Teal `#00ADB5` and orange `#FF7F11` come from the bp logo. |
+| Tokens: palette, fonts, type/space/radius/border/shadow/motion scales, status colours, component tokens | `src/styles/tokens.css` | The single source (documented live at **`/design-system/`**, `src/pages/design-system.astro`): `theme.css` derives all of Starlight's colours from these via `color-mix`. Teal `#00ADB5` and orange `#FF7F11` come from the bp logo. |
 | Header / footer / logo / theme toggle | `src/components/Site*.astro`, `src/styles/chrome.css` | One header used by the homepage layout **and** Starlight (via `StarlightHeader.astro`). |
 | Nav links | `src/data/nav.ts` | Single source. The current section is underlined (`aria-current`). |
 | Starlight colours, fonts, blog cards | `src/styles/theme.css` | Maps tokens onto `--sl-color-*`. Headings use Fraunces; body Inter; code JetBrains Mono. |
 | Theme switch | `ThemeToggle.astro` | Sets `data-theme` on `<html>`; saved under the `starlight-theme` key (shared with Starlight). |
+
+Rule: no raw px radii, hex colours, shadows or `.15s` durations in CSS. Use `--radius-*`, `--space-*`, `--shadow-*`, `--dur-*`, `--card-border` etc. A new token goes in `tokens.css` and gets a swatch/row on the design-system page.
 
 Details worth knowing:
 - **The logo is a face with glasses.** `LogoFace.astro` draws it inline; the eyes follow the cursor and blink (script in `SiteHeader.astro`, skipped for `prefers-reduced-motion`). Keep it decorative (`aria-hidden`).

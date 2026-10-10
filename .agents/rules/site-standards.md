@@ -58,3 +58,5 @@ npm run dev       # local preview at http://localhost:4321
 - Never hard-code colours in a page or content file; use the tokens (`var(--bg)`, `var(--fg)`, `var(--accent)`, `var(--teal)`, `var(--orange)`...) so both themes keep working.
 - Check new visual work in **both** themes and at phone width (375px), and with `prefers-reduced-motion`.
 - The header, footer and theme toggle are shared components. Change them once in `src/components/Site*.astro`; never duplicate them in a page.
+
+- Use the scale tokens too (`--space-*`, `--radius-*`, `--text-*`, `--shadow-*`, `--dur-*`, `--card-border`), not raw px/ms values. The living reference is `/design-system/` (`src/pages/design-system.astro`); update it when you add a token.

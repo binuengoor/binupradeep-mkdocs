@@ -1,0 +1,185 @@
+---
+import Site from '../layouts/Site.astro';
+import { Icon } from 'astro-icon/components';
+
+const title = 'Design System — Binu Pradeep';
+const description = 'The colours, type, spacing and components behind binupradeep.com: a warm editorial design system with hard shadows and a face with glasses.';
+
+const brand = [
+  { name: 'Lens', token: '--lens', note: 'Teal from the logo. Tags, timeline dots, progress bar.' },
+  { name: 'Orange', token: '--orange', note: 'Orange from the logo. Link underlines, highlights, hover blobs.' },
+  { name: 'Accent', token: '--accent', note: 'Rust. Primary hover, emphasis, blockquote rules.' },
+  { name: 'Teal', token: '--teal', note: 'Eyebrows, kickers, secondary labels (text-safe).' },
+];
+const surface = [
+  { name: 'Background', token: '--bg', note: 'Page. Cream in light, warm near-black in dark.' },
+  { name: 'Card', token: '--card', note: 'Raised surfaces: cards, chips, buttons.' },
+  { name: 'Foreground', token: '--fg', note: 'Text and all strong borders and rules.' },
+  { name: 'Muted', token: '--muted', note: 'Secondary text, metadata, captions.' },
+  { name: 'Line', token: '--line', note: 'Hairlines and dividers.' },
+  { name: 'Highlight', token: '--hi', note: 'Marker-pen underlay behind key words.' },
+];
+const status = [
+  { name: 'Success', token: '--ok' }, { name: 'Warning', token: '--warn' },
+  { name: 'Danger', token: '--danger' }, { name: 'Info', token: '--info' },
+];
+const type = [
+  { role: 'Display', token: '--text-4xl', font: 'display', sample: 'Minimalism wins', use: 'Hero H1 only' },
+  { role: 'Title', token: '--text-3xl', font: 'display', sample: 'Page title', use: 'Docs and blog H1' },
+  { role: 'Heading', token: '--text-xl', font: 'display', sample: 'Section heading', use: 'H2' },
+  { role: 'Subheading', token: '--text-lg', font: 'display', sample: 'Card or job title', use: 'H3' },
+  { role: 'Body', token: '--text-base', font: 'body', sample: 'Direct and actionable. Avoid filler.', use: 'Paragraphs' },
+  { role: 'Small', token: '--text-sm', font: 'body', sample: 'Metadata, dates, captions', use: 'Secondary info' },
+  { role: 'Caps label', token: '--text-xs', font: 'body', sample: 'EYEBROW · TAG', use: 'Uppercase, +0.14em tracking' },
+  { role: 'Code', token: '--text-sm', font: 'mono', sample: 'docker compose up -d', use: 'Inline and blocks' },
+];
+const space = ['1', '2', '3', '4', '5', '6', '8', '10', '12', '16'];
+const radii = [['xs', '6'], ['sm', '8'], ['md', '10'], ['lg', '12'], ['xl', '14'], ['pill', '∞']];
+const shadows = [['1', 'Small controls'], ['2', 'Cards on hover'], ['3', 'Hero imagery']];
+---
+<Site title={title} description={description} path="/design-system/">
+  <main class="ds">
+    <section class="rhead">
+      <div>
+        <p class="eyebrow">Design system</p>
+        <h1>Warm editorial, <em>hard shadows.</em></h1>
+        <p class="lede">One theme for the homepage, résumé, docs and blog. Every value below is rendered from the real tokens in <code>tokens.css</code>, so this page can never drift from the site. Flip the theme toggle to check dark.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec"><i>01</i> Principles</h2>
+      <div class="cards three">
+        <div class="card"><h3>Minimal</h3><p>Few colours, one idea per section. If it doesn't help the reader, remove it.</p></div>
+        <div class="card"><h3>Warm &amp; tactile</h3><p>Cream paper, dotted grain, ink borders and hard offset shadows instead of blur.</p></div>
+        <div class="card"><h3>A little playful</h3><p>The chrome has personality (the face, the glasses). The content stays direct.</p></div>
+      </div>
+      <p class="sub">Influences: Radix and Tailwind (colour scales), Material and Primer (token tiers), Carbon (type scale), Polaris (spacing and docs), neo-brutalism (hard shadows).</p>
+    </section>
+
+    <section>
+      <h2 class="sec"><i>02</i> Colour</h2>
+      <h3 class="ds-h">Brand</h3>
+      <div class="sw-grid">{brand.map((c) => (
+        <div class="sw"><span class="chip" style={`background:var(${c.token})`}></span><b>{c.name}</b><code>{c.token}</code><small>{c.note}</small></div>
+      ))}</div>
+      <h3 class="ds-h">Surface &amp; text</h3>
+      <div class="sw-grid">{surface.map((c) => (
+        <div class="sw"><span class="chip" style={`background:var(${c.token})`}></span><b>{c.name}</b><code>{c.token}</code><small>{c.note}</small></div>
+      ))}</div>
+      <h3 class="ds-h">Status</h3>
+      <div class="sw-grid">{status.map((c) => (
+        <div class="sw"><span class="chip" style={`background:var(${c.token})`}></span><b>{c.name}</b><code>{c.token}</code></div>
+      ))}</div>
+      <p class="sub">Rule: use roles (<code>var(--accent)</code>), never raw hex. Roles remap per theme; hex doesn't. Teal and orange <code>#00ADB5</code> / <code>#FF7F11</code> come from the logo.</p>
+    </section>
+
+    <section>
+      <h2 class="sec"><i>03</i> Typography</h2>
+      <p class="sub"><b>Fraunces</b> for headings, <b>Inter</b> for body, <b>JetBrains Mono</b> for code. Scale is roughly ×1.25.</p>
+      <div class="ds-type">{type.map((t) => (
+        <div class="row">
+          <div class="meta"><b>{t.role}</b><code>{t.token}</code><small>{t.use}</small></div>
+          <div class={`sample f-${t.font}`} style={`font-size:var(${t.token})`}>{t.sample}</div>
+        </div>
+      ))}</div>
+    </section>
+
+    <section>
+      <h2 class="sec"><i>04</i> Space, radius, borders</h2>
+      <h3 class="ds-h">Space (4px base)</h3>
+      <div class="ds-space">{space.map((s) => (
+        <div><span style={`width:var(--space-${s})`}></span><code>--space-{s}</code></div>
+      ))}</div>
+      <h3 class="ds-h">Radius</h3>
+      <div class="ds-radius">{radii.map(([n, px]) => (
+        <div><span style={`border-radius:var(--radius-${n})`}></span><code>{n}</code><small>{px}px</small></div>
+      ))}</div>
+      <h3 class="ds-h">Border widths</h3>
+      <div class="ds-radius">
+        <div><span style="border:var(--bw-thin) solid var(--fg)"></span><code>thin</code><small>1px · dividers</small></div>
+        <div><span style="border:var(--bw-base) solid var(--fg)"></span><code>base</code><small>1.5px · cards, tags</small></div>
+        <div><span style="border:var(--bw-thick) solid var(--fg)"></span><code>thick</code><small>2px · rules, buttons</small></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="sec"><i>05</i> Elevation &amp; motion</h2>
+      <p class="sub">No blur. Depth is a hard offset shadow in <code>--shadow</code>. Interactive cards lift by <code>--lift</code> and gain <code>--shadow-2</code>.</p>
+      <div class="ds-shadow">{shadows.map(([n, use]) => (
+        <div style={`box-shadow:var(--shadow-${n})`}><code>--shadow-{n}</code><small>{use}</small></div>
+      ))}</div>
+      <div class="ds-motion">
+        <div><code>--dur-fast</code> .15s <small>hover, press</small></div>
+        <div><code>--dur-base</code> .3s <small>badges, fades</small></div>
+        <div><code>--dur-slow</code> .5s <small>decorative</small></div>
+      </div>
+      <p class="sub">Everything that moves must stop under <code>prefers-reduced-motion</code>.</p>
+    </section>
+
+    <section>
+      <h2 class="sec"><i>06</i> Components</h2>
+      <h3 class="ds-h">Buttons</h3>
+      <div class="cta">
+        <a class="btn primary" href="#">Primary</a>
+        <a class="btn" href="#">Secondary</a>
+        <a class="btn" href="#"><Icon name="lucide:printer" size={16} /> With icon</a>
+      </div>
+      <h3 class="ds-h">Cards</h3>
+      <div class="cards two">
+        <a class="card" href="#"><h3>Interactive card</h3><p>Hover me: lifts up-left and gains a hard shadow.</p></a>
+        <div class="card"><h3>Static card</h3><p>Same border, radius and padding, no hover effect.</p></div>
+      </div>
+      <h3 class="ds-h">Tags &amp; chips</h3>
+      <div class="stack"><ul><li><span>Docker</span></li><li><a href="#">Linked chip</a></li><li><span>Homelab</span></li></ul></div>
+      <h3 class="ds-h">Quote</h3>
+      <blockquote><p>Minimalism and simplicity are the best tools to communicate ideas.</p><footer>Binu Pradeep</footer></blockquote>
+      <h3 class="ds-h">Links, highlight, code</h3>
+      <p>Body text with a <a href="#">link</a> (orange underline in docs), a <b class="hl">highlighted phrase</b>, and inline <code>code</code>.</p>
+      <pre class="ds-code"><code>services:
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped</code></pre>
+    </section>
+
+    <section>
+      <h2 class="sec"><i>07</i> Using it</h2>
+      <ul class="ds-rules">
+        <li><b>Add a colour or size:</b> edit <code>src/styles/tokens.css</code> only. Pages and <code>theme.css</code> pick it up.</li>
+        <li><b>New component:</b> build it from tokens (<code>var(--card-border)</code>, <code>var(--radius-lg)</code>, <code>var(--space-4)</code>), no raw px, hex or ms.</li>
+        <li><b>Check:</b> both themes, 375px width, and reduced motion.</li>
+        <li><b>Docs and blog:</b> <code>theme.css</code> maps these tokens onto Starlight's <code>--sl-*</code> variables.</li>
+      </ul>
+    </section>
+  </main>
+</Site>
+
+<style>
+  .ds .sub { margin-top: var(--space-4); }
+  .ds-h { font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--muted); margin: var(--space-6) 0 var(--space-3); }
+  code { font-family: var(--font-mono); font-size: .85em; color: var(--accent-fg); }
+  small { color: var(--muted); font-size: var(--text-xs); }
+  .sw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space-4); }
+  .sw { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-3); border: var(--hairline); border-radius: var(--radius-md); background: var(--card); }
+  .chip { height: 56px; border-radius: var(--radius-sm); border: var(--bw-base) solid var(--fg); margin-bottom: var(--space-2); }
+  .ds-type .row { display: grid; grid-template-columns: 200px 1fr; gap: var(--space-4); align-items: baseline; padding: var(--space-4) 0; border-bottom: var(--hairline); }
+  .ds-type .meta { display: flex; flex-direction: column; }
+  .sample { line-height: var(--leading-snug); overflow-wrap: anywhere; }
+  .f-display { font-family: var(--font-display); font-weight: 600; letter-spacing: var(--tracking-heading); }
+  .f-body { font-family: var(--font-body); } .f-mono { font-family: var(--font-mono); }
+  .ds-space { display: grid; gap: var(--space-2); }
+  .ds-space div { display: flex; align-items: center; gap: var(--space-4); }
+  .ds-space span { height: 14px; background: var(--lens); border-radius: 2px; min-width: 4px; }
+  .ds-radius { display: flex; gap: var(--space-6); flex-wrap: wrap; }
+  .ds-radius div { display: flex; flex-direction: column; gap: var(--space-1); }
+  .ds-radius span { width: 72px; height: 72px; background: var(--card); border: var(--bw-base) solid var(--fg); margin-bottom: var(--space-1); }
+  .ds-shadow { display: flex; gap: var(--space-8); flex-wrap: wrap; margin: var(--space-6) 0; }
+  .ds-shadow div { display: flex; flex-direction: column; padding: var(--space-5); min-width: 150px; background: var(--card); border: var(--card-border); border-radius: var(--card-radius); }
+  .ds-motion { display: flex; gap: var(--space-8); flex-wrap: wrap; }
+  .ds-motion div { display: flex; flex-direction: column; }
+  .hl { background: linear-gradient(transparent 60%, var(--hi) 60% 92%, transparent 92%); }
+  .ds-code { margin: 0; padding: var(--space-4); background: var(--card); border: var(--hairline); border-radius: var(--radius-md); overflow-x: auto; }
+  .ds-code code { color: var(--fg); }
+  .ds-rules { padding-left: 1.1rem; color: var(--muted); } .ds-rules li { margin-bottom: var(--space-2); } .ds-rules b { color: var(--fg); }
+  @media (max-width: 520px) { .ds-type .row { grid-template-columns: 1fr; gap: var(--space-1); } }
+</style>
