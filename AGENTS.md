@@ -92,11 +92,14 @@ The homepage, résumé, 404, docs and blog share one **warm editorial** look. Do
 
 | Piece | Where | Notes |
 |---|---|---|
+| Primitive colour scales (`--sand/rust/teal/orange-1..12`, generated, checked with APCA) | `scripts/gen-scales.mjs` → `src/styles/primitives.css` | Edit an anchor in the script and run `node scripts/gen-scales.mjs`; never hand-edit `primitives.css`. |
 | Tokens: palette, fonts, type/space/radius/border/shadow/motion scales, status colours, component tokens | `src/styles/tokens.css` | The single source (documented live at **`/design-system/`**, `src/pages/design-system.astro`): `theme.css` derives all of Starlight's colours from these via `color-mix`. Teal `#00ADB5` and orange `#FF7F11` come from the bp logo. |
 | Header / footer / logo / theme toggle | `src/components/Site*.astro`, `src/styles/chrome.css` | One header used by the homepage layout **and** Starlight (via `StarlightHeader.astro`). |
 | Nav links | `src/data/nav.ts` | Single source. The current section is underlined (`aria-current`). |
 | Starlight colours, fonts, blog cards | `src/styles/theme.css` | Maps tokens onto `--sl-color-*`. Headings use Fraunces; body Inter; code JetBrains Mono. |
 | Theme switch | `ThemeToggle.astro` | Sets `data-theme` on `<html>`; saved under the `starlight-theme` key (shared with Starlight). |
+
+Light is the reference theme (the caricature is drawn for it). In dark, black shadows vanish, so `--shadow` is a warm low-contrast rust and raised cards use a lighter surface (`--card-raised`).
 
 Rule: no raw px radii, hex colours, shadows or `.15s` durations in CSS. Use `--radius-*`, `--space-*`, `--shadow-*`, `--dur-*`, `--card-border` etc. A new token goes in `tokens.css` and gets a swatch/row on the design-system page.
 

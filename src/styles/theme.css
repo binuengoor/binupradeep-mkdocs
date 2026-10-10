@@ -52,7 +52,7 @@ nav.sidebar-content details > summary { font-weight:600; }
 /* ---- Blog (starlight-blog) ---- */
 .sl-blog-posts { gap:20px; }
 .sl-blog-preview { border:var(--card-border); border-radius:var(--radius-lg); padding:var(--card-pad); background:var(--card); transition:transform var(--dur-fast), box-shadow var(--dur-fast); }
-.sl-blog-preview:hover { transform:var(--lift); box-shadow:var(--shadow-2); }
+.sl-blog-preview:hover { transform:var(--lift); box-shadow:var(--shadow-2); background:var(--card-raised); }
 .sl-blog-preview-title { font-family:var(--font-display); font-weight:600; }
 .sl-blog-preview-link { text-decoration:none; }
 .sl-blog-metadata, .sl-blog-metadata-date { color:var(--muted); }

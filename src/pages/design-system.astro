@@ -33,6 +33,14 @@ const type = [
   { role: 'Caps label', token: '--text-xs', font: 'body', sample: 'EYEBROW · TAG', use: 'Uppercase, +0.14em tracking' },
   { role: 'Code', token: '--text-sm', font: 'mono', sample: 'docker compose up -d', use: 'Inline and blocks' },
 ];
+const scales = [
+  { name: 'sand', note: 'Neutral. Cream paper and warm ink: backgrounds, borders, text.' },
+  { name: 'rust', note: 'Accent. Emphasis, hover states, links in dark.' },
+  { name: 'teal', note: 'Logo lens. Tags, dots, labels (step 11 for text).' },
+  { name: 'orange', note: 'Logo frame. Underlines, highlights (step 5 is the marker pen).' },
+];
+const steps = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const roles = ['App bg', 'Subtle bg', 'Component', 'Hover', 'Active', 'Hairline', 'Border', 'Hover border', 'Solid (brand)', 'Solid hover', 'Text, low', 'Text, high'];
 const space = ['1', '2', '3', '4', '5', '6', '8', '10', '12', '16'];
 const radii = [['xs', '6'], ['sm', '8'], ['md', '10'], ['lg', '12'], ['xl', '14'], ['pill', '∞']];
 const shadows = [['1', 'Small controls'], ['2', 'Cards on hover'], ['3', 'Hero imagery']];
@@ -71,6 +79,16 @@ const shadows = [['1', 'Small controls'], ['2', 'Cards on hover'], ['3', 'Hero i
       <div class="sw-grid">{status.map((c) => (
         <div class="sw"><span class="chip" style={`background:var(${c.token})`}></span><b>{c.name}</b><code>{c.token}</code></div>
       ))}</div>
+      <h3 class="ds-h">Scales (primitives)</h3>
+      <p class="sub">Each hue has 12 steps, generated in OKLCH by <code>scripts/gen-scales.mjs</code>. Step roles follow Radix: 1–2 backgrounds, 3–5 components, 6–8 borders, 9–10 solid fills, 11–12 text. Steps 11 and 12 are searched until they pass contrast (APCA Lc 60 / 90 and WCAG 4.5 / 7) on the page background, in each theme.</p>
+      {scales.map((sc) => (
+        <div class="scale">
+          <div class="scale-head"><b>{sc.name}</b><small>{sc.note}</small></div>
+          <div class="scale-row">{steps.map((n) => (
+            <div class="step" title={roles[n - 1]}><span style={`background:var(--${sc.name}-${n})`}></span><code>{n}</code></div>
+          ))}</div>
+        </div>
+      ))}
       <p class="sub">Rule: use roles (<code>var(--accent)</code>), never raw hex. Roles remap per theme; hex doesn't. Teal and orange <code>#00ADB5</code> / <code>#FF7F11</code> come from the logo.</p>
     </section>
 
@@ -105,7 +123,7 @@ const shadows = [['1', 'Small controls'], ['2', 'Cards on hover'], ['3', 'Hero i
 
     <section>
       <h2 class="sec"><i>05</i> Elevation &amp; motion</h2>
-      <p class="sub">No blur. Depth is a hard offset shadow in <code>--shadow</code>. Interactive cards lift by <code>--lift</code> and gain <code>--shadow-2</code>.</p>
+      <p class="sub">No blur. Light theme: depth is a hard offset shadow in warm ink (<code>--shadow</code> = sand-12, never pure black). Dark theme: black vanishes on near-black, so the offset becomes a low-contrast rust (rust-6) and raised cards also get a <em>lighter surface</em> (<code>--card-raised</code>), the way Material lifts surfaces in dark mode. Interactive cards lift by <code>--lift</code>; buttons lift 1px and press back flat on click.</p>
       <div class="ds-shadow">{shadows.map(([n, use]) => (
         <div style={`box-shadow:var(--shadow-${n})`}><code>--shadow-{n}</code><small>{use}</small></div>
       ))}</div>
@@ -155,6 +173,12 @@ const shadows = [['1', 'Small controls'], ['2', 'Cards on hover'], ['3', 'Hero i
 </Site>
 
 <style>
+  .scale { margin-bottom: var(--space-4); }
+  .scale-head { display: flex; gap: var(--space-3); align-items: baseline; flex-wrap: wrap; margin-bottom: var(--space-2); }
+  .scale-row { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; }
+  .step { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .step span { width: 100%; height: 44px; border-radius: var(--radius-xs); border: var(--hairline); }
+  .step code { font-size: var(--text-xs); color: var(--muted); }
   .ds .sub { margin-top: var(--space-4); }
   .ds-h { font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: var(--tracking-caps); text-transform: uppercase; color: var(--muted); margin: var(--space-6) 0 var(--space-3); }
   code { font-family: var(--font-mono); font-size: .85em; color: var(--accent-fg); }

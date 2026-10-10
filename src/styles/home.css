@@ -25,7 +25,9 @@ h2.sec::after { content:''; flex:1; border-top:1px solid var(--line); order:3; }
 .cta { display:flex; gap:10px; flex-wrap:wrap; }
 .btn { display:inline-flex; gap:8px; align-items:center; text-decoration:none; padding:10px 20px; border-radius:var(--radius-pill); border:2px solid var(--fg); font-weight:600; font-size:.92rem; background:var(--card); transition:var(--dur-fast); }
 .btn:hover { background:var(--accent); border-color:var(--accent); color:#fff; }
+.btn:hover { transform:translate(-1px,-1px); box-shadow:var(--shadow-1); } .btn:active { transform:none; box-shadow:none; }
 .btn.primary { background:var(--fg); color:var(--bg); } .btn.primary:hover { background:var(--accent); border-color:var(--accent); color:#fff; }
+@media (prefers-reduced-motion:reduce) { .btn, .btn:hover { transform:none; transition:none; } }
 .facts { display:flex; gap:34px; flex-wrap:wrap; margin:34px 0 0; padding:0; }
 .facts div { display:flex; flex-direction:column; } .facts dt { font-size:2.3rem; font-weight:600; line-height:1; } .facts dd { margin:6px 0 0; color:var(--muted); font-size:.82rem; }
 
@@ -64,7 +66,7 @@ h2.sec::after { content:''; flex:1; border-top:1px solid var(--line); order:3; }
 /* Cards */
 .cards { display:grid; gap:16px; } .cards.three { grid-template-columns:repeat(3,1fr); } .cards.two { grid-template-columns:repeat(2,1fr); }
 .card { display:block; padding:var(--card-pad); border:var(--card-border); background:var(--card); border-radius:var(--radius-lg); text-decoration:none; transition:transform var(--dur-fast),box-shadow var(--dur-fast); }
-a.card:hover { transform:var(--lift); box-shadow:var(--shadow-2); }
+a.card:hover { transform:var(--lift); box-shadow:var(--shadow-2); background:var(--card-raised); }
 .card h3 { font-family:var(--font-display); font-size:1.25rem; margin:0 0 4px; } .card p { margin:0; color:var(--muted); font-size:.92rem; }
 
 /* Featured project cards: a faint crest watermark plus a small badge, both tinted with the card's --c */
@@ -105,7 +107,7 @@ a.card.proj:hover .badge { transform:rotate(-8deg) scale(1.08); }
 /* Writing */
 .shelf { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
 .post { display:block; padding:18px; border:var(--card-border); background:var(--card); border-radius:var(--radius-lg); text-decoration:none; transition:transform var(--dur-fast),box-shadow var(--dur-fast); }
-.post:hover { transform:var(--lift); box-shadow:var(--shadow-2); }
+.post:hover { transform:var(--lift); box-shadow:var(--shadow-2); background:var(--card-raised); }
 .post .tag { font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); font-weight:600; }
 .post h3 { font-family:var(--font-display); font-size:1.1rem; line-height:1.25; margin:6px 0 4px; } .post time { color:var(--muted); font-size:.8rem; }
 
